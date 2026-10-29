@@ -1,0 +1,53 @@
+# Memory Index
+
+- [User Profile](user_profile.md) — Robert Crocker, primary developer, Go-familiar
+- [Project Terminology](feedback_terminology.md) — FacCreds are called Coin in this project
+- [lipgloss is for TUI only](feedback_lipgloss.md) — use lipgloss in cmd/faction-manager/tui; for Cobra CLI output use huh + ANSI
+- [Prefer YAGNI](feedback_yagni.md) — solve the concrete present bug; don't pitch stronger guarantees for hypothetical future features
+- [Don't over-read or over-think before writing](feedback_implementation_efficiency.md) — when the spec is detailed, read only strictly needed files and start writing; let the compiler surface issues
+- [Git commit cadence on feature branches](feedback_git_commits.md) — commit per session, squash each effort into one `effort N` commit at its boundary; later fixes stay separate `fix:` commits; merge to main with --no-ff, never --squash
+- [Interim review after every effort](feedback_interim_effort_review.md) — effort boundary order: interim /code-review of the effort's diff → fix: commits → squash → next effort; never skip the review
+- [Always git add -A when staging](feedback_git_add_all.md) — use git add -A every time; don't hand-pick files or check gitignore status first
+- [Commit timing](feedback_commit_timing_bundling.md) — plan execution: commit each plan commit as it passes the gate, no asking; ad-hoc work: wait for Robert's word and bundle
+- [Return errors, don't accept observer interfaces](feedback_error_return_over_observer.md) — internal packages return errors; callers (orchestrator) forward to observer
+- [Session modes — boundaries & flow](feedback_session_modes.md) — one mode per session; one phase = one session; the phase end is the stop, so keep going through same-phase commits even if the hand-off named one; plan mode = file is the output; multi-Effort: one Discovery designs all Efforts, Plan yields Overview + per-Effort plans
+- [Discovery doc discipline](feedback_discovery_discipline.md) — full doc even within an arc; scaffold early & fill as decisions land; Open Questions = genuine deferrals only; don't update post-completion
+- [Plan doc discipline](feedback_plan_discipline.md) — self-implementable specs (code not prose); written in one pass; live in docs/initiatives/implementation/; no padded commit splits
+- [Decisions log scope — implementation only](feedback_decisions_log_scope.md) — log is frozen; execution decisions go in the plan's Decision Record, durable ones graduate to arch pages at pre-merge
+- [Static Data — Campaign-Specific](project_data_location.md) — GMs own all rulebook TOML; never embed defaults or hard-code the data path in the binary
+- [Don't write project-state memories](feedback_memory_discipline.md) — project state (what's done, what's next, plan written) decays fast and is redundant with docs; only write feedback/preference memories
+- [Static Data Consolidation](feedback_static_data_consolidation.md) — small/ungroupable static data files should be consolidated into a generic constants file, not proliferated
+- [Communication Style](communication_style.md) — casual and playful tone (accuracy first), direct pushback, Robert leads design, don't over-explain Go, co-pilot dynamic (living doc — update as patterns emerge)
+- [Maintain Communication Profile](feedback_maintain_comms_profile.md) — update communication_style.md when tone/pacing corrections or confirmations occur; don't let it go stale
+- [No `foo/foos/` Placeholder Names in Prose](feedback_no_placeholder_names.md) — in convention prose, reference real packages (`action/actions/`); placeholders OK only in generic contract blocks
+- [Deferred Refactor — Match Existing Pattern](feedback_deferred_refactor.md) — when a refactor is deferred, new code matches existing (imperfect) pattern, not target; mixed state is worse than uniform
+- [Read Code Before Suggesting](feedback_verify_before_suggesting.md) — read actual files before making architectural claims or design suggestions; don't reason from plan docs alone
+- [Refactor Sessions Need Re-grounding](feedback_refactor_reground.md) — for refactors, each session must verify prior artifact's claims against current source; descriptions drift, features-phasing doesn't auto-correct for refactors
+- [No Section Symbol](feedback_no_section_symbol.md) — never use the section glyph in chat or files; use "section N" or just the number
+- [Avoid Type Aliases](feedback_avoid_type_aliases.md) — prefer real package boundaries over `type X = pkg.X` for cycle-breaking or re-export
+- [Branch timing for efforts](feedback_branch_timing.md) — overview plan commits on main; cut the branch right after; every effort session (Plan too) runs on it
+- [Branch initiative layering](feedback_branch_initiative_layering.md) — pre-merge checklist is branch-level; refactors are wip commits on the feature branch, not sub-branches
+- [planned-work.md cells are one-liners](feedback_table_one_liners.md) — Item/Trigger: short keyword phrases; Details: earns length but stays one line; no other tables
+- [No one-const packages](feedback_no_one_const_packages.md) — don't create a whole package for a single constant; inline or consolidate
+- [Two-channel logger for sub-engines](feedback_two_channel_logger.md) — sub-engines have both a log field and a log parameter; field for internals, parameter for cascaded orchestrator calls
+- [Learn by Doing is opt-in](feedback_learn_by_doing_scope.md) — never set up a TODO(human) slice unless Robert asks; implement it yourself. When asked: code only, one TODO(human)
+- [Use interactive questions](feedback_interactive_questions.md) — pick-one-of-N design questions go through AskUserQuestion, not prose bullets ending in "what's your call?"
+- [Dislikes UI work](feedback_dislikes_ui_work.md) — don't hand Robert UI/view-layer slices to implement; do them yourself, reserve collaborative slices for engine/logic decisions
+- [Arch docs reflect source](feedback_arch_docs_reflect_source.md) — every load-bearing claim in an arch/doc page verified against actual code, never carried from plans or other docs; docs reflect the source of truth, they aren't it
+- [Spatial diagrams use bare `block`](feedback_block_keyword.md) — Mermaid spatial diagrams declare `block`, not `block-beta`, despite the diagram-kit gotcha
+- [Claude drafts diagrams off the kit](feedback_diagram_authorship.md) — use docs/process/diagram-kit.md; pick type by topology (block-beta/flowchart/sequence); Robert reviews layout/taste
+- [Consult arch docs before design decisions](feedback_consult_arch_docs.md) — read the relevant docs/architecture/ page before any design call (push not pull); SessionStart hook injects the page index
+- [Echo banners are welcome](feedback_echo_banners.md) — `echo "==== x ===="` separators in multi-step Bash are useful section markers; verbose mode is on
+- [No Learn-by-Doing for tests](feedback_no_learn_by_doing_tests.md) — don't leave tests/assertions as TODO(human) slices; write them yourself
+- [Pre-commit plain-language summary](feedback_pre_commit_summary.md) — end of each commit session, the wrap-up report includes a plain-language summary + small review; don't ask first
+- [Do only the asked step](feedback_do_only_the_asked_step.md) — a request for one tracker move (e.g. promote a row) gets only that move; name follow-ons, don't do them
+- [No shell file edits](feedback_no_shell_file_edits.md) — change files only via Edit/Write; python/sed edits desync open VS Code buffers and gopls
+- [Side tasks to agents](feedback_side_tasks_to_agents.md) — PDF extraction, reference building, bulk audits run on a separate agent; keep the main session context clean
+- [Hand-offs are not committed](feedback_handoffs_not_committed.md) — hand-off files stay uncommitted; the session that uses one deletes it
+- [No plan replay checks](feedback_no_plan_replay_checks.md) — don't script-validate a plan's Find/Replace anchors after writing it; execution re-grounds
+- [Don't trim Robert's lists](feedback_dont_trim_robert_lists.md) — ask about every "Robert decides" item (add questions past the 4-option cap); verify each claim in source before offering it
+- [Claude's sandbox copy](feedback_claude_sandbox_copy.md) — run the app only with `--campaign sandbox-claude` via tmux; `sandbox` is Robert's
+- [Initiative ID in doc file names](feedback_initiative_id_filenames.md) — `A.001.4-<name>-discovery.md`; arcs ID the folder too; multi-effort top plan is `-overview-plan.md`; completed go to `completed/<ID>-<name>/` (no underscores)
+- [Data-driven over bespoke](feedback_data_driven_over_bespoke.md) — move away from per-ID Go handlers for all data (goals too); consistency beats cost, so cost never decides
+- [Exploration findings log](feedback_exploration_findings_log.md) — at each `E.` close-out, append a section to the D.009 findings log in discovery/
+- [Rules calls are Robert's](feedback_rules_calls.md) — any rules-text reading that changes when/how often something fires gets an explicit question, not a self-made plan micro-decision
