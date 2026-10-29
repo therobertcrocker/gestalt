@@ -57,4 +57,35 @@ Checked against the Claude Code docs on 2026-10-29 (`plugins-reference`, `memory
 - Only `/workspaces/gm-toolkit` is mounted from the Windows host. `~/.claude` and this clone (`~/gestalt`) live inside the container, so push often.
 - In this container, git works over HTTPS. SSH host keys aren't set up.
 - `sources/gm-toolkit-memory/` is a frozen snapshot of the gm-toolkit memory folder (52 files, 2026-10-29). It is Discovery input and a backup. It is not a live copy.
-- **Design-space change:** if every project's devcontainer bind-mounts the same host folder at `~/.claude`, then `~/.claude/CLAUDE.md`, `~/.claude/rules/` and the memories are shared across containers. That makes user-level config a real alternative to the plugin, or a partner to it. Weigh it in the Design Summary.
+- **Design-space change:** if every project's devcontainer bind-mounts the same host folder at `~/.claude`, then `~/.claude/CLAUDE.md` and `~/.claude/rules/` are shared across containers. That makes user-level config a real alternative to the plugin, or a partner to it. Weigh it in the Design Summary.
+
+## Persistence and Sharing
+
+Seed notes from the setup session (2026-10-29). These are the setup session's view, for Discovery to test, not ratified decisions.
+
+**The mount.** gm-toolkit commit `669c2d8` bind-mounts `%USERPROFILE%\.claude-devcontainer` at `~/.claude` and sets `CLAUDE_CONFIG_DIR=/home/vscode/.claude`, so `.claude.json` lives inside the mount too. Other project containers are meant to mount the same folder.
+
+| Goal | Does the shared mount do it? |
+|---|---|
+| Memories survive a rebuild | Yes |
+| Login, settings and plugins shared across project containers | Yes |
+| `~/.claude/CLAUDE.md` and `~/.claude/rules/` apply in every project | Yes |
+| Memories shared across projects | **No.** Auto memory is keyed per repo (`projects/-workspaces-<repo>/memory/`). A new project starts with zero memories |
+| Off-machine backup | **No.** `%USERPROFILE%` root is not in OneDrive by default (Known Folder Move covers Desktop, Documents and Pictures only). The mount guards against losing the container, not the disk |
+
+**Reframe: shared rules, not shared memory.** About 48 of the 51 memories are process preferences (commit cadence, plan discipline, question style), not project facts. Those should graduate out of memory into rules that load in every project: the plugin, or `~/.claude/rules/`. Only project facts (for example "FacCreds are called Coin", lipgloss for the TUI only, the `sandbox-claude` campaign) stay in per-project auto memory.
+
+**Rejected: one shared memory pool.** `autoMemoryDirectory` in user settings could point every project at one folder. Rejected because project facts would leak across projects, and only the first 200 lines or 25 KB of `MEMORY.md` load, so a merged pool would push entries past the cutoff.
+
+| Kind of knowledge | Home | Shared how |
+|---|---|---|
+| Process rules (most memories today) | gestalt plugin, or `~/.claude/rules/` | Plugin install, or the shared mount |
+| Project facts | Per-project auto memory | Not shared, by design |
+| Claude-side state (login, settings, transcripts) | `~/.claude` on the bind mount | Survives rebuilds |
+| Off-machine safety | gestalt repo for rules; an explicit backup of `.claude-devcontainer` if wanted | Git; backup tool not chosen |
+
+**Plugin vs `~/.claude/rules/`** for the graduated rules is open. Git versioning and use on other machines favour the plugin. Simplicity favours the rules folder.
+
+**Concurrency risk (low).** Two containers open at once both write the shared `.claude.json` over the Windows 9p mount. Claude Code expects several sessions on one machine and keeps five rotating backups of that file in `backups/`.
+
+**Ownership on the Windows mount.** Files created from Linux keep uid 1000, and `chmod` works. Files created from Windows show as uid 0, mode 777, and `vscode` can't `chmod` them. Seed or restore the mount from inside the container (for example, by extracting a tarball), not with `docker cp` of a folder.
