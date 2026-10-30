@@ -42,7 +42,7 @@ _None._
 
 | ID      | Item | Trigger | Detail |
 |---------|------|---------|--------|
-| `C.001` | Move dev env off the Windows mount | `before F.001 Phase 2` | Repos and the shared `~/.claude` reach the container over 9p from `C:\`, which corrupted a git ref; move gestalt, gm-toolkit, wayfinder-dice-lab and the state folder into the WSL filesystem, switch all three containers together, mount source becomes `${localEnv:HOME}`; add an outbound firewall allowlist modelled on Anthropic's reference devcontainer |
+| `C.001` | Move dev env off the Windows mount | `before F.001 Phase 2` | Repos and the shared `~/.claude` reach the container over 9p from `C:\`, which corrupted a git ref; move gestalt, gm-toolkit, wayfinder-dice-lab and the state folder into the WSL filesystem, switch all three containers together, mount source becomes `${localEnv:HOME}` |
 
 ---
 <br/>
