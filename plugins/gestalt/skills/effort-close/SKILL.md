@@ -25,10 +25,10 @@ A **stop** waits for Robert. Between stops, go on without asking.
 4. **Review.** `/code-review` with no target reviews `@{upstream}...HEAD`. Point the upstream at the base for the length of the review:
    ```sh
    git rev-parse --abbrev-ref @{upstream}   # the old upstream; an error means there is none
-   git branch review/$0-base <base>
+   git branch -f review/$0-base <base>
    git branch --set-upstream-to=review/$0-base
    ```
-   Run `/code-review high` with no target, through the Skill tool. It runs as a background agent: wait for its findings before you go on. Then put the upstream back with `git branch --set-upstream-to=<old upstream>`, or `git branch --unset-upstream` if there was none, and delete the temporary branch with `git branch -D review/$0-base`.
+   If the old upstream is `review/$0-base`, an earlier run stopped mid-review and the real upstream was lost: ask Robert what it was. Run `/code-review high` with no target, through the Skill tool. It runs as a background agent: wait for its findings before you go on. Then put the upstream back with `git branch --set-upstream-to=<old upstream>`, or `git branch --unset-upstream` if there was none, and delete the temporary branch with `git branch -D review/$0-base`.
 5. **Pick.** Show every finding, numbered, with its `file:line` and summary. **Stop:** Robert picks the findings to fix. Ask with AskUserQuestion, multi-select; with more than four findings, add questions rather than drop any.
 6. **Fixes.** Note the effort head: `git rev-parse HEAD`. Then, for each pick in turn: edit with Edit and Write only, run the gate, give the wrap-up summary and short review, `git add -A`, and commit as its own `fix: <what it fixes>` commit. Running this skill approves each pick, so do not wait for a go-ahead between fixes. If a fix changes what the effort's plan says, log it in that plan's Decision Record and fix the plan body before the commit. If a fix turns into a design call, stop and ask.
 7. **Squash check.** Show the `fix:` commits: `git log --oneline <effort head>..HEAD`. Find whether the effort was pushed: `git branch -r --contains <first effort commit>`, where the first effort commit is the oldest in `git rev-list <base>..<effort head>`. Any output means it was pushed. **Stop:** Robert approves the squash. If the effort was pushed, say that the squash rewrites pushed history and needs a force-push.
