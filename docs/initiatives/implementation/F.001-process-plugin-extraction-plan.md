@@ -40,6 +40,7 @@ Build the plugin described in the discovery doc and adopt it in gestalt, on one 
 2. **Open Question 3 answered: the missing `version` is a warning.** Both validations end in `Validation passed with warnings`. `plugin.json` stays without a `version`; D11 stands. The plugin-directory checks also report a missing LICENSE and icon; those apply to public directory submission and don't change the verdict.
 3. **Commit 3's end-to-end check, part 1, ran headless.** The executing session can't drive an interactive `/plugin` or `/context`, so the check was `claude -p --plugin-dir plugins/gestalt --debug-file <scratch>` with a prompt asking which rules headings it sees. Results: the plugin loaded inline from the working copy; the SessionStart hook ran as `sh "/workspaces/gestalt/plugins/gestalt"/scripts/architecture-index.sh` and exited 0, so in `--plugin-dir` mode `${CLAUDE_PLUGIN_ROOT}` is the working copy (Open Question 2, first half; the git-marketplace half is part 2); the model quoted all three rules headings, so the relative imports load. The interactive `/plugin` and `/context` views are left for Robert's next session.
 4. **The credential check passed early.** The same headless session reconciled the settings-declared marketplace and ran `git clone https://github.com/therobertcrocker/gestalt.git` with no prompt; the clone succeeded through the VS Code credential helper. The install then failed with "Marketplace file not found", as expected while `main` has no plugin. The log also shows `Skipped auto-recording gestalt@gestalt — enabled only by repo-authored settings`; part 2 confirms whether accepting the trust dialog installs it, and the README's `gh auth setup-git` step stays a fallback until then.
+5. **`C.001` is the dev-environment move; the rules weight check becomes `C.002`.** After Phase 1, two odd write errors on the 9p mount from `C:\` led Robert to file a chore: move gestalt, gm-toolkit, wayfinder-dice-lab and the shared `~/.claude` into the WSL filesystem, keeping the devcontainers for isolation, before Phase 2. That took `C.001` and created the Backlog's Chores table, so Phase 5, Task 3 now adds its row to that table as `C.002`. The move changes the mount source to `${localEnv:HOME}`, which Phase 4's devcontainer snippet must follow.
 
 ---
 
@@ -1709,23 +1710,12 @@ Remove F.001 from Current Initiatives and its write-up.
 _None._
 ```
 
-Add the deferred items that surfaced, under Backlog. **Find:**
+Add the deferred item that surfaced as a row in the Backlog's **Chores** table. `C.001` created that table in Phase 1's session; if `C.001` has shipped and its row is gone, the table stays and this row is its only one. If the section itself is gone, recreate it after **Features** with the header row below.
+
 ```markdown
-### Features
-
-_None._
-```
-**Replace with:**
-```markdown
-### Features
-
-_None._
-
-### Chores
-
 | ID      | Item | Trigger | Detail |
 |---------|------|---------|--------|
-| `C.001` | Rules weight check | `when` two projects run on the plugin for a month | Note whether imported rules are followed as well as a project's own `CLAUDE.md` text; adjust wording or placement if not (Discovery, Open Question 4) |
+| `C.002` | Rules weight check | `when` two projects run on the plugin for a month | Note whether imported rules are followed as well as a project's own `CLAUDE.md` text; adjust wording or placement if not (Discovery, Open Question 4) |
 ```
 
 ##### Task 4 — move the initiative docs
@@ -1739,7 +1729,7 @@ docs: close out F.001
 
 - adopt run on gestalt itself; its one duplicate memory removed
 - README describes the plugin, adoption and the change loop
-- tracker closed; rules weight check filed as C.001
+- tracker closed; rules weight check filed as C.002
 - discovery and plan moved to completed/
 ```
 

@@ -30,12 +30,19 @@ Full write-ups below.
 - `--` — no gate; pick up at any time
 - `ready` — scoped; can be promoted now
 - `after <ID>` — waits on another item
+- `before <ID>` — must land before another item, or a phase of one
 - `when <condition>` — waits on a condition
 - `needs triage` — cause not known
 
 ### Features
 
 _None._
+
+### Chores
+
+| ID      | Item | Trigger | Detail |
+|---------|------|---------|--------|
+| `C.001` | Move dev env off the Windows mount | `before F.001 Phase 2` | Repos and the shared `~/.claude` reach the container over 9p from `C:\`, which corrupted a git ref; move gestalt, gm-toolkit, wayfinder-dice-lab and the state folder into the WSL filesystem, switch all three containers together, mount source becomes `${localEnv:HOME}` |
 
 ---
 <br/>
