@@ -24,6 +24,8 @@ One phase, one commit: write `plugins/gestalt/skills/effort-close/SKILL.md` and 
 
 ## Decision Record — Execution
 
+- **Pre-merge review fixes change the skill after Commit 1.** Task 1 shows `effort-close/SKILL.md` as first committed. The review's fixes land as their own `fix:` commits; the entries below record the ones that change a decision.
+
 ## Shared Context
 
 - **Gate:** `claude plugin validate .` from the repo root. gestalt has no build or tests.

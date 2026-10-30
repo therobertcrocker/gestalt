@@ -19,7 +19,7 @@ A **stop** waits for Robert. Between stops, go on without asking.
    - The gate passes: the build and test command in the project's `CLAUDE.md`.
 3. **Base.** The base is the commit just before effort n's first commit.
    - E1: `git merge-base main HEAD`.
-   - A later effort: in `git log --format='%h %s' main..HEAD`, find the commit whose subject starts `feat: <ID> effort <n-1> —`. The `fix:` commits right after it belong to that effort too. The base is the last of them.
+   - A later effort: in `git log --reverse --format='%h %s' main..HEAD` (oldest first), find the commit whose subject starts `feat: <ID> effort <n-1> —`. The `fix:` commits listed right below it belong to that effort too. The base is the last of them, or the `feat:` commit itself when there are none.
 
    Show the base and `git log --oneline <base>..HEAD`. **Stop:** Robert confirms the base or names another one.
 4. **Review.** `/code-review` with no target reviews `@{upstream}...HEAD`. Point the upstream at the base for the length of the review:
