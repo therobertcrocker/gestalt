@@ -11,7 +11,7 @@
 
 One phase, one commit: write `plugins/gestalt/skills/effort-close/SKILL.md` and name it where the effort boundary is described.
 
-- Discovery doc: [`F.002-effort-close-discovery.md`](../discovery/F.002-effort-close-discovery.md). Its decisions 1–5 and 7–9 stand. Decision 6 and Session Flow steps 3 and 4 are replaced by decisions 1 and 2 below.
+- Discovery doc: [`F.002-effort-close-discovery.md`](F.002-effort-close-discovery.md). Its decisions 1–5 and 7–9 stand. Decision 6 and Session Flow steps 3 and 4 are replaced by decisions 1 and 2 below.
 
 ## Decisions Ratified in Planning
 
