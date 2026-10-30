@@ -4,8 +4,8 @@
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  // jq for the SessionStart hooks; the native installer means no Node in the image
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y jq && curl -fsSL https://claude.ai/install.sh | bash",
+  // the native installer means no Node in the image
+  "postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash",
   "mounts": [
     "source=${localEnv:USERPROFILE}/.claude-devcontainer,target=/home/vscode/.claude,type=bind",
     // deliberate: read-only, so a gestalt session reads gm-toolkit's live process docs but can't edit them

@@ -1,0 +1,9 @@
+{
+  "name": "gestalt",
+  "description": "Robert's working process for Claude Code: always-on rules, session modes, doc templates, style and diagram guides, and the skills that start and maintain a session",
+  "author": {
+    "name": "Robert Crocker"
+  },
+  "repository": "https://github.com/therobertcrocker/gestalt",
+  "keywords": ["process", "workflow", "rules"]
+}

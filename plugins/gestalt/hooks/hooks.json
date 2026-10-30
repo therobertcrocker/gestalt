@@ -1,0 +1,16 @@
+{
+  "description": "Lists the architecture wiki pages at session start, when the project has a wiki",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}\"/scripts/architecture-index.sh",
+            "statusMessage": "Loading architecture index"
+          }
+        ]
+      }
+    ]
+  }
+}

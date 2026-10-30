@@ -2,7 +2,9 @@
 
 Robert's working process for Claude Code, packaged as one plugin: the collaboration rules, the session modes, the doc templates and the hooks that every project shares.
 
-**Status:** in Discovery. See `docs/planned-work.md` (F.001).
+**Status:** in Execution. See `docs/planned-work.md` (F.001).
+
+The repo is a Claude Code plugin marketplace. `.claude-plugin/marketplace.json` lists one plugin, `plugins/gestalt/`. `sources/` is a frozen snapshot of gm-toolkit's process from 2026-10-29: Discovery input and backup, never loaded.
 
 <br/>
 <br/>
