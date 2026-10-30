@@ -55,6 +55,6 @@ Then do the checks below.
    ls ~/.claude/projects/-workspaces-gm-toolkit/memory | wc -l    # not 0
    ls /workspaces/gm-toolkit/docs/process                          # the source docs
    ```
-2. Log in to GitHub: `gh auth login`. (Plain `git push` works without it, because VS Code injects a credential helper.)
-3. Start `claude`. It should already be logged in. This repo's own memory folder (`projects/-workspaces-gestalt/memory/`) starts empty, which is expected: auto memory is per repo.
+2. Log in to GitHub: `gh auth login`, then `gh auth setup-git`. Plain `git push` works without either, because VS Code injects a credential helper. The second command stores a credential that Claude Code's plugin installer can use without a prompt; it needs that to clone the private marketplace.
+3. Start `claude`. It should already be logged in. Accept the workspace trust dialog; that registers the gestalt marketplace from `.claude/settings.json`. `/plugin` should list `gestalt@gestalt` as enabled, and `/context` should list the three rules files under Memory files. This repo's own memory folder (`projects/-workspaces-gestalt/memory/`) starts empty, which is expected: auto memory is per repo.
 4. If the start or rebuild created or changed `.devcontainer/devcontainer-lock.json`, commit it.
