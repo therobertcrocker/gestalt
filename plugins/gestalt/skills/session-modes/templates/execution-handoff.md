@@ -64,5 +64,5 @@ If execution surfaces a design question the plan does not answer, ask Robert
 (AskUserQuestion, both readings with their effect). Do not decide it.
 
 ## Ahead (not this session)
-<!-- One or two lines: the next phase, or the effort boundary (interim review, squash). -->
+<!-- One or two lines: the next phase, or the effort boundary: `/gestalt:effort-close <ID>.E<n>` (interim review, fixes, squash). -->
 [next scope]

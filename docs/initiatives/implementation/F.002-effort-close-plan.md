@@ -43,7 +43,7 @@ One phase, one commit: write `plugins/gestalt/skills/effort-close/SKILL.md` and 
 
 **Overview**
 
-- [ ] **Phase 1 — Effort close skill**
+- [x] **Phase 1 — Effort close skill**
   - Commit 1 — `feat: add effort-close skill` (7 tasks)
 
 ### Phase 1 — Effort close skill
