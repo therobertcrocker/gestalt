@@ -2,7 +2,7 @@
 
 Robert's working process for Claude Code, packaged as one plugin: the collaboration rules, the session modes, the doc templates and the hooks that every project shares.
 
-**Status:** in Execution. See `docs/planned-work.md` (F.001).
+**Status:** shipped as v0.1.0. The tracker is `docs/planned-work.md`.
 
 The repo is a Claude Code plugin marketplace. `.claude-plugin/marketplace.json` lists one plugin, `plugins/gestalt/`. `sources/` is a frozen snapshot of gm-toolkit's process from 2026-10-29: Discovery input and backup, never loaded.
 
@@ -62,3 +62,25 @@ Then do the checks below.
 2. Log in to GitHub: `gh auth login`, then `gh auth setup-git`. Plain `git push` works without either, because VS Code injects a credential helper. The second command stores a credential that Claude Code's plugin installer can use without a prompt; it needs that to clone the private marketplace.
 3. Start `claude`. It should already be logged in. Accept the workspace trust dialog; that registers the gestalt marketplace from `.claude/settings.json`. `/plugin` should list `gestalt@gestalt` as enabled, and `/context` should list the three rules files under Memory files. This repo's own memory folder (`projects/-workspaces-gestalt/memory/`) starts empty, which is expected: auto memory is per repo.
 4. If the start or rebuild created or changed `.devcontainer/devcontainer-lock.json`, commit it.
+
+<br/>
+<br/>
+
+# The plugin
+
+`plugins/gestalt/` is the plugin; `.claude-plugin/marketplace.json` lists it. What it ships:
+
+- **Always-on rules** in `plugins/gestalt/rules/`: `working-together.md`, `git-and-delivery.md`, `code-and-docs.md`. A project's `CLAUDE.md` imports them with one `@` line each, from `~/.claude/plugins/marketplaces/gestalt/`. This checkout imports them by relative path instead.
+- **Skills** in `plugins/gestalt/skills/`: `session-modes` (with the doc templates), `style-guide`, `diagram-kit`, `go`; the starters `discovery`, `plan`, `execute`; the upkeep skills `graduate` and `adopt`.
+- **A SessionStart hook** that lists `docs/architecture/` pages when a project has a wiki.
+- **Templates** in `plugins/gestalt/templates/`: the starter `CLAUDE.md` and the devcontainer snippet.
+
+## Adopting it in a project
+
+In that project's session, run `/gestalt:adopt`. It writes the settings, the snippet and the imports, and lists what the project can drop.
+
+## Changing the process
+
+Edit the rules or skills here, on a branch, and merge. Other projects get the change after their marketplace updates (auto-update is on in each project's settings; `/plugin marketplace update gestalt` forces it). Corrections made in other projects reach here through `/gestalt:graduate`.
+
+To test unpushed skill or hook edits, run `claude --plugin-dir plugins/gestalt`. Rule edits need nothing; this checkout imports them from the working copy.
