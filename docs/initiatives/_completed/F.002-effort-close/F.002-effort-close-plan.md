@@ -27,6 +27,8 @@ One phase, one commit: write `plugins/gestalt/skills/effort-close/SKILL.md` and 
 - **Pre-merge review fixes change the skill after Commit 1.** Task 1 shows `effort-close/SKILL.md` as first committed. The review's fixes land as their own `fix:` commits; the entries below record the ones that change a decision.
 - **The effort-squash rule names the skill as its procedure and uses `<ID>`.** The rule kept the old stash and `reset --soft` steps beside the skill's `commit-tree` method, and its `<initiative>` subject would not match the skill's base search. One procedure now, in the skill.
 - **A rerun after a crash mid-review recovers the review setup.** Decision 1 said a crash leaves the branch untouched; it leaves `review/<address>-base` and the upstream pointing at it. The rerun makes the branch with `-f`, and when the old upstream is that branch it asks Robert for the real one rather than unsetting it.
+- **The final effort closes too.** Execute step 6 names `/gestalt:effort-close` after every effort, the last one included, and the pre-merge checklist follows. History keeps one shape across efforts; the cost is that the last effort is reviewed twice. Rejected: skipping the close for the last effort (leaves it unsquashed), and closing without the review (adds a branch to the skill).
+- **Two review findings were not fixed.** A configured upstream whose remote-tracking ref is gone reads as no upstream and gets unset; and a merge from `main` inside an effort folds into its squash. Neither fits how the branches are used now (pushed with `-u`, no merges from `main`).
 
 ## Shared Context
 

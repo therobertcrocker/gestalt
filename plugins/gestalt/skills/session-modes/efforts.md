@@ -19,7 +19,7 @@ Every effort boundary gets an interim code review: after an effort's last phase 
 
 The order at a boundary is: interim review → review `fix:` commits → effort squash (the fixes replay on top, kept separate; git-and-delivery rules) → next effort. The review runs in its own new session, not at the end of the execution session that closed the effort; that session ends once the last phase is committed. Start that session with `/gestalt:effort-close <ID>.E<n>`; it runs the review, the fixes and the squash in order.
 
-It is **distinct from the Pre-Merge Checklist**: the checklist still runs once at branch level after the final effort. An interim review does not trigger a merge or a tracker update — it is review only. Like all reviews, it runs on Opus (session-discipline.md, Model selection).
+It is **distinct from the Pre-Merge Checklist**: the checklist still runs once at branch level after the final effort. The final effort closes too, before the checklist, so every effort lands as one squashed commit. An interim review does not trigger a merge or a tracker update — it is review only. Like all reviews, it runs on Opus (session-discipline.md, Model selection).
 
 ## Effort vs. arc
 
