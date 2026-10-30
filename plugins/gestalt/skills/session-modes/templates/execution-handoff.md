@@ -53,15 +53,15 @@ The session ends when Commit [b] lands. [Do not start Commit [b+1]. | Commit [b]
 <!-- Per commit and task: anchors that drifted, find strings that wrap across lines, caller counts that changed, tests that match on text, generate steps, path drift already in the Decision Record. -->
 - **Commit [a], Task [n]:** [watch-out]
 
-## Possible rules questions (ask Robert; do not decide)
+## Possible design questions (ask Robert; do not decide)
 <!-- OPTIONAL. Delete the section when there are none. Give the case and both readings. -->
 - **[case]** — [what the plan's code does, and the other reading]
 
-## Decisions that are Robert's rules calls — do not re-open
-<!-- FIXED heading and closing line. List every rules call ratified so far in this plan. -->
+## Decisions that are Robert's design calls — do not re-open
+<!-- FIXED heading and closing line. List every design call ratified so far in this plan. -->
 - Decision [n]: [one-line ruling]
-If execution surfaces a rules question the plan does not answer, ask Robert
-(AskUserQuestion, both readings with their table effect). Do not decide it.
+If execution surfaces a design question the plan does not answer, ask Robert
+(AskUserQuestion, both readings with their effect). Do not decide it.
 
 ## Ahead (not this session)
 <!-- One or two lines: the next phase, or the effort boundary (interim review, squash). -->
