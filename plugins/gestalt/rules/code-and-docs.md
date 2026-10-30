@@ -34,7 +34,7 @@ Every project uses this layout. The paths can't be overridden by a project. Part
 
 ## Session modes
 
-Work moves through Discovery, Plan and Execution, one mode per session. Each mode produces one artifact and ends when it is written and Robert has signed off. Load `/gestalt:session-modes` before starting a new initiative or a session; it holds the lifecycle, the flow per work type, efforts, arcs, session discipline and the doc templates. Start a session with `/gestalt:discovery <ID>`, `/gestalt:plan <ID>` or `/gestalt:execute <ID>`, and close an effort with `/gestalt:effort-close <ID>.E<n>`. Plan and execute also take a work address that names an effort or phase, such as `F.001.E2.P3`.
+Work moves through Discovery, Plan and Execution, one mode per session. Each mode produces one artifact and ends when it is written and Robert has signed off. An effort close is not a mode: it runs at each effort boundary of a multi-effort initiative and produces commits, not an artifact. Load `/gestalt:session-modes` before starting a new initiative or a session; it holds the lifecycle, the flow per work type, efforts, arcs, session discipline and the doc templates. Start a session with `/gestalt:discovery <ID>`, `/gestalt:plan <ID>` or `/gestalt:execute <ID>`, and close an effort with `/gestalt:effort-close <ID>.E<n>`. Plan and execute also take a work address that names an effort or phase, such as `F.001.E2.P3`.
 
 | Session | Ends when |
 |---|---|
