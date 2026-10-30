@@ -10,7 +10,7 @@ An **effort** is the scaling mechanism for initiatives too large to be contained
 - **One overview plan, always.** The first Plan session produces the top-level plan (`<ID>-<initiative-name>-overview-plan.md`): shared decisions, the effort slicing, and the dependency DAG between efforts. Small efforts are specified fully here and execute straight from it.
 - **Per-effort Plan sessions, as needed.** A large or design-heavy effort gets its own lightweight Plan session producing `<ID>-<initiative-name>-effort-N-plan.md`. The overview plan names which efforts need one. Each per-effort Plan session is its own session, subject to the usual mode boundaries.
 - **Execution per effort.** Each effort's work runs as normal execution sessions for the initiative's type (per-phase for features and refactors, per-doc for docs).
-- **Branch timing.** The overview plan is written and committed on `main`; the feature branch is cut right after. Every effort session, the per-effort Plan sessions included, runs on the branch. At the start of any effort session, confirm the branch is checked out before writing anything.
+- **Branch timing.** The feature branch is cut when Discovery starts (git-and-delivery rules). The overview plan and every effort session, the per-effort Plan sessions included, run on the branch. At the start of any effort session, confirm the branch is checked out before writing anything.
 - **The single Discovery owns the whole design surface.** Later efforts' design (their flows, modals, data) is settled in that one Discovery, not pushed into their own discovery passes or into execution-time decisions. At Plan time expect an overview plus N effort plans, not one monolithic plan.
 
 ## Interim Effort Review
