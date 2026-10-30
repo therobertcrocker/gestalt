@@ -34,11 +34,11 @@ A **stop** waits for Robert. Between stops, go on without asking.
 7. **Squash check.** Show the `fix:` commits: `git log --oneline <effort head>..HEAD`. Find whether the effort was pushed: `git branch -r --contains <first effort commit>`, where the first effort commit is the oldest in `git rev-list <base>..<effort head>`. Any output means it was pushed. **Stop:** Robert approves the squash. If the effort was pushed, say that the squash rewrites pushed history and needs a force-push.
 8. **Squash.** Write the message file with the Write tool in the scratchpad: the subject `feat: <ID> effort <n> — <effort name>`, a blank line, one bullet per commit in `<base>..<effort head>` that sums it up, then the session's attribution lines. Then:
    ```sh
-   git branch backup/$0-pre-squash HEAD
-   tree=$(git rev-parse <effort head>^{tree})
-   squash=$(git commit-tree $tree -p <base> -F <message file>)
-   git rebase --onto $squash <effort head>
+   git branch backup/$0-pre-squash HEAD &&
+   tree=$(git rev-parse <effort head>^{tree}) &&
+   squash=$(git commit-tree $tree -p <base> -F <message file>) &&
+   git rebase --onto $squash <effort head> &&
+   git log --oneline <base>..HEAD &&
    git diff --quiet backup/$0-pre-squash HEAD && echo "tree identical"
-   git log --oneline <base>..HEAD
    ```
-   The log shows the one `feat:` commit with the `fix:` commits on top. If the tree differs, stop: the backup branch holds the state before the squash. Leave the backup branch for Robert to delete. If the effort was pushed, say that `git push --force-with-lease` is needed. Do not push.
+   Run it as one command; a failed step stops the rest. If `backup/$0-pre-squash` already exists from an earlier run, the first step fails: show that branch and stop, because Robert decides whether it still matters. The log shows the one `feat:` commit with the `fix:` commits on top. If any step fails, or `tree identical` is not printed, stop: the backup branch holds the state before the squash. Leave the backup branch for Robert to delete. If the effort was pushed, say that `git push --force-with-lease` is needed. Do not push.
