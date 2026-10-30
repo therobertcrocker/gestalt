@@ -1,4 +1,7 @@
 {
+  "enabledPlugins": {
+    "gestalt@gestalt": true
+  },
   "extraKnownMarketplaces": {
     "gestalt": {
       "source": {
@@ -7,8 +10,5 @@
       },
       "autoUpdate": true
     }
-  },
-  "enabledPlugins": {
-    "gestalt@gestalt": true
   }
 }
