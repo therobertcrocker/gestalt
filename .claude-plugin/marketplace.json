@@ -1,0 +1,14 @@
+{
+  "name": "gestalt",
+  "description": "Robert's working process for Claude Code, packaged as one plugin",
+  "owner": {
+    "name": "Robert Crocker"
+  },
+  "plugins": [
+    {
+      "name": "gestalt",
+      "source": "./plugins/gestalt",
+      "description": "Collaboration rules, session modes, doc templates and the hooks every project shares"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "// how to use": "Merge these keys into the project's .devcontainer/devcontainer.json. The mount shares all Claude Code state (login, settings, plugins, memories) with every other project container on this machine. CLAUDE_CONFIG_DIR moves .claude.json inside the mount so login and project trust survive a rebuild. The host folder must exist before the first start; an empty folder means a fresh login with no memories.",
+  "postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash",
+  "mounts": [
+    "source=${localEnv:HOME}/.claude-devcontainer,target=/home/vscode/.claude,type=bind"
+  ],
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/vscode/.claude"
+  }
+}

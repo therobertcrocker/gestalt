@@ -1,0 +1,145 @@
+# [Initiative Name] — Discovery
+
+<!--
+COPY THIS FILE TO: docs/initiatives/discovery/<ID>-<initiative-name>-discovery.md
+  (<ID> is the planned-work ID as written, e.g. A.001.4-goals-tags-core-discovery.md)
+
+A discovery doc captures the design for an initiative before implementation begins.
+The shape varies by what's being designed — feature work and refactor work call for
+different sections. Required sections are always present; optional sections are
+included when relevant.
+
+Delete these comments before writing.
+-->
+
+## In Plain Words
+
+<!--
+REQUIRED. Under 15 lines. Plain words for a reader who has not read the rest of
+this doc: no project shorthand unless it is defined in the same sentence.
+
+  - What: what this initiative does.
+  - Why: the problem it solves, for the user or for the codebase.
+  - How it fits: where it sits in the arc and the project, and what it unblocks.
+
+Every session on this initiative reads this section first
+(session-discipline.md, Re-grounding).
+-->
+
+## Problem
+
+<!--
+REQUIRED. What is broken, missing, limiting, or worth investigating?
+
+For feature work: name the gap or pain point. Be richer than the planned-work blurb.
+For refactor work: name the structural issue and what it costs (e.g. drift between
+sibling packages, friction in the abstraction).
+
+Reference specific code paths, files, and line numbers where helpful.
+-->
+
+## Architecture Context
+
+<!--
+REQUIRED. List the architecture page(s) read for this initiative
+(docs/architecture/ — start at docs/architecture/architecture-overview.md)
+and pull out the Key Decisions that constrain this design. This is the push half of the push-not-pull decision system
+(session-discipline.md): the binding rationale lives on the page this
+section forces you to open.
+
+If no page covers the relevant subsystem yet, say so — that's a signal the
+wiki needs a page; note it in docs/planned-work.md. If the project has no
+architecture wiki, say that and name the binding context instead.
+-->
+
+## Design Summary
+
+<!--
+REQUIRED.
+
+For feature work: name the chosen approach in a few paragraphs, with rationale.
+For refactor work: name the target pattern (or, if Discovery is figuring out the
+target, this section becomes "Audit Findings" — see optional sections below).
+
+This is the section a reader skims to understand "what are we doing about it."
+-->
+
+## Open Questions
+
+<!--
+REQUIRED. Anything unresolved that the Plan session needs to decide.
+
+If there are no open questions, write "None." Don't omit the section.
+-->
+
+---
+
+<!--
+OPTIONAL SECTIONS BELOW. Include the ones relevant to this work; delete the rest
+along with this comment. Add new sections freely — discovery docs are not
+template-bound, and the work itself dictates what's needed.
+-->
+
+## Audit Findings
+
+<!--
+Common in REFACTOR discovery. Inventory the current state of what's being refactored,
+classify divergences from the target pattern, identify reference exemplars.
+
+Subsections often include: Inventory, Cross-axis comparison, Reference exemplar.
+-->
+
+## Domain Model Changes
+
+<!--
+New types, field changes, struct shape decisions. One subsection per type or area.
+Show signatures or struct definitions where the shape is non-obvious.
+-->
+
+## Per-Area Design Details
+
+<!--
+One section per major component, flow, or sub-feature being touched. Use
+descriptive names (e.g. "Login Flow", "Config Loading", "Cache Invalidation"),
+not "Area 1 / Area 2".
+-->
+
+## Mutation Surface
+
+<!--
+For state-changing work. New, changed and removed mutations or state transitions,
+with brief rationale per item.
+-->
+
+## State Storage
+
+<!--
+What gets persisted where. Schema additions, stored-type field changes,
+on-disk file additions.
+-->
+
+## User-Facing Impact
+
+<!--
+UI changes, CLI changes, output changes. What does the user see differently?
+-->
+
+## Replaces / Retires
+
+<!--
+What existing code, types, patterns, or behaviors get removed or superseded.
+-->
+
+## Out of Scope
+
+<!--
+Explicit non-goals. Things that look like they're in scope but aren't. Deferred
+work that should be filed in docs/planned-work.md as a separate Backlog entry.
+-->
+
+## Reference Exemplars
+
+<!--
+Prior art, Key Decisions from related architecture pages, similar patterns
+elsewhere in the codebase.
+-->
