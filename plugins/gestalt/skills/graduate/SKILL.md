@@ -8,8 +8,8 @@ Graduate memories into the plugin. Run this in a gestalt checkout, on a branch, 
 
 ## Collect
 
-1. Find the cut-off: `git log -1 --format=%cI -- plugins/gestalt/rules plugins/gestalt/skills` is the date of the last change to the rules or skills. Memories modified after it are candidates.
-2. List the memory folders: `ls -d ~/.claude/projects/*/memory`. Skip `-workspaces-gestalt` unless Robert asks for it.
+1. Find the cut-off: `git log -1 --format=%cI --grep='^docs: graduate memories'` is the date of the last graduate run. Memories modified after it are candidates. With no such commit, every memory is a candidate.
+2. List the memory folders: `ls -d ~/.claude/projects/*/memory`, gestalt's own included.
 3. In each folder, read `MEMORY.md`, then every `*.md` whose `modified:` frontmatter date (or file mtime when there is none) is after the cut-off. Read them whole; the sort depends on the why and the how-to, not the title.
 
 ## Sort
@@ -25,4 +25,4 @@ Graduate memories into the plugin. Run this in a gestalt checkout, on a branch, 
 
 ## Ship
 
-9. Commit on the branch: `docs: graduate memories from <project names>`, one body bullet per rule. Push, then merge per the git-and-delivery rules. Other projects pick the change up at their next session start after the marketplace updates; gestalt's own checkout sees it at once.
+9. Commit on the branch: `docs: graduate memories from <project names>`, one body bullet per rule. Push, then merge per the git-and-delivery rules. Other projects pick the change up at their next session start after the marketplace updates. gestalt's own checkout sees a rules change at once; a skill change reaches it the same way as other projects, or at once with `claude --plugin-dir plugins/gestalt`.
