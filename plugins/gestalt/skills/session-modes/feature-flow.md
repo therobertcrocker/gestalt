@@ -59,6 +59,6 @@ Before merging the feature branch, run the checklist from the git-and-delivery r
 1. Senior-engineer code review of the branch
 2. Promote durable decisions: graduate architecturally-significant entries from the plan's Decision Record into the relevant architecture page's `Key Decisions` section (see session-discipline.md, Decision records)
 3. Update `docs/planned-work.md` (remove the initiative; capture deferred items that surfaced)
-4. Move the initiative's discovery and plan docs into its `completed/` folder (session-discipline.md, File locations)
+4. Move the initiative's discovery and plan docs into its `_completed/` folder (session-discipline.md, File locations)
 
 The pre-merge checklist is itself a session (or part of the final execution session). It runs once per branch, after every initiative layered on that branch is complete; sub-initiatives and enabling refactors landed as commits mid-branch don't trigger it.

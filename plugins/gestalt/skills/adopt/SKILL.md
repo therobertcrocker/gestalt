@@ -39,7 +39,7 @@ The imports point outside the repo, so Claude Code shows an approval dialog once
 
 ## 4. Doc layout
 
-Check for `docs/planned-work.md`, `docs/initiatives/{discovery,implementation,arcs,completed}/` and `docs/architecture/`. Report which exist. For an empty repo, create `docs/planned-work.md` with the Current Initiatives, Up Next and Backlog tables and an empty write-ups section, and the four `initiatives/` folders with a `.gitkeep` each. For an existing project whose tracker lives elsewhere, list what moves; the move is Robert's call and its own commit.
+Check for `docs/planned-work.md`, `docs/initiatives/{discovery,implementation,arcs,_completed}/` and `docs/architecture/`. Report which exist. For an empty repo, create `docs/planned-work.md` with the Current Initiatives, Up Next and Backlog tables and an empty write-ups section, and the four `initiatives/` folders with a `.gitkeep` each. For an existing project whose tracker lives elsewhere, list what moves; the move is Robert's call and its own commit.
 
 Add `docs/initiatives/implementation/*-handoff.md` to `.gitignore` if absent.
 

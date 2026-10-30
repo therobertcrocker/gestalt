@@ -95,7 +95,7 @@ Contract: append AND reconcile — when execution overrides a planned decision,
 log the reversal with rationale here and fix the plan body so it doesn't lie.
 At pre-merge, architecturally-durable entries graduate to the relevant
 architecture page's Key Decisions section; the rest stay here as provenance
-when the plan ships to completed/.
+when the plan ships to _completed/.
 -->
 
 ---

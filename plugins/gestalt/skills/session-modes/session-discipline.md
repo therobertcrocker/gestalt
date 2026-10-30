@@ -48,10 +48,10 @@ Movement between lifecycle stages (Backlog → Up Next → Current Initiative �
 - **Execution hand-offs** — `docs/initiatives/implementation/<ID>-<initiative-name>[-effort-N]-handoff.md`
 - **Arc artifacts** — `docs/initiatives/arcs/<ID>-<arc-name>/` holds `<ID>-<arc-name>-arc-concept.md`, `-arc-discovery.md`, and `-arc-plan.md` while the arc is active
 - **Completed artifacts** — when an initiative ships, its discovery doc and all its plans (single, overview, and effort plans) move into one folder. The folder name is the ID, a hyphen, and the kebab-case name. The files keep their names.
-  - Standalone initiative — `docs/initiatives/completed/<ID>-<initiative-name>/`
-  - Arc initiative — `docs/initiatives/completed/arcs/<arc-ID>-<arc-name>/initiatives/<ID>-<initiative-name>/`. The arc folder is created when the arc's first initiative ships.
-  - Arc — when the arc completes, its artifacts move into `docs/initiatives/completed/arcs/<arc-ID>-<arc-name>/`, next to `initiatives/`
-- **Archive** — a project may keep `docs/initiatives/completed/archive/` for docs completed before it adopted the per-initiative folders. It is frozen; do not reorganize it or add to it.
+  - Standalone initiative — `docs/initiatives/_completed/<ID>-<initiative-name>/`
+  - Arc initiative — `docs/initiatives/_completed/arcs/<arc-ID>-<arc-name>/initiatives/<ID>-<initiative-name>/`. The arc folder is created when the arc's first initiative ships.
+  - Arc — when the arc completes, its artifacts move into `docs/initiatives/_completed/arcs/<arc-ID>-<arc-name>/`, next to `initiatives/`
+- **Archive** — a project may keep `docs/initiatives/_completed/_archive/` for docs completed before it adopted the per-initiative folders. It is frozen; do not reorganize it or add to it.
 
 Plans never live in `~/.claude/plans/` or other harness defaults — they are repo-tracked artifacts.
 
@@ -69,7 +69,7 @@ Decisions are recorded where they are made and *read* where they cannot be skipp
 
 1. **Architecture pages (primary).** Each subsystem page under `docs/architecture/` carries a `Key Decisions` section — the durable "why this subsystem is shaped this way," organized by the axis people actually query on. Reading the relevant page is a required re-grounding step (above), so the rationale sits in the doc every Discovery is forced to open.
 2. **Code fence-signs.** A one-line `// deliberate: X, not Y, because <reason>` at the fence itself, surfaced during execution and refactor re-grounding (convention defined in the code-and-docs rules).
-3. **Completed plan docs (provenance).** Each initiative's plan ships to `completed/` carrying its Decision Record — source material, not a routine read surface.
+3. **Completed plan docs (provenance).** Each initiative's plan ships to `_completed/` carrying its Decision Record — source material, not a routine read surface.
 
 **Promotion.** The pre-merge checklist (feature-flow.md, step 2) graduates architecturally-durable decisions from the plan's Decision Record into the relevant architecture page's `Key Decisions`. Micro-decisions (naming, a test strategy) stay behind as plan-doc provenance or fence-signs — only architecturally-significant "why" graduates.
 

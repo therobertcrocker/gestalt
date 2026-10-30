@@ -9,7 +9,7 @@ Some work spans multiple initiatives that share a common architecture — for ex
 
 If the work fits in one initiative — even a multi-effort one — use the Feature or Refactor Flow directly. Arcs add overhead that only pays off when cross-initiative coordination is real.
 
-**Arc artifacts live together:** while the arc is active, every arc-level doc sits in `docs/initiatives/arcs/<ID>-<arc-name>/` — the concept, the arc-discovery, and the arc-plan. Per-initiative artifacts stay in the standard `discovery/` and `implementation/` locations until the initiative ships. Then they move into the arc's `completed/` folder (session-discipline.md, File locations).
+**Arc artifacts live together:** while the arc is active, every arc-level doc sits in `docs/initiatives/arcs/<ID>-<arc-name>/` — the concept, the arc-discovery, and the arc-plan. Per-initiative artifacts stay in the standard `discovery/` and `implementation/` locations until the initiative ships. Then they move into the arc's `_completed/` folder (session-discipline.md, File locations).
 
 ## Arc-Concept
 
@@ -45,4 +45,4 @@ The arc-level artifacts make per-initiative Discovery and Plan *lighter*, not ab
 
 ## Arc completion
 
-The arc is complete when its final initiative ships. There is no separate arc pre-merge checklist — each initiative runs its own per feature-flow.md or refactor-flow.md. The arc's row leaves Current Initiatives at that point (lifecycle.md). The final initiative's pre-merge step 4 also moves the arc artifacts (concept, arc-discovery, arc-plan) from `arcs/<ID>-<arc-name>/` into `completed/arcs/<ID>-<arc-name>/`, next to the `initiatives/` folder, and removes the empty `arcs/` folder (session-discipline.md, File locations).
+The arc is complete when its final initiative ships. There is no separate arc pre-merge checklist — each initiative runs its own per feature-flow.md or refactor-flow.md. The arc's row leaves Current Initiatives at that point (lifecycle.md). The final initiative's pre-merge step 4 also moves the arc artifacts (concept, arc-discovery, arc-plan) from `arcs/<ID>-<arc-name>/` into `_completed/arcs/<ID>-<arc-name>/`, next to the `initiatives/` folder, and removes the empty `arcs/` folder (session-discipline.md, File locations).

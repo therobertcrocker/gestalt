@@ -28,7 +28,7 @@
   1. A code review as if a senior engineer were reviewing a junior's PR, with `/code-review`. Critical but constructive; suggest specific improvements, don't only point at issues.
   2. Promote durable decisions: graduate architecturally significant entries from the plan's Decision Record into the relevant architecture page's Key Decisions, if the project has an architecture wiki. Micro-decisions stay in the plan as provenance.
   3. Update `docs/planned-work.md`: remove the finished initiative, add any new features or deferred items that surfaced.
-  4. Move the initiative's discovery and plan docs into `docs/initiatives/completed/<ID>-<initiative-name>/`. An arc initiative goes under `docs/initiatives/completed/arcs/<arc-ID>-<arc-name>/initiatives/<ID>-<initiative-name>/`; when the arc's last initiative ships, the arc artifacts move into `completed/arcs/<arc-ID>-<arc-name>/` too.
+  4. Move the initiative's discovery and plan docs into `docs/initiatives/_completed/<ID>-<initiative-name>/`. An arc initiative goes under `docs/initiatives/_completed/arcs/<arc-ID>-<arc-name>/initiatives/<ID>-<initiative-name>/`; when the arc's last initiative ships, the arc artifacts move into `_completed/arcs/<arc-ID>-<arc-name>/` too.
 - Update the tracker and docs on the feature branch before merging, so they land with the work.
 - Merge with `git merge --no-ff` and a message naming the initiative. Never `--squash` at merge: the branch commits are the historical record. A fast-forward is acceptable only when there is no boundary worth marking.
 - After every merge, assess whether the work warrants a patch, minor or major bump and tag accordingly. Check the current version with `git describe --tags --abbrev=0` first.

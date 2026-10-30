@@ -13,9 +13,9 @@ A reference for writing and maintaining project docs consistently. A project's o
 
 **Implementation Plan** (`docs/initiatives/implementation/<ID>-<name>-plan.md`) — a step-by-step plan for implementing an initiative: a phased breakdown of the tasks, split by commit, with the design rationale and any open questions to resolve during implementation. Carries the Decision Record for execution-time decisions (append and reconcile). Updated as needed during implementation, not after completion. Multi-effort docs initiatives use the docs-plan format instead (`templates/docs-plan.md` in the session-modes skill).
 
-**Arc Artifacts** (`docs/initiatives/arcs/<ID>-<arc-name>/`) — the arc concept, arc-discovery and arc-plan, co-located in the arc's folder. They move to `docs/initiatives/completed/arcs/<ID>-<arc-name>/` when the arc completes.
+**Arc Artifacts** (`docs/initiatives/arcs/<ID>-<arc-name>/`) — the arc concept, arc-discovery and arc-plan, co-located in the arc's folder. They move to `docs/initiatives/_completed/arcs/<ID>-<arc-name>/` when the arc completes.
 
-**Completed Initiatives** (`docs/initiatives/completed/`) — one folder per shipped initiative (`<ID>-<name>/`) that holds its discovery doc and plans. Arc initiatives nest under their arc's folder. See the session-modes skill, `session-discipline.md`, File locations.
+**Completed Initiatives** (`docs/initiatives/_completed/`) — one folder per shipped initiative (`<ID>-<name>/`) that holds its discovery doc and plans. Arc initiatives nest under their arc's folder. See the session-modes skill, `session-discipline.md`, File locations.
 
 **Architecture Page** (`docs/architecture/<subsystem>.md`) — the durable home for one subsystem's shape and Key Decisions. Template: `templates/arch-page.md` in the session-modes skill.
 
