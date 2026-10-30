@@ -1,10 +1,8 @@
 # Feature flow
 
-## 4 — Feature Flow
-
 Feature work follows three modes in sequence: **Discovery → Plan → Execution.** Each mode is its own session (or several). Each produces a specific artifact. Boundaries between modes are strict — see session-discipline.md for the discipline.
 
-### Discovery (1–2 sessions)
+## Discovery (1–2 sessions)
 
 **Goal:** understand the problem space, survey relevant existing code, identify approach options, surface tradeoffs and open questions.
 
@@ -14,7 +12,7 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 
 **Session ends when:** the discovery doc is written and Robert has signed off. Do not begin planning in the same session.
 
-### Plan (1–2 sessions)
+## Plan (1–2 sessions)
 
 **Goal:** turn the discovery doc into an executable plan — work broken into phases and commits, each phase sized for one execution session (session-discipline.md, Execution scope).
 
@@ -39,7 +37,7 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 
 **Session ends when:** the plan is written and Robert has signed off. Do not begin execution in the same session.
 
-### Execution (N sessions)
+## Execution (N sessions)
 
 **Goal:** implement the phase the hand-off names (session-discipline.md, Execution scope).
 
@@ -54,13 +52,13 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 
 **Session ends when:** the last commit in the session's scope lands.
 
-### Pre-Merge Checklist
+## Pre-Merge Checklist
 
 Before merging the feature branch, run the checklist from the git-and-delivery rules:
 
 1. Senior-engineer code review of the branch
 2. Promote durable decisions: graduate architecturally-significant entries from the plan's Decision Record into the relevant architecture page's `Key Decisions` section (see session-discipline.md, Decision records)
-3. Update planned-work doc (remove the initiative; capture deferred items that surfaced)
+3. Update `docs/planned-work.md` (remove the initiative; capture deferred items that surfaced)
 4. Move the initiative's discovery and plan docs into its `completed/` folder (session-discipline.md, File locations)
 
 The pre-merge checklist is itself a session (or part of the final execution session). It runs once per branch, after every initiative layered on that branch is complete; sub-initiatives and enabling refactors landed as commits mid-branch don't trigger it.

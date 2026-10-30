@@ -100,8 +100,8 @@ Show signatures or struct definitions where the shape is non-obvious.
 
 <!--
 One section per major component, flow, or sub-feature being touched. Use
-descriptive names (e.g. "Movement Phase Flow", "Bootstrap Convention",
-"Cargo co-location"), not "Area 1 / Area 2".
+descriptive names (e.g. "Login Flow", "Config Loading", "Cache Invalidation"),
+not "Area 1 / Area 2".
 -->
 
 ## Mutation Surface
@@ -134,7 +134,7 @@ What existing code, types, patterns, or behaviors get removed or superseded.
 
 <!--
 Explicit non-goals. Things that look like they're in scope but aren't. Deferred
-work that should be filed in planned-work.md as a separate Backlog entry.
+work that should be filed in docs/planned-work.md as a separate Backlog entry.
 -->
 
 ## Reference Exemplars

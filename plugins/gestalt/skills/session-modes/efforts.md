@@ -1,10 +1,8 @@
 # Efforts
 
-## 8 — Efforts
-
 An **effort** is the scaling mechanism for initiatives too large to be contained in one coherent Plan. It is not a work type — any type can split into efforts when its plan exceeds what one plan can coherently hold; features, refactors and docs initiatives have all done it.
 
-### The multi-effort flow
+## The multi-effort flow
 
 **Discovery → Overview Plan → per effort: (Plan as needed) → Execution.**
 
@@ -15,7 +13,7 @@ An **effort** is the scaling mechanism for initiatives too large to be contained
 - **Branch timing.** The overview plan is written and committed on `main`; the feature branch is cut right after. Every effort session, the per-effort Plan sessions included, runs on the branch. At the start of any effort session, confirm the branch is checked out before writing anything.
 - **The single Discovery owns the whole design surface.** Later efforts' design (their flows, modals, data) is settled in that one Discovery, not pushed into their own discovery passes or into execution-time decisions. At Plan time expect an overview plus N effort plans, not one monolithic plan.
 
-### Interim Effort Review
+## Interim Effort Review
 
 Every effort boundary gets an interim code review: after an effort's last phase is committed, before the next effort's Plan session. It is a senior-engineer `/code-review` of just that effort's work (the diff since the effort's first commit), catching structural issues while the next effort is still cheap to redirect.
 
@@ -23,6 +21,6 @@ The order at a boundary is: interim review → review `fix:` commits → effort 
 
 It is **distinct from the Pre-Merge Checklist**: the checklist still runs once at branch level after the final effort. An interim review does not trigger a merge or a tracker update — it is review only. Like all reviews, it runs on Opus (session-discipline.md, Model selection).
 
-### Effort vs. arc
+## Effort vs. arc
 
 If the slices are independently shippable initiatives (each with its own branch, merge, and lifecycle entry), it's an arc (arcs.md), not a multi-effort initiative. Efforts share one branch, one Discovery, and one pre-merge checklist; arc initiatives don't.

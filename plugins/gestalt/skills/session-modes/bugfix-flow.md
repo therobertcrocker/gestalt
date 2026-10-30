@@ -1,10 +1,8 @@
 # Bugfix flow
 
-## 6 — Bugfix Flow
-
 Bugfix work is **tiered** — most bugfixes skip Discovery and Plan entirely. The tier is determined by what's known going in.
 
-### Trivial Bugfix (single Execution session)
+## Trivial Bugfix (single Execution session)
 
 Use when:
 - The root cause is known or trivially diagnosable
@@ -14,7 +12,7 @@ Use when:
 
 Flow: **Backlog → Execution → Done.** No discovery, no plan. Single session: diagnose (if needed), fix, commit (`fix: <description>`), update tests.
 
-### Non-Trivial Bugfix (lightweight plan + Execution)
+## Non-Trivial Bugfix (lightweight plan + Execution)
 
 Use when:
 - Root cause needs investigation before a fix can be chosen
@@ -34,10 +32,10 @@ No separate Discovery session. If diagnosis is the hard part, that's the first h
 
 Execution is typically a single session, occasionally split if the fix is genuinely multi-commit.
 
-### Promoting a bugfix to a refactor or feature
+## Promoting a bugfix to a refactor or feature
 
 If investigation reveals the bug is symptomatic of a structural problem, the right fix may not be a bugfix at all. In that case: stop, change the `Type` field on the planned-work entry from `bugfix` to `refactor` or `feature`, and re-route through the appropriate flow. Mis-routing is recoverable (see lifecycle.md, Routing by type).
 
-### Pre-Merge Checklist
+## Pre-Merge Checklist
 
 For trivial bugfixes the pre-merge checklist may be lightweight or skipped (single-commit fixes don't need a senior-engineer code review pass). For non-trivial bugfixes, follow the full checklist as in Feature Flow.
