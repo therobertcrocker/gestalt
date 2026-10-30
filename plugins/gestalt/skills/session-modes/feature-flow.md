@@ -19,7 +19,7 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 **Artifacts** — see `templates/implementation-plan.md` in this skill folder:
 
 - **Top-level plan** — `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` when the initiative splits into efforts. Always required.
-- **Per-effort plans** — `docs/initiatives/implementation/<ID>-<initiative-name>-effort-N-plan.md`. Used when the initiative splits into efforts — see efforts.md for when to split and how effort planning is paced.
+- **Per-effort plans** — `docs/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md`. Used when the initiative splits into efforts — see efforts.md for when to split and how effort planning is paced.
 
 **Work breakdown levels.** Each level has one job, one artifact and one size rule. The template holds the budgets and the commands that check them.
 
@@ -31,7 +31,7 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 | Commit | One reviewable unit that builds green | `#### Commit` section | Split only at a real seam |
 | Task | One edit, as literal code | `##### Task` section | — |
 
-**Work breakdown overview.** A plan with phases opens its Work Breakdown with an **Overview** list: each phase, each commit's conventional message, and each commit's task count. It gives the big picture without a scroll through the tasks. Keep it in sync with the body when execution changes the breakdown.
+**Work breakdown overview.** A plan with phases opens its Work Breakdown with an **Overview** list: each phase, each commit's conventional message, and each commit's task count. It gives the big picture without a scroll through the tasks. Each phase line starts with a checkbox, ticked in the phase's last commit. Keep it in sync with the body when execution changes the breakdown.
 
 **Discipline.** Plans are self-implementable specs: code, not prose. Every task carries the literal edit (real signatures, full struct fields, the function body, exact messages), so a human can implement from it with no further design derivation. A task written as an English summary ("implement X that does Y") is a failed task. Test descriptions in plain language are the only exception. Plans are written in one pass: settle phases, commits and tasks in conversation first, then write the file. Quote Find anchors from the current source as you write; don't replay or script-check the anchors afterwards, the execution session re-grounds and the compiler catches misses. No padded commit splits: if a reviewer could hold two commits in their head as one unit, merge them.
 

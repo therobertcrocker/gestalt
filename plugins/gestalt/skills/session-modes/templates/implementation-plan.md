@@ -22,7 +22,7 @@ This template covers three file shapes:
      pacing is defined in efforts.md.
 
   3. Effort plan (multi-effort):
-         docs/initiatives/implementation/<ID>-<initiative-name>-effort-N-plan.md
+         docs/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md
      Same sections as a single-file plan, scoped to the effort: its own
      In Plain Words, Decisions Ratified, Decision Record, Shared Context,
      Out of Scope, then phases in Work Breakdown. It cites the overview's
@@ -119,11 +119,14 @@ resolved (which phase, which commit, or "first use").
 <!--
 Use only when the initiative is split into multiple efforts. One-line scope per
 effort in a table, with a link to each per-effort plan file.
+
+Done is a checkbox. The commit that finishes the effort's last phase ticks it
+([x]). In a table cell it shows as text, not as a rendered box.
 -->
 
-| # | Effort | Scope | File |
-|---|--------|-------|------|
-| 1 | [name] | [one-line scope] | [`-effort-1-plan.md`](./<ID>-<initiative-name>-effort-1-plan.md) |
+| Done | # | Effort | Scope | File |
+|------|---|--------|-------|------|
+| [ ] | 1 | [name] | [one-line scope] | [`<ID>.E1-…-plan.md`](./<ID>.E1-<initiative-name>-plan.md) |
 
 ## Shared Context
 
@@ -191,12 +194,15 @@ does this job).
 
 Keep it in sync: when execution adds, splits, or moves a commit or task, update
 this list in the same edit that changes the plan body.
+
+Each phase line starts with a checkbox. The execution session ticks it ([x]) in
+the phase's last commit, so the tick lands with the work.
 -->
 
-- **Phase 1 — [Title]**
+- [ ] **Phase 1 — [Title]**
   - Commit 1 — `feat: [conventional commit message]` (N tasks)
   - Commit 2 — `refactor: [conventional commit message]` (N tasks)
-- **Phase 2 — [Title]**
+- [ ] **Phase 2 — [Title]**
   - Commit 3 — `[type]: [conventional commit message]` (N tasks)
 
 ### Phase 1 — [Title]

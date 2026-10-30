@@ -53,9 +53,9 @@ The templates sit in `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/`. Co
 | Artifact | Template | Copy to |
 |---|---|---|
 | Discovery doc | `discovery.md` | `docs/initiatives/discovery/<ID>-<initiative-name>-discovery.md` |
-| Implementation plan | `implementation-plan.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `-overview-plan.md` plus `-effort-N-plan.md` files |
+| Implementation plan | `implementation-plan.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` plus `<ID>.E<n>-<initiative-name>-plan.md` files |
 | Docs-initiative plan | `docs-plan.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md` |
-| Execution hand-off | `execution-handoff.md` | `docs/initiatives/implementation/<ID>-<initiative-name>[-effort-N]-handoff.md`. Never committed; the session that uses it deletes it |
+| Execution hand-off | `execution-handoff.md` | `docs/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`. Never committed; the session that uses it deletes it |
 | Arc concept | `arc-concept.md` | `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` |
 | Architecture page | `arch-page.md` | `docs/architecture/<subsystem>.md`, or a subfolder per side of the system if the project has sides |
 

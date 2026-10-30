@@ -43,9 +43,11 @@ Movement between lifecycle stages (Backlog → Up Next → Current Initiative �
 
 **File names start with the initiative ID.** `<ID>` is the `docs/planned-work.md` ID exactly as written (`A.001.4`, `F.026`, `B.013`), followed by a hyphen and the initiative name in kebab-case: `A.001.4-goals-tags-core-discovery.md`. Arcs carry the ID on the folder and on each file. No underscores anywhere in initiative file or folder names. A project's docs from before it adopted this rule keep their names.
 
+**Work addresses.** A skill argument can point below the initiative with lettered segments after the ID: `.E<n>` for an effort, `.P<n>` for a phase. `F.001.P3` is phase 3 of a single-effort plan, `F.001.E2.P3` is phase 3 of effort 2, `A.001.7.E2` is effort 2 of arc initiative `A.001.7`. Phase numbers restart in each effort plan, so in a multi-effort initiative a phase needs its effort. An effort's files start with its address (`A.001.7.E2-…`), so the overview plan sorts first and the effort files follow in order. Phases have no files, and the tracker keeps the bare ID.
+
 - **Discovery docs** — `docs/initiatives/discovery/<ID>-<initiative-name>-discovery.md`
-- **Implementation plans** — `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md` for a single-effort initiative. A multi-effort initiative has an overview plan at `<ID>-<initiative-name>-overview-plan.md`, plus per-effort plans at `<ID>-<initiative-name>-effort-N-plan.md` when needed
-- **Execution hand-offs** — `docs/initiatives/implementation/<ID>-<initiative-name>[-effort-N]-handoff.md`
+- **Implementation plans** — `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md` for a single-effort initiative. A multi-effort initiative has an overview plan at `<ID>-<initiative-name>-overview-plan.md`, plus per-effort plans at `<ID>.E<n>-<initiative-name>-plan.md` when needed
+- **Execution hand-offs** — `docs/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`
 - **Arc artifacts** — `docs/initiatives/arcs/<ID>-<arc-name>/` holds `<ID>-<arc-name>-arc-concept.md`, `-arc-discovery.md`, and `-arc-plan.md` while the arc is active
 - **Completed artifacts** — when an initiative ships, its discovery doc and all its plans (single, overview, and effort plans) move into one folder. The folder name is the ID, a hyphen, and the kebab-case name. The files keep their names.
   - Standalone initiative — `docs/initiatives/_completed/<ID>-<initiative-name>/`

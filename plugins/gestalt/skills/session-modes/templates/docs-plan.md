@@ -66,11 +66,14 @@ resolves it ("Effort 2: exact template set", "Effort 3: the seeded page list").
 REQUIRED. One row per effort. "Depends on" makes the DAG scannable. Note here
 which efforts get their own lightweight Plan session and which execute straight
 from this file (efforts.md).
+
+Done is a checkbox. The commit that finishes the effort's last deliverable
+ticks it ([x]). In a table cell it shows as text, not as a rendered box.
 -->
 
-| # | Effort | Scope | Depends on |
-|---|--------|-------|------------|
-| 1 | [name] | [one-line scope] | — |
+| Done | # | Effort | Scope | Depends on |
+|------|---|--------|-------|------------|
+| [ ] | 1 | [name] | [one-line scope] | — |
 
 ## Per-Effort Breakdown
 
