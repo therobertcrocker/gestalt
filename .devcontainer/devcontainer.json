@@ -7,7 +7,7 @@
   // the native installer means no Node in the image
   "postCreateCommand": "curl -fsSL https://claude.ai/install.sh | bash",
   "mounts": [
-    "source=${localEnv:USERPROFILE}/.claude-devcontainer,target=/home/vscode/.claude,type=bind",
+    "source=${localEnv:HOME}/.claude-devcontainer,target=/home/vscode/.claude,type=bind",
     // deliberate: read-only, so a gestalt session reads gm-toolkit's live process docs but can't edit them
     "source=${localWorkspaceFolder}/../gm-toolkit,target=/workspaces/gm-toolkit,type=bind,readonly"
   ],

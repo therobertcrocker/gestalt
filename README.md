@@ -11,25 +11,29 @@ The repo is a Claude Code plugin marketplace. `.claude-plugin/marketplace.json` 
 
 # The devcontainer
 
-The repo runs in a VS Code devcontainer (`.devcontainer/`). The container itself is disposable. Three paths come from the Windows host as bind mounts:
+The repo runs in a VS Code devcontainer (`.devcontainer/`). The container itself is disposable. The host is Ubuntu in WSL2, and three paths come from it as bind mounts:
 
-- **`/workspaces/gestalt`** — this repo
-- **`~/.claude`** — all Claude Code state: memories, login, settings, plugins and transcripts. The host folder is `%USERPROFILE%\.claude-devcontainer`, shared with every other project container (gm-toolkit too). `CLAUDE_CONFIG_DIR` points here, so `.claude.json` lives inside the mount too
-- **`/workspaces/gm-toolkit`** — gm-toolkit, **read-only**. It is the source material for the extraction. The mount expects gm-toolkit and gestalt to be sibling folders on the host
+- **`/workspaces/gestalt`** — this repo, at `~/dev/gestalt` on the host
+- **`~/.claude`** — all Claude Code state: memories, login, settings, plugins and transcripts. The host folder is `~/.claude-devcontainer` in WSL, shared with every other project container (gm-toolkit too). `CLAUDE_CONFIG_DIR` points here, so `.claude.json` lives inside the mount too
+- **`/workspaces/gm-toolkit`** — gm-toolkit, **read-only**. It is the source material for the extraction. The mount expects gm-toolkit and gestalt to be sibling folders on the host (`~/dev/`)
 
 Everything else in the container is lost on a rebuild: side clones, `/tmp`, shell history and the `gh` login.
+
+Keep the repos and the state folder in the WSL filesystem, not under `/mnt/c`. A mount from `C:\` reaches the container over 9p, which is slow and once corrupted a git ref. If write errors come back on the state folder, the fallback is one shared named volume: every project mounts `source=claude-state,target=/home/vscode/.claude,type=volume`, with the state folder copied in once. A new volume may be owned by root and need a `chown`.
 
 <br/>
 
 ## First time
 
-1. Make sure `%USERPROFILE%\.claude-devcontainer` exists. If gm-toolkit's container already runs with the mount, it does. On a new machine, create it: an empty folder means a fresh Claude login with no memories.
-2. Clone this repo next to gm-toolkit, so the two are sibling folders:
-   ```powershell
-   cd <the folder that holds gm-toolkit>
+On a new machine, set up the host first: install Ubuntu (`wsl --install -d Ubuntu`), turn on Ubuntu in Docker Desktop's **Settings → Resources → WSL integration**, add the **WSL** extension to VS Code on Windows, and install `git` and `gh` in Ubuntu with `gh auth login` and `gh auth setup-git`.
+
+1. Make sure `~/.claude-devcontainer` exists in WSL. If gm-toolkit's container already runs with the mount, it does. On a new machine, create it: an empty folder means a fresh Claude login with no memories.
+2. In Ubuntu, clone this repo next to gm-toolkit, so the two are sibling folders:
+   ```sh
+   cd ~/dev
    git clone https://github.com/therobertcrocker/gestalt.git
    ```
-3. In VS Code, open the `gestalt` folder, then run **Dev Containers: Reopen in Container**.
+3. Open the folder from WSL: `cd ~/dev/gestalt && code .`. VS Code shows **WSL: Ubuntu** in the bottom-left corner. Then run **Dev Containers: Reopen in Container**.
 4. Do the checks in **After a start or rebuild** below.
 
 <br/>
