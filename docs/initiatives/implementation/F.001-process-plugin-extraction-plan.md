@@ -42,8 +42,10 @@ Build the plugin described in the discovery doc and adopt it in gestalt, on one 
 4. **The credential check passed early.** The same headless session reconciled the settings-declared marketplace and ran `git clone https://github.com/therobertcrocker/gestalt.git` with no prompt; the clone succeeded through the VS Code credential helper. The install then failed with "Marketplace file not found", as expected while `main` has no plugin. The log also shows `Skipped auto-recording gestalt@gestalt — enabled only by repo-authored settings`; part 2 confirms whether accepting the trust dialog installs it, and the README's `gh auth setup-git` step stays a fallback until then.
 5. **`C.001` is the dev-environment move; the rules weight check becomes `C.002`.** After Phase 1, two odd write errors on the 9p mount from `C:\` led Robert to file a chore: move gestalt, gm-toolkit, wayfinder-dice-lab and the shared `~/.claude` into the WSL filesystem, keeping the devcontainers for isolation, before Phase 2. That took `C.001` and created the Backlog's Chores table, so Phase 5, Task 3 now adds its row to that table as `C.002`. The move changes the mount source to `${localEnv:HOME}`, which Phase 4's devcontainer snippet must follow.
 6. **In the templates, the whole citation maps to the file name.** The templates cite `session-modes.md section N`, not a bare `section N`. Inside the skill the mapping gives bare file names, so `session-modes.md section 10, Re-grounding` became `session-discipline.md, Re-grounding`, with the `session-modes.md` prefix dropped. Several of these citations wrap across lines; each was edited as one unit.
-7. **Commit 4's skill check ran headless.** As in entry 3: `claude -p --plugin-dir plugins/gestalt`, with a prompt that listed the `gestalt:` skills and invoked `gestalt:session-modes`. The debug log shows `Loaded 1 skills from plugin gestalt`. The skill's router quoted its directory as `/workspaces/gestalt/plugins/gestalt/skills/session-modes/`, so `${CLAUDE_PLUGIN_ROOT}` substitution works in `SKILL.md` (decision 10).
+7. **Commit 4's skill check ran headless.** As in entry 3: `claude -p --plugin-dir plugins/gestalt`, with a prompt that listed the `gestalt:` skills and invoked `gestalt:session-modes`. The debug log shows `Loaded 1 skills from plugin gestalt`. The skill's router quoted its directory as `/workspaces/gestalt/plugins/gestalt/skills/session-modes/`, so `${CLAUDE_PLUGIN_ROOT}` substitution works in `SKILL.md` (decision 10). Robert then ran the interactive check in a `--plugin-dir` session: `/gestalt:session-modes` shows in the `/` menu and loads the router.
 8. **A fix after Commit 4 clears what the listed edits missed.** Robert's call after the Commit 4 review, landed as its own `fix:` commit. One gm-toolkit term ("sub-engine" in `refactor-flow.md`) and three gm-toolkit section names in the discovery template's examples became generic. Each bare `planned-work.md` file reference became `docs/planned-work.md`. The prepended `#` title now replaces each file's old numbered `## N —` heading, and the `###` subsections move up to `##`. In `lifecycle.md`, `## 3 — Routing by Type` became `## Routing by type`, which is the name the citations use.
+9. **Execution runs on Opus, not Fable.** Reverses the plan's Shared Context, which gave all five phases to Fable as process-redesign work. The structure-setting sessions were Discovery and Plan, and both are done. Phases 3 and 4 are full-contents tasks and snapshot copies with listed edits, the same kind of work as Phase 2, which ran on Opus without trouble. Phase 5's review runs on Opus under the rules anyway. Robert's call on 2026-10-30.
+10. **Commit 5 clears the gm-toolkit leftovers that Tasks 1 and 2 left in.** Robert's call before Commit 5, the same kind of clean-up as entry 8. In the diagram kit: the title becomes `# Diagram kit`; the type table's examples column becomes generic; "a GM" becomes "a user"; the nesting-inversion note points at the reference example below it; "our flow diagrams" and the engine-goroutine example become generic; the two `(Decision 7)` citations, which point at a gm-toolkit architecture decision, are dropped; the reference example keeps its diagram but is retitled "a driver↔engine seam" and labelled as a sample from one project. In the style guide, the discovery-doc example `## 1. Turn Scaffolding` becomes `## 1 — Overview`, which also matches the guide's own numbered-heading rule.
 
 ---
 
@@ -55,7 +57,7 @@ Build the plugin described in the discovery doc and adopt it in gestalt, on one 
 
 ## Shared Context
 
-**Model.** Fable for all five phases: this is a process-redesign initiative whose output constrains every later session in every project (CLAUDE.md, Model Selection).
+**Model.** Opus for all five phases. The design was settled in Discovery and Plan; execution transcribes it (Decision Record entry 9).
 
 **Edits.** Project files change only through the Edit and Write tools. Snapshot files under `sources/` are read, never edited. Where a task says "copy lines N–M of `<snapshot>`", the executor reads those lines with the Read tool and writes the new file with the Write tool, then applies the listed edits with Edit. Line numbers are as of snapshot commit `5db4d96` (gm-toolkit) and are stable because the snapshot is frozen.
 
@@ -1303,7 +1305,7 @@ For unresolved *design* questions only — not deferred implementation work. A q
 Discovery docs follow the heading conventions above, with a structure specific to their purpose (`templates/discovery.md` in the session-modes skill).
 
 - `#` — document title only
-- `##` — major sections: numbered features (`## 1. Turn Scaffolding`) or named concepts (`## Responsibilities`)
+- `##` — major sections: numbered features (`## 1 — Overview`) or named concepts (`## Responsibilities`)
 - `###` — sub-sections within a major section: Inputs, Resolution Steps, Outputs, Notes, Design Notes
 - `####` — where needed, such as phases inside a multi-phase process
 
@@ -1349,6 +1351,8 @@ inline Mermaid, never image files. Verify new syntax in the open-source renderer
 (mermaid.live or the IDE preview), not a proprietary editor.
 ```
 
+Then make the gm-toolkit specifics generic: the title, the type table's examples column, "a GM", the nesting-inversion note, "our flow diagrams", the engine-goroutine example, the two `(Decision 7)` citations, and the reference example's title and intro (Decision Record entry 10).
+
 The kit's gotchas already say bare `block` (decision 9(c)); no edit there. `grep -n "block-beta" plugins/gestalt/skills/diagram-kit/SKILL.md` must return nothing; if it does, replace each occurrence with `block` and note it in the Decision Record.
 
 ##### Task 3 — `plugins/gestalt/skills/go/SKILL.md`
@@ -1388,7 +1392,7 @@ When a single constant is needed: put a package-level `const` in the package tha
 feat: add the style-guide, diagram-kit and go skills
 
 - style-guide keeps the generic conventions; gm-toolkit's journal sections stay behind
-- diagram-kit moves whole, with the authorship rule folded in; bare block stands
+- diagram-kit moves whole, with the authorship rule folded in and the gm-toolkit examples made generic; bare block stands
 - go holds the two Go-only rules: no type aliases by default, no one-constant packages
 ```
 
