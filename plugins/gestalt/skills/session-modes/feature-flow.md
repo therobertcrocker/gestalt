@@ -48,7 +48,7 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 - Commit using conventional commit format (git-and-delivery rules); a plan-defined commit lands as soon as it passes the gate
 - If the work surfaces a scope change, pause and discuss before proceeding
 
-**Artifact:** code, committed per the git-and-delivery rules: one checkpoint commit per session, squashed per effort at the effort boundary, never squashed at merge.
+**Artifact:** code, committed per the git-and-delivery rules: at least one checkpoint commit per session, squashed per effort at the effort boundary, never squashed at merge.
 
 **Session ends when:** the last commit in the session's scope lands.
 
