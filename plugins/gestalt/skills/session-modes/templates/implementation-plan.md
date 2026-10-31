@@ -32,8 +32,8 @@ SIZE: two budgets, for single-file and effort plans. The overview has none.
   - Front matter (every line above Work Breakdown): about 400. Every phase
     session reads it again. Past it, the effort carries too many decisions:
     split the effort.
-  - Each phase: about 800 lines, from the phase heading to the next one.
-    Past it, split the phase.
+  - Each phase: about 1,500 lines, from the phase heading to the next one,
+    and at most about 4 commits. Past either, split the phase.
 Spend lines on literal code in tasks, not on prose. Commits have no line
 budget; split them only at real seams (KEY RULE 1). Past a budget, split, or
 record why not in one line under Decisions Ratified in Planning.
@@ -165,7 +165,8 @@ GRANULARITY GUIDE:
   - Overview plan:               "### Effort N" sections (file shape 2 above).
 
 KEY RULE 1: Each phase = one execution session. Size each phase to the phase
-budget above, typically 2–3 commits. Split phases and commits only at real seams:
+budget above, typically 2–3 commits, at most about 4. Split phases and commits
+only at real seams:
 a green-build point, a type-system or cross-package boundary, or a behavior
 change. Title each commit with its conventional commit message so the execution
 session knows the deliverable shape going in. In an effort plan or an overview

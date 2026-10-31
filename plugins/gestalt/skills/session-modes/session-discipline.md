@@ -12,7 +12,7 @@ This applies to refactor and bugfix Plan sessions as well, even when the plan is
 
 ## Execution scope
 
-One phase is one execution session (feature-flow.md, Work breakdown levels). The Plan session sizes each phase to the phase budget in `templates/implementation-plan.md` (in this skill folder) and splits phases only at real seams: a green-build point, a type-system or cross-package boundary, or a behavior change. A phase typically holds 2–3 commits.
+One phase is one execution session (feature-flow.md, Work breakdown levels). The Plan session sizes each phase to the phase budget in `templates/implementation-plan.md` (in this skill folder) and splits phases only at real seams: a green-build point, a type-system or cross-package boundary, or a behavior change. A phase typically holds 2–3 commits and at most about 4.
 
 The hand-off names the phase (for example, "Phase 2, Commits 3–4"). It can override the default with a different scope. When the hand-off names no scope, the session covers one phase. The phase is the boundary, not the commit: if the next commit is in the same phase, keep going, even when the hand-off scoped only one commit. Inside a multi-commit session, each commit is still its own unit: re-ground, log decisions, give the wrap-up summary and review, commit when the gate passes, then start the next commit without asking (git-and-delivery rules).
 

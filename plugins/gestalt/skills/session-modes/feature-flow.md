@@ -27,7 +27,7 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 |---|---|---|---|
 | Initiative | One branch, one discovery doc, one merge | Top-level plan. With efforts, its Work Breakdown lists the efforts. | None |
 | Effort | One design surface; its boundary is a review point (efforts.md) | Effort plan: front matter plus phases. With one effort, the top-level plan is the effort plan. | Front matter about 400 lines; every phase session reads it again |
-| Phase | One execution session | `### Phase` section | About 800 lines |
+| Phase | One execution session | `### Phase` section | About 1,500 lines; at most about 4 commits |
 | Commit | One reviewable unit that builds green | `#### Commit` section | Split only at a real seam |
 | Task | One edit, as literal code | `##### Task` section | — |
 
