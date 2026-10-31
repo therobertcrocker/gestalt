@@ -1,6 +1,6 @@
 ---
 name: effort-close
-description: Close one effort of a multi-effort initiative by its work address, in one session - interim review, fix commits for the picked findings, then the effort squash. Run by hand after the effort's last phase is committed.
+description: Close one effort of a multi-effort initiative by its work address, in one session - interim review, one fix commit for the picked findings, then the effort squash. Run by hand after the effort's last phase is committed.
 disable-model-invocation: true
 argument-hint: "<ID>.E<n>"
 ---
@@ -17,9 +17,11 @@ A **stop** waits for Robert. Between stops, go on without asking.
    - Effort n's Done box is ticked in the Effort Summary.
    - `git status --porcelain` prints nothing.
    - The gate passes: the build and test command in the project's `CLAUDE.md`.
-3. **Base.** The base is the commit just before effort n's first commit.
-   - E1: `git merge-base main HEAD`.
-   - A later effort: in `git log --reverse --format='%h %s' main..HEAD` (oldest first), find the commit whose subject starts `feat: <ID> effort <n-1> —`. The `fix:` commits listed right below it belong to that effort too. The base is the last of them, or the `feat:` commit itself when there are none.
+3. **Base.** Every commit of effort n carries the scope `E<n>`, such as `feat(E2): ...` (git-and-delivery rules). The base is the commit just before the first of them. List them, oldest first:
+   ```sh
+   git log --reverse --format='%h %s' main..HEAD | grep -E '^[0-9a-f]+ [a-z]+\(E<n>\)!?:'
+   ```
+   The base is the parent of the first commit listed: `git rev-parse <first>^`. If nothing is listed, say so and ask Robert for the base. Then check that the effort is one unbroken run: `git log --format='%h %s' <base>..HEAD | grep -vE '^[0-9a-f]+ [a-z]+\(E<n>\)!?:'` prints nothing. If it prints commits, show them and stop; Robert decides where they belong.
 
    Show the base and `git log --oneline <base>..HEAD`. **Stop:** Robert confirms the base or names another one.
 4. **Review.** `/code-review` with no target reviews `@{upstream}...HEAD`. Point the upstream at the base for the length of the review:
@@ -30,8 +32,8 @@ A **stop** waits for Robert. Between stops, go on without asking.
    ```
    If the old upstream is `review/$0-base`, an earlier run stopped mid-review and the real upstream was lost: ask Robert what it was. Run `/code-review high` with no target, through the Skill tool. It runs as a background agent: wait for its findings before you go on. Then put the upstream back with `git branch --set-upstream-to=<old upstream>`, or `git branch --unset-upstream` if there was none, and delete the temporary branch with `git branch -D review/$0-base`.
 5. **Pick.** Show every finding, numbered, with its `file:line` and summary. **Stop:** Robert picks the findings to fix. Ask with AskUserQuestion, multi-select; with more than four findings, add questions rather than drop any, and split the findings evenly so each question has at least two options.
-6. **Fixes.** Note the effort head: `git rev-parse HEAD`. Then, for each pick in turn: edit with Edit and Write only, run the gate, give the wrap-up summary and short review, `git add -A`, and commit as its own `fix: <what it fixes>` commit. Running this skill approves each pick, so do not wait for a go-ahead between fixes. If a fix changes what the effort's plan says, log it in that plan's Decision Record and fix the plan body before the commit. If a fix turns into a design call, stop and ask.
-7. **Squash check.** Show the `fix:` commits: `git log --oneline <effort head>..HEAD`. Find whether the effort was pushed: `git branch -r --contains <first effort commit>`, where the first effort commit is the oldest in `git rev-list <base>..<effort head>`. Any output means it was pushed. **Stop:** Robert approves the squash. If the effort was pushed, say that the squash rewrites pushed history and needs a force-push.
+6. **Fixes.** Note the effort head: `git rev-parse HEAD`. If Robert picked nothing, go to step 7. Otherwise, for each pick in turn: edit with Edit and Write only, then run the gate. Running this skill approves each pick, so do not wait for a go-ahead between fixes. If a fix changes what the effort's plan says, log it in that plan's Decision Record and fix the plan body. If a fix turns into a design call, stop and ask. After the last pick, give the wrap-up summary and short review, `git add -A`, and make one commit for all the picks. Write its message file with the Write tool in the scratchpad: the subject `fix(E<n>): address effort review findings`, a blank line, one bullet per pick that says what it fixes, then the session's attribution lines. Commit with `git commit -F <message file>`.
+7. **Squash check.** Show the fix commit, if there is one: `git log --oneline <effort head>..HEAD`. Find whether the effort was pushed: `git branch -r --contains <first effort commit>`, where the first effort commit is the oldest in `git rev-list <base>..<effort head>`. Any output means it was pushed. **Stop:** Robert approves the squash. If the effort was pushed, say that the squash rewrites pushed history and needs a force-push.
 8. **Squash.** Write the message file with the Write tool in the scratchpad: the subject `feat: <ID> effort <n> — <effort name>`, a blank line, one bullet per commit in `<base>..<effort head>` that sums it up, then the session's attribution lines. Then:
    ```sh
    git branch backup/$0-pre-squash HEAD &&
@@ -41,4 +43,4 @@ A **stop** waits for Robert. Between stops, go on without asking.
    git log --oneline <base>..HEAD &&
    git diff --quiet backup/$0-pre-squash HEAD && echo "tree identical"
    ```
-   Run it as one command; a failed step stops the rest. If `backup/$0-pre-squash` already exists from an earlier run, the first step fails: show that branch and stop, because Robert decides whether it still matters. The log shows the one `feat:` commit with the `fix:` commits on top. If any step fails, or `tree identical` is not printed, stop: the backup branch holds the state before the squash. Leave the backup branch for Robert to delete. If the effort was pushed, say that `git push --force-with-lease` is needed. Do not push.
+   Run it as one command; a failed step stops the rest. If `backup/$0-pre-squash` already exists from an earlier run, the first step fails: show that branch and stop, because Robert decides whether it still matters. The log shows the one `feat:` commit, with the fix commit on top if there is one. If any step fails, or `tree identical` is not printed, stop: the backup branch holds the state before the squash. Leave the backup branch for Robert to delete. If the effort was pushed, say that `git push --force-with-lease` is needed. Do not push.

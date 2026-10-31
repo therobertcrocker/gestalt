@@ -168,7 +168,9 @@ KEY RULE 1: Each phase = one execution session. Size each phase to the phase
 budget above, typically 2–3 commits. Split phases and commits only at real seams:
 a green-build point, a type-system or cross-package boundary, or a behavior
 change. Title each commit with its conventional commit message so the execution
-session knows the deliverable shape going in.
+session knows the deliverable shape going in. In an effort plan or an overview
+plan's Effort section, the message carries the effort scope: `feat(E2): ...`
+(git-and-delivery rules).
 
 KEY RULE 2: Every task is self-contained and executable on its own — it IS the
 edit, not a description of one (see the per-task format below). The full

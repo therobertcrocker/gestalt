@@ -8,6 +8,7 @@
 ## Commits
 
 - Conventional commits: `type: description` with `feat:`, `fix:`, `chore:`, `docs:`, `refactor:`, `test:`. Imperative mood, concise.
+- In a multi-effort initiative, every commit made for effort n carries the scope `E<n>`: `feat(E2): ...`, `docs(E2): ...`. That includes the effort's own plan doc and its review-fix commit. Discovery and overview-plan commits stay unscoped, and so does the effort's squash commit. `/gestalt:effort-close` finds the effort's commits by this scope.
 - Stage with `git add -A`, every time. Don't check status first and don't hand-pick files; gitignored files stay ignored, and anything unexpected is caught at review.
 - All changes are committed, even ones unrelated to the work at hand. Lost work is unacceptable. If unsure whether a change belongs, ask. The one exception: session hand-off files are never committed.
 - A multi-line commit message goes through `git commit -F <file>`, the file written with the Write tool in the scratchpad. Never chain a heredoc with `&& \`; it runs the message as shell commands.
@@ -20,7 +21,7 @@
 
 - Every execution session ends with at least one commit as its checkpoint; a plan-defined scope lands as the plan's commits. `wip:` is acceptable mid-session; a clean conventional commit is preferred.
 - At each effort boundary, squash that effort's commits into one `feat: <ID> effort N — <name>` commit whose body bullets summarise the former commits. `/gestalt:effort-close <ID>.E<n>` runs the whole boundary: review, fixes, a `backup/` branch, the squash and a check that the tree is identical. Ask before rewriting anything already pushed.
-- Fixes found after an effort's squash, and review-fix commits made before it, stay as their own `fix:` commits beside the effort commit. Robert wants to see them. Replay them on top (`commit-tree` plus `rebase --onto`); never fold them in.
+- The effort close makes one review-fix commit, `fix(E<n>): address effort review findings`, with one bullet per fix. It and any fixes found after the squash stay as their own `fix` commits beside the effort commit. Robert wants to see them. Replay them on top (`commit-tree` plus `rebase --onto`); never fold them in.
 
 ## Merging and tagging
 
