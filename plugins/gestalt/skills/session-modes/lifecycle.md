@@ -48,7 +48,7 @@ Promotion from Up Next to Current Initiative is Robert's explicit call. The writ
 
 ## Stage 4 — Done
 
-When all execution phases land and the branch is merged:
+When all execution phases land, `/gestalt:initiative-close <ID>` runs the pre-merge checklist, merges the branch and does both steps below:
 
 1. Remove the row from the Current Initiatives table and the write-up from `docs/planned-work.md`
 2. Tag the version bump if warranted (git-and-delivery rules)

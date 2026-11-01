@@ -38,4 +38,4 @@ If investigation reveals the bug is symptomatic of a structural problem, the rig
 
 ## Pre-Merge Checklist
 
-For trivial bugfixes the pre-merge checklist may be lightweight or skipped (single-commit fixes don't need a senior-engineer code review pass). For non-trivial bugfixes, follow the full checklist as in Feature Flow.
+For trivial bugfixes the pre-merge checklist may be lightweight or skipped (single-commit fixes don't need a senior-engineer code review pass). For non-trivial bugfixes, follow the full checklist as in Feature Flow, with `/gestalt:initiative-close <ID>`.

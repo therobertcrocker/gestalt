@@ -13,6 +13,8 @@ A reference for writing and maintaining project docs consistently. A project's o
 
 **Implementation Plan** (`docs/initiatives/implementation/<ID>-<name>-plan.md`) — a step-by-step plan for implementing an initiative: a phased breakdown of the tasks, split by commit, with the design rationale and any open questions to resolve during implementation. Carries the Decision Record for execution-time decisions (append and reconcile). Updated as needed during implementation, not after completion. Multi-effort docs initiatives use the docs-plan format instead (`templates/docs-plan.md` in the session-modes skill).
 
+**Retro** (`docs/initiatives/implementation/<ID>-<name>-retro.md`) — written when an initiative or arc closes: what changed in plain words, five fixed questions, a rating table and follow-up rows. Template: `templates/retro.md` in the session-modes skill. Moves to `_completed/` with the plans; an arc's retro sits with the arc artifacts.
+
 **Arc Artifacts** (`docs/initiatives/arcs/<ID>-<arc-name>/`) — the arc concept, arc-discovery and arc-plan, co-located in the arc's folder. They move to `docs/initiatives/_completed/arcs/<ID>-<arc-name>/` when the arc completes.
 
 **Completed Initiatives** (`docs/initiatives/_completed/`) — one folder per shipped initiative (`<ID>-<name>/`) that holds its discovery doc and plans. Arc initiatives nest under their arc's folder. See the session-modes skill, `session-discipline.md`, File locations.
