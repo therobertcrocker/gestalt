@@ -36,7 +36,9 @@ Full write-ups below.
 
 ### Features
 
-_None._
+| ID      | Item | Trigger | Detail |
+|---------|------|---------|--------|
+| `F.004` | Lighter change flow for gestalt | `--` | The full Discovery, Plan, Execution and close flow is too heavy for this repo's process-doc edits; talk through a lighter path for changes here and write it into this repo's `CLAUDE.md` |
 
 ### Chores
 
