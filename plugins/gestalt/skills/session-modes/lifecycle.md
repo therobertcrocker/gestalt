@@ -44,11 +44,11 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 
 Promotion from Up Next to Current Initiative is Robert's explicit call. The write-up (or arc concept doc) is drafted at promotion time, not in advance.
 
-**Arc rows:** when an arc is promoted, its row stays in Current Initiatives for the arc's whole duration — the queue should show the arc is live. Its constituent initiatives get their own rows (and write-ups) as they are promoted, referencing the arc plan. The arc row is removed when the final initiative ships.
+**Arc rows:** when an arc is promoted, its row stays in Current Initiatives for the arc's whole duration — the queue should show the arc is live. Its constituent initiatives get their own rows (and write-ups) as they are promoted, referencing the arc plan. The arc row is removed when the arc closes, after its final initiative ships (arcs.md, Arc completion).
 
 ## Stage 4 — Done
 
-When all execution phases land and the branch is merged:
+When all execution phases land, `/gestalt:initiative-close <ID>` runs the pre-merge checklist, merges the branch and does both steps below:
 
 1. Remove the row from the Current Initiatives table and the write-up from `docs/planned-work.md`
 2. Tag the version bump if warranted (git-and-delivery rules)

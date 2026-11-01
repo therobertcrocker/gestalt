@@ -57,6 +57,7 @@ The templates sit in `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/`. Co
 | Docs-initiative plan | `docs-plan.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md` |
 | Execution hand-off | `execution-handoff.md` | `docs/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`. Never committed; the session that uses it deletes it |
 | Arc concept | `arc-concept.md` | `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` |
+| Retro | `retro.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-retro.md`; an arc's is `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-retro.md` |
 | Architecture page | `arch-page.md` | `docs/architecture/<subsystem>.md`, or a subfolder per side of the system if the project has sides |
 
 Every initiative artifact opens with a required **In Plain Words** section: what, why and how it fits, in plain words, under 15 lines, scoped to its own layer. Inside a plan, each phase opens with a required one-or-two-sentence **In plain words** line. Templates are living documents: update one when a real doc shows a missing or unused section.
