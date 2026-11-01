@@ -44,4 +44,4 @@ A **stop** waits for Robert. Between stops, go on without asking.
    git checkout main && git merge --no-ff <feature branch> -F <message file>
    ```
    If the merge conflicts, run `git merge --abort`, show the conflicting files and stop.
-10. **Tag.** Find the current version with `git describe --tags --abbrev=0`. Propose a patch, minor or major bump with one line of why, or say that no bump is warranted and why. **Stop:** Robert approves the version. Tag the merge commit with `git tag <version>`. Do not push. End the wrap-up with the retro's In Plain Words and verdict.
+10. **Tag.** Find the current version with `git describe --tags --abbrev=0`. Propose a patch, minor or major bump with one line of why, or say that no bump is warranted and why. **Stop:** Robert approves the version. Tag the merge commit with `git tag <version>`. Do not push. End the wrap-up with the retro's In Plain Words and verdict. If `$0` is in an arc and was the last initiative in the arc-plan to merge, name the next step: `/gestalt:arc-close <arc-ID>` in a new session.

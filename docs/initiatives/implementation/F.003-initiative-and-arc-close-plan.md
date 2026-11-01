@@ -47,7 +47,7 @@ One phase, two commits: the retro template and initiative close first, then arc 
 
 **Overview**
 
-- [ ] **Phase 1 — Close skills**
+- [x] **Phase 1 — Close skills**
   - Commit 1 — `feat: add the retro template and initiative-close skill` (16 tasks)
   - Commit 2 — `feat: add arc-close skill` (10 tasks)
 

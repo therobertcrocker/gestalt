@@ -49,11 +49,11 @@ Movement between lifecycle stages (Backlog → Up Next → Current Initiative �
 - **Implementation plans** — `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md` for a single-effort initiative. A multi-effort initiative has an overview plan at `<ID>-<initiative-name>-overview-plan.md`, plus per-effort plans at `<ID>.E<n>-<initiative-name>-plan.md` when needed
 - **Execution hand-offs** — `docs/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`
 - **Retros** — `docs/initiatives/implementation/<ID>-<initiative-name>-retro.md`, written by `/gestalt:initiative-close`
-- **Arc artifacts** — `docs/initiatives/arcs/<ID>-<arc-name>/` holds `<ID>-<arc-name>-arc-concept.md`, `-arc-discovery.md`, and `-arc-plan.md` while the arc is active
+- **Arc artifacts** — `docs/initiatives/arcs/<ID>-<arc-name>/` holds `<ID>-<arc-name>-arc-concept.md`, `-arc-discovery.md`, and `-arc-plan.md` while the arc is active, and `-arc-retro.md` once `/gestalt:arc-close` writes it
 - **Completed artifacts** — when an initiative ships, its discovery doc, all its plans (single, overview, and effort plans) and its retro move into one folder. The folder name is the ID, a hyphen, and the kebab-case name. The files keep their names.
   - Standalone initiative — `docs/initiatives/_completed/<ID>-<initiative-name>/`
   - Arc initiative — `docs/initiatives/_completed/arcs/<arc-ID>-<arc-name>/initiatives/<ID>-<initiative-name>/`. The arc folder is created when the arc's first initiative ships.
-  - Arc — when the arc completes, its artifacts move into `docs/initiatives/_completed/arcs/<arc-ID>-<arc-name>/`, next to `initiatives/`
+  - Arc — when the arc closes, with `/gestalt:arc-close`, its artifacts move into `docs/initiatives/_completed/arcs/<arc-ID>-<arc-name>/`, next to `initiatives/`
 - **Archive** — a project may keep `docs/initiatives/_completed/_archive/` for docs completed before it adopted the per-initiative folders. It is frozen; do not reorganize it or add to it.
 
 Plans never live in `~/.claude/plans/` or other harness defaults — they are repo-tracked artifacts.

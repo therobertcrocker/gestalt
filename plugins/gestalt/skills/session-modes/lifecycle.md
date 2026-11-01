@@ -44,7 +44,7 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 
 Promotion from Up Next to Current Initiative is Robert's explicit call. The write-up (or arc concept doc) is drafted at promotion time, not in advance.
 
-**Arc rows:** when an arc is promoted, its row stays in Current Initiatives for the arc's whole duration — the queue should show the arc is live. Its constituent initiatives get their own rows (and write-ups) as they are promoted, referencing the arc plan. The arc row is removed when the final initiative ships.
+**Arc rows:** when an arc is promoted, its row stays in Current Initiatives for the arc's whole duration — the queue should show the arc is live. Its constituent initiatives get their own rows (and write-ups) as they are promoted, referencing the arc plan. The arc row is removed when the arc closes, after its final initiative ships (arcs.md, Arc completion).
 
 ## Stage 4 — Done
 
