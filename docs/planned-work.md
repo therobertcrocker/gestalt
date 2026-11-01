@@ -10,6 +10,7 @@ Full write-ups below.
 
 | ID      | Item | Type | Status | Detail |
 |---------|------|------|--------|--------|
+| `F.003` | Initiative and arc close skills | `feature` | In-Progress | Add `/gestalt:initiative-close <ID>` and `/gestalt:arc-close <ID>`: review, fix commit, plain-words summary and a retro, then the close-out steps |
 
 ---
 <br/>
@@ -49,4 +50,14 @@ _None._
 
 # Initiative Write-Ups
 
-_None._
+## F.003 — Initiative and Arc Close Skills
+
+**Problem:** The pre-merge checklist (review, promote decisions, tracker, move docs) has no skill; Robert runs it from memory, the same gap `/gestalt:effort-close` closed for effort boundaries. An arc has no close step at all: it ends when its last initiative merges, and nothing looks back at the arc as a whole. No session asks whether the work did what it set out to do, or what it changed about the project.
+
+**Approach:** Two hand-run skills shaped like `effort-close`. `/gestalt:initiative-close <ID>` runs the whole pre-merge checklist: a code review, one fix commit for the picked findings, a plain-words summary, and a retro that answers five fixed questions while the review runs. `/gestalt:arc-close <ID>` does the same one level up, reading each initiative's retro.
+
+**Unlocks:** Every initiative and arc ends the same way, with one command. The retros build a record of how initiatives went, which later arcs and process changes can read.
+
+**Trigger:** `--`
+
+**Status:** In-Progress. The discovery doc is `docs/initiatives/discovery/F.003-initiative-and-arc-close-discovery.md`.
