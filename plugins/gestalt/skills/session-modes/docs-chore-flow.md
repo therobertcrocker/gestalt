@@ -20,4 +20,4 @@ If a chore turns out to require design (e.g. "bump this dep" reveals an API chan
 
 ## Pre-Merge Checklist
 
-Minimal for single-session docs and chores: no senior-engineer code review pass for docs-only changes; remove the entry from `docs/planned-work.md`. Multi-effort docs initiatives run the standard checklist with `/gestalt:initiative-close <ID>` (feature-flow.md), minus the code review when no code changed.
+Minimal for single-session docs and chores: no senior-engineer code review pass for docs-only changes; remove the entry from `dev_journals/planned-work.md`. Multi-effort docs initiatives run the standard checklist with `/gestalt:initiative-close <ID>` (feature-flow.md), minus the code review when no code changed.

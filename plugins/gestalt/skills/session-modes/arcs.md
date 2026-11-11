@@ -9,17 +9,17 @@ Some work spans multiple initiatives that share a common architecture — for ex
 
 If the work fits in one initiative — even a multi-effort one — use the Feature or Refactor Flow directly. Arcs add overhead that only pays off when cross-initiative coordination is real.
 
-**Arc artifacts live together:** while the arc is active, every arc-level doc sits in `docs/initiatives/arcs/<ID>-<arc-name>/` — the concept, the arc-discovery, and the arc-plan. Per-initiative artifacts stay in the standard `discovery/` and `implementation/` locations until the initiative ships. Then they move into the arc's `_completed/` folder (session-discipline.md, File locations).
+**Arc artifacts live together:** while the arc is active, every arc-level doc sits in `dev_journals/initiatives/arcs/<ID>-<arc-name>/` — the concept, the arc-discovery, and the arc-plan. Per-initiative artifacts stay in the standard `discovery/` and `implementation/` locations until the initiative ships. Then they move into the arc's `_completed/` folder (session-discipline.md, File locations).
 
 ## Arc-Concept
 
-The arc's Concept is a standalone doc, `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` (template: `templates/arc-concept.md` in this skill folder), drafted when the arc is promoted to Current Initiatives (lifecycle.md). Before promotion, an arc waits in the Backlog's Arcs subsection as a normal row. It captures the vision, why the work is an arc rather than one initiative, and the rough candidate initiatives — before any Discovery.
+The arc's Concept is a standalone doc, `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` (template: `templates/arc-concept.md` in this skill folder), drafted when the arc is promoted to Current Initiatives (lifecycle.md). Before promotion, an arc waits in the Backlog's Arcs subsection as a normal row. It captures the vision, why the work is an arc rather than one initiative, and the rough candidate initiatives — before any Discovery.
 
 ## Arc-Discovery (1–2 sessions)
 
 **Goal:** ratify the cross-cutting architectural decisions that will constrain *every* initiative in the arc — framework, boundaries, conventions, extensibility patterns. Do not slice into initiatives yet; that is Arc-Plan's job.
 
-**Artifact:** `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-discovery.md`. Structurally similar to a per-initiative discovery doc, but its decisions apply to the whole arc, and its Open Questions may be routed to specific initiatives later (in Arc-Plan).
+**Artifact:** `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-discovery.md`. Structurally similar to a per-initiative discovery doc, but its decisions apply to the whole arc, and its Open Questions may be routed to specific initiatives later (in Arc-Plan).
 
 **Session ends when:** the arc-discovery doc is written and Robert has signed off. Do not begin Arc-Plan in the same session.
 
@@ -27,7 +27,7 @@ The arc's Concept is a standalone doc, `docs/initiatives/arcs/<ID>-<arc-name>/<I
 
 **Goal:** define the initiatives that make up the arc, in what order, with what boundaries.
 
-**Artifact:** `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-plan.md`. Contains:
+**Artifact:** `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-plan.md`. Contains:
 
 - **Initiative list** — ordered, with dependencies surfaced (a DAG, not necessarily a flat sequence — some entries can parallelize).
 - **Per-initiative boundary** — what is in scope for each initiative, what is punted to a later entry.
@@ -35,7 +35,7 @@ The arc's Concept is a standalone doc, `docs/initiatives/arcs/<ID>-<arc-name>/<I
 - **Cross-arc dependencies** — anything outside the arc that gates an initiative: prerequisites in other layers, data, tooling.
 - **Out-of-arc deferrals** — explicit list of work the arc does not address.
 
-**Session ends when:** the arc-plan is written and Robert has signed off. Each initiative in the arc is added to `docs/planned-work.md` as a standard Backlog or Up-Next entry that references the arc-plan.
+**Session ends when:** the arc-plan is written and Robert has signed off. Each initiative in the arc is added to `dev_journals/planned-work.md` as a standard Backlog or Up-Next entry that references the arc-plan.
 
 ## Initiatives within the arc
 

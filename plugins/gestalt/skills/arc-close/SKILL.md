@@ -7,11 +7,11 @@ argument-hint: "<arc-ID>"
 
 Close the arc `$0`. Mode: Arc close. The session ends when the close merge is tagged, or when Robert decides no tag is warranted. It does not push or delete the branch.
 
-`$0` is an arc's tracker ID, such as `A.001`. Below, the arc folder is `docs/initiatives/arcs/$0-<arc-name>/` and the completed folder is `docs/initiatives/_completed/arcs/$0-<arc-name>/`.
+`$0` is an arc's tracker ID, such as `A.001`. Below, the arc folder is `dev_journals/initiatives/arcs/$0-<arc-name>/` and the completed folder is `dev_journals/initiatives/_completed/arcs/$0-<arc-name>/`. In a multi-product project, every `dev_journals/` path here reads `dev_journals/<product>/`.
 
 A **stop** waits for Robert. Between stops, go on without asking.
 
-1. **Read.** `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/SKILL.md`, then `session-discipline.md` (File locations, Decision records) and `arcs.md`. Then the `$0` row in `docs/planned-work.md`, and the arc concept, arc-discovery and arc-plan in the arc folder, In Plain Words first. Then, for each initiative under the completed folder's `initiatives/`, the In Plain Words of its discovery doc and its retro. An initiative that closed before retros existed has none; read its plans' Decision Records instead. If `docs/architecture/` exists, read `architecture-overview.md` and the pages the arc touched.
+1. **Read.** `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/SKILL.md`, then `session-discipline.md` (File locations, Decision records) and `arcs.md`. Then the `$0` row in `dev_journals/planned-work.md`, and the arc concept, arc-discovery and arc-plan in the arc folder, In Plain Words first. Then, for each initiative under the completed folder's `initiatives/`, the In Plain Words of its discovery doc and its retro. An initiative that closed before retros existed has none; read its plans' Decision Records instead. If `docs/architecture/` exists, read `architecture-overview.md` and the pages the arc touched.
 2. **Checks.** If one fails, say which one and stop.
    - `main` is checked out.
    - `git status --porcelain` prints nothing.
@@ -30,7 +30,7 @@ A **stop** waits for Robert. Between stops, go on without asking.
 7. **Retro sign-off.** Fill the retro's Rework score. Show the retro's In Plain Words, each answer in short, the rating table and the verdict. **Stop:** Robert signs off, or says what to change; edit the retro until he signs off. Then, if Follow-ups has rows, **stop:** Robert picks the rows that go into the tracker, with AskUserQuestion multi-select split as in step 5.
 8. **Close-out.**
    - If `docs/architecture/` exists, load `/gestalt:style-guide`, then graduate the arc-discovery's durable decisions into the matching pages' Key Decisions.
-   - In `docs/planned-work.md`, remove the `$0` row and its write-up, and add the picked follow-up rows to the Backlog.
+   - In `dev_journals/planned-work.md`, remove the `$0` row and its write-up, and add the picked follow-up rows to the Backlog.
    - Move every file in the arc folder (the concept, arc-discovery, arc-plan and arc retro) with `git mv` into the completed folder, next to `initiatives/`. Remove the empty arc folder.
 
    Run the gate, `git add -A`, and commit with the subject `docs: close $0` and the session's attribution lines.

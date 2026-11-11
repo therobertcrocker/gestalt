@@ -2,8 +2,8 @@
 
 <!--
 COPY THIS FILE TO:
-  initiative — docs/initiatives/implementation/<ID>-<initiative-name>-retro.md
-  arc        — docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-retro.md
+  initiative — dev_journals/initiatives/implementation/<ID>-<initiative-name>-retro.md
+  arc        — dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-retro.md
 It moves to _completed/ with the initiative's plans or with the arc's artifacts.
 
 Written by /gestalt:initiative-close or /gestalt:arc-close while the review

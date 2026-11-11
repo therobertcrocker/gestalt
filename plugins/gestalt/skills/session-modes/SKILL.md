@@ -1,6 +1,6 @@
 ---
 name: session-modes
-description: How work moves from idea to shipped in Robert's projects. The Discovery, Plan and Execution modes, the initiative lifecycle in docs/planned-work.md, the flow per work type (arc, feature, refactor, bugfix, docs, chore), efforts, session discipline and the doc templates. Load before starting a new initiative or session, before any tracker move, and when a question is about the process itself.
+description: How work moves from idea to shipped in Robert's projects. The Discovery, Plan and Execution modes, the initiative lifecycle in dev_journals/planned-work.md, the flow per work type (arc, feature, refactor, bugfix, docs, chore), efforts, session discipline and the doc templates. Load before starting a new initiative or session, before any tracker move, and when a question is about the process itself.
 ---
 
 # Session modes
@@ -39,7 +39,7 @@ Every flow is a different weighting of the same three artifacts (Concept, Discov
 
 | Type | Concept | Discovery | Plan | Execution |
 |------|---------|-----------|------|-----------|
-| **Arc** | Standalone doc in `docs/initiatives/arcs/<ID>-<arc-name>/` | Arc-Discovery, always | Arc-Plan: initiative slicing and DAG | N initiatives, each running its own flow |
+| **Arc** | Standalone doc in `dev_journals/initiatives/arcs/<ID>-<arc-name>/` | Arc-Discovery, always | Arc-Plan: initiative slicing and DAG | N initiatives, each running its own flow |
 | **Feature** | Tracker write-up | Always, 1–2 sessions | Overview plan; per-effort plans as needed | Hand-off sets scope; default one phase per session |
 | **Refactor** | Tracker write-up | Often skipped; audit-first when it fires | Pattern plus unit list | One phase, typically one unit, per session; re-grounding per unit |
 | **Bugfix** | Backlog row only | Never; diagnosis is the first half of Plan | Skipped (trivial) or lightweight | Single session |
@@ -48,16 +48,16 @@ Every flow is a different weighting of the same three artifacts (Concept, Discov
 
 ## Templates
 
-The templates sit in `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/`. Copy, fill in, and delete the guidance comments before writing. Required sections are marked REQUIRED; the rest are included only when relevant.
+The templates sit in `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/`. In a multi-product project, every `dev_journals/` path below reads `dev_journals/<product>/`. Copy, fill in, and delete the guidance comments before writing. Required sections are marked REQUIRED; the rest are included only when relevant.
 
 | Artifact | Template | Copy to |
 |---|---|---|
-| Discovery doc | `discovery.md` | `docs/initiatives/discovery/<ID>-<initiative-name>-discovery.md` |
-| Implementation plan | `implementation-plan.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` plus `<ID>.E<n>-<initiative-name>-plan.md` files |
-| Docs-initiative plan | `docs-plan.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md` |
-| Execution hand-off | `execution-handoff.md` | `docs/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`. Never committed; the session that uses it deletes it |
-| Arc concept | `arc-concept.md` | `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` |
-| Retro | `retro.md` | `docs/initiatives/implementation/<ID>-<initiative-name>-retro.md`; an arc's is `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-retro.md` |
+| Discovery doc | `discovery.md` | `dev_journals/initiatives/discovery/<ID>-<initiative-name>-discovery.md` |
+| Implementation plan | `implementation-plan.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` plus `<ID>.E<n>-<initiative-name>-plan.md` files |
+| Docs-initiative plan | `docs-plan.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md` |
+| Execution hand-off | `execution-handoff.md` | `dev_journals/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`. Never committed; the session that uses it deletes it |
+| Arc concept | `arc-concept.md` | `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` |
+| Retro | `retro.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-retro.md`; an arc's is `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-retro.md` |
 | Architecture page | `arch-page.md` | `docs/architecture/<subsystem>.md`, or a subfolder per side of the system if the project has sides |
 
 Every initiative artifact opens with a required **In Plain Words** section: what, why and how it fits, in plain words, under 15 lines, scoped to its own layer. Inside a plan, each phase opens with a required one-or-two-sentence **In plain words** line. Templates are living documents: update one when a real doc shows a missing or unused section.

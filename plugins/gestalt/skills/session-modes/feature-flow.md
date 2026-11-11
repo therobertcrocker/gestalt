@@ -6,7 +6,7 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 
 **Goal:** understand the problem space, survey relevant existing code, identify approach options, surface tradeoffs and open questions.
 
-**Artifact:** `docs/initiatives/discovery/<ID>-<initiative-name>-discovery.md` (naming: session-discipline.md, File locations) — see `templates/discovery.md` in this skill folder for required and optional sections.
+**Artifact:** `dev_journals/initiatives/discovery/<ID>-<initiative-name>-discovery.md` (naming: session-discipline.md, File locations) — see `templates/discovery.md` in this skill folder for required and optional sections.
 
 **Discipline.** Scaffold the doc early: after the reflect-back and the first directional question, create it from the template at its real location and fill Problem, Design Summary and Open Questions with what is already known. As each design point settles in conversation, edit the section; the doc is the working surface, not an end-of-session transcript dump, and the final pass is polish. Open Questions are for genuine deferrals to Plan only: items where deferring has real branching cost and a principled reason (they depend on detail that only shows up in Plan or Execution). A design choice Discovery can settle is asked now and ratified in the doc as a decision.
 
@@ -18,8 +18,8 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 
 **Artifacts** — see `templates/implementation-plan.md` in this skill folder:
 
-- **Top-level plan** — `docs/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` when the initiative splits into efforts. Always required.
-- **Per-effort plans** — `docs/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md`. Used when the initiative splits into efforts — see efforts.md for when to split and how effort planning is paced.
+- **Top-level plan** — `dev_journals/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` when the initiative splits into efforts. Always required.
+- **Per-effort plans** — `dev_journals/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md`. Used when the initiative splits into efforts — see efforts.md for when to split and how effort planning is paced.
 
 **Work breakdown levels.** Each level has one job, one artifact and one size rule. The template holds the budgets and the commands that check them.
 
@@ -58,7 +58,7 @@ Before merging the feature branch, run the checklist from the git-and-delivery r
 
 1. Senior-engineer code review of the branch
 2. Promote durable decisions: graduate architecturally-significant entries from the plan's Decision Record into the relevant architecture page's `Key Decisions` section (see session-discipline.md, Decision records)
-3. Update `docs/planned-work.md` (remove the initiative; capture deferred items that surfaced)
+3. Update `dev_journals/planned-work.md` (remove the initiative; capture deferred items that surfaced)
 4. Move the initiative's discovery and plan docs into its `_completed/` folder (session-discipline.md, File locations)
 
 The pre-merge checklist is its own session, started with `/gestalt:initiative-close <ID>`. It runs once per branch, after every initiative layered on that branch is complete; sub-initiatives and enabling refactors landed as commits mid-branch don't trigger it.

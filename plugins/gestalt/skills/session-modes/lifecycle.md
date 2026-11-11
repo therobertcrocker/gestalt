@@ -1,10 +1,10 @@
 # The initiative lifecycle
 
-Every initiative passes through the same stages, regardless of type. All stages are tracked in `docs/planned-work.md` until the initiative ships.
+Every initiative passes through the same stages, regardless of type. All stages are tracked in `dev_journals/planned-work.md` until the initiative ships.
 
 ## Stage 1 — Backlog
 
-Lands in the **Backlog** section of `docs/planned-work.md`, grouped into per-type subsections (Arcs, Features, Refactors, Bugfixes, Docs — others added as needed). A project may split Refactors and Bugfixes again into per-layer sub-tables; a row then goes in the layer where its fix lands, an empty layer shows `_None._`, and the Backlog intro lists what each layer holds. Each table has columns:
+Lands in the **Backlog** section of `dev_journals/planned-work.md`, grouped into per-type subsections (Arcs, Features, Refactors, Bugfixes, Docs — others added as needed). A project may split Refactors and Bugfixes again into per-layer sub-tables; a row then goes in the layer where its fix lands, an empty layer shows `_None._`, and the Backlog intro lists what each layer holds. Each table has columns:
 
 - **ID** — stable identifier; the prefix encodes the type: `A.` arc, `F.` feature, `R.` refactor, `B.` bugfix, `D.` docs, `C.` chore
 - **Item** — short title
@@ -25,7 +25,7 @@ Promotion from Backlog to Up Next is Robert's explicit call.
 
 ## Stage 3 — Current Initiative
 
-Promoted into the **Current Initiatives** table at the top of `docs/planned-work.md` and given a full write-up further down in the same file. The table is the index; each row links to the write-up.
+Promoted into the **Current Initiatives** table at the top of `dev_journals/planned-work.md` and given a full write-up further down in the same file. The table is the index; each row links to the write-up.
 
 The write-up is the initiative's **Concept** artifact — the basic idea, recorded before any Discovery happens. It adds:
 
@@ -35,7 +35,7 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 - **Trigger** — copied from the Backlog/Up Next entry
 - **Status** — see below
 
-**Arcs are the exception:** an arc's Concept is a standalone doc at `docs/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` (template in `templates/`), because it outlives the planned-work entry and anchors the arc's folder. The arc's planned-work write-up reduces to a pointer at that doc.
+**Arcs are the exception:** an arc's Concept is a standalone doc at `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` (template in `templates/`), because it outlives the planned-work entry and anchors the arc's folder. The arc's planned-work write-up reduces to a pointer at that doc.
 
 **Status values:**
 
@@ -50,7 +50,7 @@ Promotion from Up Next to Current Initiative is Robert's explicit call. The writ
 
 When all execution phases land, `/gestalt:initiative-close <ID>` runs the pre-merge checklist, merges the branch and does both steps below:
 
-1. Remove the row from the Current Initiatives table and the write-up from `docs/planned-work.md`
+1. Remove the row from the Current Initiatives table and the write-up from `dev_journals/planned-work.md`
 2. Tag the version bump if warranted (git-and-delivery rules)
 
 ## Minor items
@@ -65,4 +65,4 @@ Movement between stages is always Robert's explicit call, not automatic. Claude 
 
 The type of a Backlog entry (encoded in its ID prefix) determines which flow the work will run. Set it when the item lands in Backlog; revisit only if the nature of the work changes (e.g. a "bugfix" turns out to need a redesign and becomes a "refactor"). The routing tables are in `SKILL.md`.
 
-**Mis-routing is recoverable.** If an initiative is partway through one flow and turns out to be a different type, change the ID prefix, move to the appropriate flow, and add a note in `docs/planned-work.md` explaining the reroute. The flows aren't sealed — they're defaults that match common shapes of work.
+**Mis-routing is recoverable.** If an initiative is partway through one flow and turns out to be a different type, change the ID prefix, move to the appropriate flow, and add a note in `dev_journals/planned-work.md` explaining the reroute. The flows aren't sealed — they're defaults that match common shapes of work.

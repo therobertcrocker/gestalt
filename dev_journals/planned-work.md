@@ -62,4 +62,4 @@ Full write-ups below.
 
 **Trigger:** `--`
 
-**Status:** In-Progress. The discovery doc is `docs/initiatives/discovery/F.003-initiative-and-arc-close-discovery.md`.
+**Status:** In-Progress. The discovery doc is `dev_journals/initiatives/discovery/F.003-initiative-and-arc-close-discovery.md`.

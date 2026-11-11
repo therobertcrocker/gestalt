@@ -1,7 +1,7 @@
 # [Initiative Name] — Discovery
 
 <!--
-COPY THIS FILE TO: docs/initiatives/discovery/<ID>-<initiative-name>-discovery.md
+COPY THIS FILE TO: dev_journals/initiatives/discovery/<ID>-<initiative-name>-discovery.md
   (<ID> is the planned-work ID as written, e.g. A.001.4-goals-tags-core-discovery.md)
 
 A discovery doc captures the design for an initiative before implementation begins.
@@ -48,7 +48,7 @@ and pull out the Key Decisions that constrain this design. This is the push half
 section forces you to open.
 
 If no page covers the relevant subsystem yet, say so — that's a signal the
-wiki needs a page; note it in docs/planned-work.md. If the project has no
+wiki needs a page; note it in dev_journals/planned-work.md. If the project has no
 architecture wiki, say that and name the binding context instead.
 -->
 
@@ -134,7 +134,7 @@ What existing code, types, patterns, or behaviors get removed or superseded.
 
 <!--
 Explicit non-goals. Things that look like they're in scope but aren't. Deferred
-work that should be filed in docs/planned-work.md as a separate Backlog entry.
+work that should be filed in dev_journals/planned-work.md as a separate Backlog entry.
 -->
 
 ## Reference Exemplars

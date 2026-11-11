@@ -39,9 +39,11 @@ The imports point outside the repo, so Claude Code shows an approval dialog once
 
 ## 4. Doc layout
 
-Check for `docs/planned-work.md`, `docs/initiatives/{discovery,implementation,arcs,_completed}/` and `docs/architecture/`. Report which exist. For an empty repo, create `docs/planned-work.md` with the Current Initiatives, Up Next and Backlog tables and an empty write-ups section, and the four `initiatives/` folders with a `.gitkeep` each. For an existing project whose tracker lives elsewhere, list what moves; the move is Robert's call and its own commit.
+Ask Robert whether the project is single-product or multi-product (code-and-docs rules, Project layout) and, for multi-product, the product names. Record the shape and the products in the project section of `CLAUDE.md`.
 
-Add `docs/initiatives/implementation/*-handoff.md` to `.gitignore` if absent.
+Check for `dev_journals/planned-work.md`, `dev_journals/initiatives/{discovery,implementation,arcs,_completed}/` and `docs/architecture/`; in a multi-product project, check `dev_journals/project-planning.md` and the tracker and folders under each `dev_journals/<product>/`. Report which exist. For an empty repo, create the tracker with the Current Initiatives, Up Next and Backlog tables and an empty write-ups section, and the four `initiatives/` folders with a `.gitkeep` each. A multi-product project also gets `dev_journals/project-planning.md` with a table of the products and their status, and one tracker and set of folders per product. For an existing project whose tracker lives elsewhere, list what moves; the move is Robert's call and its own commit.
+
+Add the hand-off pattern to `.gitignore` if absent: `dev_journals/initiatives/implementation/*-handoff.md`, or `dev_journals/*/initiatives/implementation/*-handoff.md` for a multi-product project.
 
 ## 5. Permissions
 

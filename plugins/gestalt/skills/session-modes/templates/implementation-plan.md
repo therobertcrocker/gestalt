@@ -1,7 +1,7 @@
 # [Initiative Name] — Implementation Plan
 
 <!--
-COPY THIS FILE TO: docs/initiatives/implementation/<ID>-<initiative-name>-plan.md
+COPY THIS FILE TO: dev_journals/initiatives/implementation/<ID>-<initiative-name>-plan.md
   (<ID> is the planned-work ID as written, e.g. A.001.4-goals-tags-core-plan.md;
   an overview plan is <ID>-<initiative-name>-overview-plan.md)
 
@@ -15,14 +15,14 @@ This template covers three file shapes:
      Work Breakdown. The overview and the effort plan are the same file.
 
   2. Overview plan (multi-effort):
-         docs/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md
+         dev_journals/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md
      Every section above Work Breakdown, plus
      the Effort Summary. Work Breakdown holds one "### Effort N" section per
      effort: its scope, and whether it gets its own Plan session. Effort
      pacing is defined in efforts.md.
 
   3. Effort plan (multi-effort):
-         docs/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md
+         dev_journals/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md
      Same sections as a single-file plan, scoped to the effort: its own
      In Plain Words, Decisions Ratified, Decision Record, Shared Context,
      Out of Scope, then phases in Work Breakdown. It cites the overview's
@@ -148,7 +148,7 @@ wrong place — move it into that commit's task.
 
 <!--
 Explicit non-goals. Things that look related but won't be addressed by this plan.
-Deferred items belong in docs/planned-work.md as separate Backlog entries.
+Deferred items belong in dev_journals/planned-work.md as separate Backlog entries.
 -->
 
 ---

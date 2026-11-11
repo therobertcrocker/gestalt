@@ -26,8 +26,10 @@
 
 Every project uses this layout. The paths can't be overridden by a project. Parts a project doesn't use yet are simply absent, and a rule that names one applies only if the project has it.
 
-- `docs/planned-work.md`: the tracker. Current Initiatives, Up Next, Backlog, then the initiative write-ups.
-- `docs/initiatives/discovery/`, `docs/initiatives/implementation/`, `docs/initiatives/arcs/`, `docs/initiatives/_completed/`: initiative artifacts. File names start with the initiative ID exactly as written in the tracker.
+- `dev_journals/`: the planning side of a project, kept apart from `docs/`. A single-product project keeps its tracker and initiative folders directly in `dev_journals/`. A multi-product project keeps `dev_journals/project-planning.md`, the list of products and their status, and gives each product its own folder, `dev_journals/<product>/`, with its own tracker and initiative folders. In a multi-product project, read every `dev_journals/` path in these rules and the gestalt skills as `dev_journals/<product>/`. The project's `CLAUDE.md` says which shape it uses and names the products.
+- `dev_journals/planned-work.md`: the tracker. Current Initiatives, Up Next, Backlog, then the initiative write-ups.
+- `dev_journals/initiatives/discovery/`, `dev_journals/initiatives/implementation/`, `dev_journals/initiatives/arcs/`, `dev_journals/initiatives/_completed/`: initiative artifacts. File names start with the initiative ID exactly as written in the tracker.
+- `dev_journals/initiatives/explorations/`, `dev_journals/initiatives/seeds/`: exploration docs and initiative seeds. Their process is not defined yet.
 - An archival folder's name starts with `_`, so it sorts to the top of a folder listing: `_completed/`, `_archive/`.
 - `docs/architecture/`: the architecture wiki, front door `docs/architecture/architecture-overview.md`. A SessionStart hook lists its pages when it exists. Read the page that matches the work before any design decision, including mid-execution ones.
 - Project facts (what the project is, build and test commands, tools, extra docs) live in the project's own `CLAUDE.md`.

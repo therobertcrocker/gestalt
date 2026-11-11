@@ -2,7 +2,7 @@
 
 Robert's working process for Claude Code, packaged as one plugin: the collaboration rules, the session modes, the doc templates and the hooks that every project shares.
 
-**Status:** shipped as v0.1.0. The tracker is `docs/planned-work.md`.
+**Status:** shipped as v0.1.0. The tracker is `dev_journals/planned-work.md`.
 
 The repo is a Claude Code plugin marketplace. `.claude-plugin/marketplace.json` lists one plugin, `plugins/gestalt/`. `sources/` is a frozen snapshot of gm-toolkit's process from 2026-10-29: Discovery input and backup, never loaded.
 
@@ -57,7 +57,7 @@ Then do the checks below.
    ```sh
    echo $CLAUDE_CONFIG_DIR                                        # /home/vscode/.claude
    ls ~/.claude/projects/-workspaces-gm-toolkit/memory | wc -l    # not 0
-   ls /workspaces/gm-toolkit/docs/process                          # the source docs
+   ls /workspaces/gm-toolkit/docs/_archive/process                 # the source docs
    ```
 2. Log in to GitHub: `gh auth login`, then `gh auth setup-git`. Plain `git push` works without either, because VS Code injects a credential helper. The second command stores a credential that Claude Code's plugin installer can use without a prompt; it needs that to clone the private marketplace.
 3. Start `claude`. It should already be logged in. Accept the workspace trust dialog; that registers the gestalt marketplace from `.claude/settings.json`. `/plugin` should list `gestalt@gestalt` as enabled, and `/context` should list the three rules files under Memory files. This repo's own memory folder (`projects/-workspaces-gestalt/memory/`) starts empty, which is expected: auto memory is per repo.

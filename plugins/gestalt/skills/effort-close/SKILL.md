@@ -11,7 +11,7 @@ Close the effort `$0`. Mode: Effort close. The session ends when the squash is v
 
 A **stop** waits for Robert. Between stops, go on without asking.
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/efforts.md` (Interim Effort Review). Read the overview plan at `docs/initiatives/implementation/<ID>-*-overview-plan.md`: its In Plain Words, then the Effort Summary row for effort n, which gives the effort's name.
+1. Read `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/efforts.md` (Interim Effort Review). Read the overview plan at `dev_journals/initiatives/implementation/<ID>-*-overview-plan.md` (under `dev_journals/<product>/` in a multi-product project): its In Plain Words, then the Effort Summary row for effort n, which gives the effort's name.
 2. **Checks.** If one fails, say which one and stop.
    - The feature branch is checked out, not `main`.
    - Effort n's Done box is ticked in the Effort Summary.

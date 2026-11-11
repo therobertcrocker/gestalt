@@ -22,7 +22,7 @@ Use when:
 
 Flow: **Backlog → Plan → Execution → Done.**
 
-The plan is **lightweight** — typically a single section in `docs/initiatives/implementation/<ID>-<bugfix-name>-plan.md` covering:
+The plan is **lightweight** — typically a single section in `dev_journals/initiatives/implementation/<ID>-<bugfix-name>-plan.md` covering:
 
 - **Root cause** — what's actually wrong
 - **Fix approach** — the chosen approach, with brief rationale if alternatives existed

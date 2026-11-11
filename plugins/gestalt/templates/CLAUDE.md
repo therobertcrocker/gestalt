@@ -8,7 +8,7 @@
 
 ## This project
 
-<!-- About 15 lines of facts the rules can't know: what the project is, the language, build and test commands, tools (LSP server, grep policy), and anything that overrides a plugin rule, stated as an override. Delete this comment. -->
+<!-- About 15 lines of facts the rules can't know: what the project is, single- or multi-product (and the products, with their `dev_journals/` folders), the language, build and test commands, tools (LSP server, grep policy), and anything that overrides a plugin rule, stated as an override. Delete this comment. -->
 
 ## Extra docs
 

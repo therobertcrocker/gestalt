@@ -11,7 +11,7 @@ Start an Execution session for `$0`. Mode: Execution. The session ends when the 
 
 1. Read `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/SKILL.md`, then `session-discipline.md` (Execution scope, Re-grounding and File locations) and the flow file for the ID's type prefix.
 2. Find the scope.
-   - Look for a hand-off at `docs/initiatives/implementation/<ID>-*-handoff.md` or `<ID>.E*-handoff.md`. If one exists, read it: it names the plan, the phase and the commits in scope. Delete it during this session; it is never committed. If it names a different phase from `$0`, ask Robert which one is right.
+   - Look for a hand-off at `dev_journals/initiatives/implementation/<ID>-*-handoff.md` (under `dev_journals/<product>/` in a multi-product project) or `<ID>.E*-handoff.md`. If one exists, read it: it names the plan, the phase and the commits in scope. Delete it during this session; it is never committed. If it names a different phase from `$0`, ask Robert which one is right.
    - If `$0` names a phase, that phase is the scope. With `.E<n>`, it is in effort n's plan, or in the overview plan's Effort n section when the effort has no plan of its own; without, in the single-file plan. In a multi-effort initiative, `.P<n>` without `.E<n>` does not name one phase: ask which effort.
    - If `$0` names an effort and no phase, the scope is that effort's first phase whose box is not ticked.
    - With no hand-off and no address, read the plan's Overview list and ask Robert which phase is in scope; with no answer, the scope is the first phase whose box is not ticked.

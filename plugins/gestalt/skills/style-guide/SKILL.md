@@ -9,15 +9,17 @@ A reference for writing and maintaining project docs consistently. A project's o
 
 ## Document types
 
-**Discovery Doc** (`docs/initiatives/discovery/<ID>-<name>-discovery.md`) — written before implementation begins. Covers the problem, the design, decisions and open questions. Not updated after the fact; it is a planning artifact.
+In a multi-product project, every `dev_journals/` path below reads `dev_journals/<product>/` (code-and-docs rules, Project layout).
 
-**Implementation Plan** (`docs/initiatives/implementation/<ID>-<name>-plan.md`) — a step-by-step plan for implementing an initiative: a phased breakdown of the tasks, split by commit, with the design rationale and any open questions to resolve during implementation. Carries the Decision Record for execution-time decisions (append and reconcile). Updated as needed during implementation, not after completion. Multi-effort docs initiatives use the docs-plan format instead (`templates/docs-plan.md` in the session-modes skill).
+**Discovery Doc** (`dev_journals/initiatives/discovery/<ID>-<name>-discovery.md`) — written before implementation begins. Covers the problem, the design, decisions and open questions. Not updated after the fact; it is a planning artifact.
 
-**Retro** (`docs/initiatives/implementation/<ID>-<name>-retro.md`) — written when an initiative or arc closes: what changed in plain words, five fixed questions, a rating table and follow-up rows. Template: `templates/retro.md` in the session-modes skill. Moves to `_completed/` with the plans; an arc's retro sits with the arc artifacts.
+**Implementation Plan** (`dev_journals/initiatives/implementation/<ID>-<name>-plan.md`) — a step-by-step plan for implementing an initiative: a phased breakdown of the tasks, split by commit, with the design rationale and any open questions to resolve during implementation. Carries the Decision Record for execution-time decisions (append and reconcile). Updated as needed during implementation, not after completion. Multi-effort docs initiatives use the docs-plan format instead (`templates/docs-plan.md` in the session-modes skill).
 
-**Arc Artifacts** (`docs/initiatives/arcs/<ID>-<arc-name>/`) — the arc concept, arc-discovery, arc-plan and, at the end, the arc retro, co-located in the arc's folder. They move to `docs/initiatives/_completed/arcs/<ID>-<arc-name>/` when the arc closes, with `/gestalt:arc-close`.
+**Retro** (`dev_journals/initiatives/implementation/<ID>-<name>-retro.md`) — written when an initiative or arc closes: what changed in plain words, five fixed questions, a rating table and follow-up rows. Template: `templates/retro.md` in the session-modes skill. Moves to `_completed/` with the plans; an arc's retro sits with the arc artifacts.
 
-**Completed Initiatives** (`docs/initiatives/_completed/`) — one folder per shipped initiative (`<ID>-<name>/`) that holds its discovery doc and plans. Arc initiatives nest under their arc's folder. See the session-modes skill, `session-discipline.md`, File locations.
+**Arc Artifacts** (`dev_journals/initiatives/arcs/<ID>-<arc-name>/`) — the arc concept, arc-discovery, arc-plan and, at the end, the arc retro, co-located in the arc's folder. They move to `dev_journals/initiatives/_completed/arcs/<ID>-<arc-name>/` when the arc closes, with `/gestalt:arc-close`.
+
+**Completed Initiatives** (`dev_journals/initiatives/_completed/`) — one folder per shipped initiative (`<ID>-<name>/`) that holds its discovery doc and plans. Arc initiatives nest under their arc's folder. See the session-modes skill, `session-discipline.md`, File locations.
 
 **Architecture Page** (`docs/architecture/<subsystem>.md`) — the durable home for one subsystem's shape and Key Decisions. Template: `templates/arch-page.md` in the session-modes skill.
 
