@@ -683,6 +683,12 @@ All the calls below are Robert's, from review in session 2.
 Filed in `planned-work.md` after Robert's review: `F.004` amended, and `F.005`, `F.006` and
 `F.007` added under Features.
 
+**Re-scoped after close (Robert, 2026-11-16):** migrate first, then record the process. The
+shape of the split depends on gm-toolkit's content, as gestalt's docs flow expects for
+discover-at-write work. So the migration runs in gm-toolkit as `D.012`, a multi-effort docs
+initiative with a pilot effort, and `F.005` waits on it and then writes what worked into the
+plugin. The table below keeps `F.005` as first filed.
+
 | ID | Item | Type | Detail |
 |---|---|---|---|
 | `F.004` | Lighter change flow for gestalt (amend the row) | `feature` | Add: OpenSpec's one-folder change (a proposal, a task list, one archive step) is one model for the light path (`E.001` B-9) |
