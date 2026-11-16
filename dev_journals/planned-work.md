@@ -22,6 +22,17 @@ Full write-ups below.
 ---
 <br/>
 
+## Explorations
+
+Look at a part of the system, or at something outside it, weigh options and file each follow-on as its own row. Trigger values as in the Backlog.
+
+| ID      | Item | Trigger | Detail |
+|---------|------|---------|--------|
+| `E.001` | OpenSpec comparison | `--` | Compare gestalt with OpenSpec (`Fission-AI/OpenSpec`): what it does that gestalt should do, what gestalt does that it lacks, and whether to move over to it. Two sessions on `exploration/openspec`. Doc: [`E.001-openspec-comparison-exploration.md`](initiatives/explorations/E.001-openspec-comparison-exploration.md) |
+
+---
+<br/>
+
 ## Backlog
 
 **Trigger values:**
