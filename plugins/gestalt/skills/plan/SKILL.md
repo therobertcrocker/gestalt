@@ -1,7 +1,6 @@
 ---
 name: plan
-description: Start a Plan session for one initiative, by its tracker ID, or for one effort by a work address. Run by hand at the start of the session.
-disable-model-invocation: true
+description: Start a Plan session for one initiative, by its tracker ID, or for one effort by a work address. Use when Robert asks for a Plan session for an ID. Never use it to change modes in a session that is already running.
 argument-hint: "[ID][.E<n>]"
 ---
 
@@ -13,5 +12,6 @@ Start a Plan session for `$0`. Mode: Plan. The session ends when the plan is wri
 2. Read the `<ID>` row and write-up in `dev_journals/planned-work.md` (under `dev_journals/<product>/` in a multi-product project), then the discovery doc's In Plain Words, then the rest of it. For an effort plan, read the overview plan's In Plain Words and decisions first.
 3. Check the branch. Every plan is written on `feature/<initiative-name>`, cut when Discovery started. If on `main`, say so and cut it before writing anything.
 4. Re-ground: re-read the code the discovery doc describes. The doc is a snapshot and may have decayed; the plan is written against the source, not the doc.
-5. Put the discovery doc's Open Questions to Robert, with context in one turn and the question batch in the next. Then settle phases, commits and tasks in conversation.
-6. Write the plan in one pass from `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/implementation-plan.md` (or `docs-plan.md` for a multi-effort docs initiative) at the path `session-discipline.md`, File locations, gives. Check the two line budgets with the template's `awk` commands before sign-off.
+5. Source check. List every rule the plan will build that lives outside the repo: a game rule, a file format, an API, a tool's behaviour. Fetch the text of each one in this session, and put the quote and the link in the plan's Outside Rules table. Do not write an outside rule from memory. If a text cannot be fetched, say so and put the rule to Robert.
+6. Put the discovery doc's Open Questions to Robert, with context in one turn and the question batch in the next. Then settle phases, commits and tasks in conversation.
+7. Write the plan in one pass from `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/implementation-plan.md` (or `docs-plan.md` for a multi-effort docs initiative) at the path `session-discipline.md`, File locations, gives. Check the two line budgets with the template's `awk` commands before sign-off.

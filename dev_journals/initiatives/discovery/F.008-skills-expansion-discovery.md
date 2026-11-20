@@ -2,9 +2,36 @@
 
 ## In Plain Words
 
-- **What** — gestalt gets skills and written process for the kinds of work that have none today: seeds (a first idea on paper), explorations (a look at options before any commitment) and the two early arc stages (arc-discovery and arc-plan). A refactor now starts with an audit, which is an exploration under the refactor's own ID. gestalt also gets a coordinator skill that runs the phases of an effort in sub-agents, and a catalogue of the skills it has and still needs.
-- **Why** — seeds and explorations exist in two projects but the rules say their process is "not defined yet". The session skills scaffold feature templates, which is wrong for an arc. A Claude session cannot start the session skills itself, so it cannot hand a phase to a sub-agent through them.
-- **How it fits** — one multi-effort feature on `feature/skills-expansion`, with this one discovery doc for all fronts. It takes in `F.006`. When it ships, every stage of work from a first idea to an arc close starts from a skill, and `one-claude` can run as an arc on skills made for arcs.
+Rewritten on 2026-11-20 in the framing of decision 61: these three lines say what this doc does, and the Design Spec below says what F.008 builds.
+
+- **What** — this doc settles the design of F.008. Its output is a list of numbered rulings for six fronts (seeds, explorations and audits, the arc stages, sub-agents, the catalogue and the design spec) and the Design Spec below. It builds nothing.
+- **Why** — the plans need one place that says what is built and why. The Design Spec says what, and how Robert will know it is built; Problem says what is missing today.
+- **How it fits** — this is the first doc of F.008, so it holds the spec. Above it is one multi-effort feature on `feature/skills-expansion`, which takes in `F.006`. Below it, the overview plan slices the work into efforts, and each effort plan names the criteria it carries.
+
+## Design Spec
+
+Added on 2026-11-20, after sign-off, as the first use of decisions 55 to 60. The criteria are Claude's draft from the tracker write-up's Unlocks and the fronts below; Robert ratifies or changes them.
+
+### What we are building
+
+Skills, templates and written process, so that each kind of work in a gestalt project starts from a skill and from a doc that says what is built and how Robert will know. The kinds of work are an idea, a question, a refactor, an arc, a feature, a bugfix and the phases of an effort.
+
+### Success Criteria
+
+A criterion is a question Robert can ask of the finished work, with the answer that means success.
+
+| # | Question | Success is |
+|---|---|---|
+| 1 | Can each kind of work, from a first idea to an arc close, be started from a skill? | Yes: the table "How a piece of work now starts" in Design Summary holds, with no row started by hand |
+| 2 | Does a session on other work hear that a seed exists? | Yes, by name at session start, with no read of the tracker |
+| 3 | Can Robert turn a seed into a tracker row with one command? | Yes: the row, the rename and the fixed links land in one commit |
+| 4 | Do an exploration and a refactor's audit run the same way each time? | Yes: one template, the same seven steps and the same two stops |
+| 5 | Can `one-claude` run as an arc on skills made for arcs? | Yes: arc-discovery reads its seed, and no feature template or feature folder is used |
+| 6 | Can one session run the phases of an effort in sub-agents with no hand-written brief? | Yes: one command, one agent per phase, and every open call reaches Robert |
+| 7 | Does every outside rule in a plan come with its source? | Yes: a quote and a link, fetched in the Plan session |
+| 8 | Can a process review see which skills exist and which are missing? | Yes, in one file |
+| 9 | Can Robert tell, from the first doc of any piece of work, what is being built and how he will know? | Yes: that doc opens with a Design Spec, and the close holds the work against it |
+| 10 | Does each doc's In Plain Words say what that doc itself handles? | Yes: a reader can name the doc's output and its part of the spec from those three lines alone |
 
 ## Problem
 
@@ -14,6 +41,7 @@ From the tracker write-up (2026-11-20). The claims about the plugin are checked 
 - **Arc stages** — an arc has a close skill only. `/gestalt:discovery` and `/gestalt:plan` scaffold the feature templates in the feature folders, which is wrong for an arc. Arc-discovery and arc-plan have no templates.
 - **Sub-agents** — the session and close skills can be started only by a command Robert types. A Claude session cannot hand a phase to a sub-agent through them. The gm-toolkit coordinator experiment (`F.041.E4`, 2026-11-19 to 2026-11-20) worked around this with hand-written briefs and scored 20 of 25.
 - **Catalogue** — no list shows which skills exist and which are missing.
+- **Design spec** — added on 2026-11-20. No doc says how Robert will know the work is built: a search of every skill for "success", "criteria", "acceptance" and "done when" finds nothing, and the arc's Success Criteria (decision 30) are the only such thing designed. In Plain Words does two jobs at half strength each: it holds what the initiative builds, and it says what its own doc is for.
 
 ## Architecture Context
 
@@ -25,7 +53,7 @@ gestalt has no architecture wiki. The binding context is:
 
 ## Design Summary
 
-One multi-effort initiative with five fronts. The Plan session slices them into efforts. Each front has a sub-section below; the decisions are numbered in the two decision tables after them.
+One multi-effort initiative with six fronts. The sixth, the design spec, was added on 2026-11-20, after sign-off. The Plan session slices them into efforts. Each front has a sub-section below; the decisions are numbered in the three decision tables after them.
 
 What F.008 adds:
 
@@ -44,6 +72,7 @@ What F.008 changes:
 - **Existing skills** — `discovery`, `plan` and `execute` lose the hand-only flag and learn the seed, the audit and the arc case; the three closes learn to move a seed and an audit; `effort-close` and `arc-close` gain review inputs
 - **The plan template** — a source check for every outside rule a plan builds
 - **The rules files** — the "not defined yet" line, the branch rule's exemptions and the model rule
+- **The top of every doc** — the first doc of a piece of work opens with a Design Spec, and In Plain Words in every doc says what that doc itself handles (decisions 55 to 61)
 
 How a piece of work now starts, by kind:
 
@@ -233,6 +262,48 @@ What follows from the experiment and the decisions above, with no choice left in
 - **"Look here first"** — the last phase's agent writes the list into the effort's plan, in that phase's last commit, so `effort-close` finds it on disk in its own later session
 - **After a compaction** — the coordinator rebuilds "what the earlier phases left" from `git log` and the plan's Decision Record, not from its summary
 
+### Design spec
+
+Added on 2026-11-20, after sign-off, from a talk at the end of the effort 1 Plan session. Two sections that were one are split, and each gets one job.
+
+| | Design Spec | In Plain Words |
+|---|---|---|
+| Answers | What are we building, and how will we know it is built? | What does this doc, this layer of work, handle? |
+| Lives in | The first doc of a piece of work | Every doc, at every layer, as today |
+| Written | Once | New in each doc, about that doc |
+| Used as | What the design answers to: cited, designed against, checked at the close | An alignment check between Robert and Claude |
+
+The Design Spec sits in the first doc of a piece of work, wherever that work starts (decision 56):
+
+| Work starts with | The Design Spec is in |
+|---|---|
+| A Discovery | The discovery doc |
+| An arc-discovery | The arc-discovery doc |
+| A refactor's audit | The audit |
+| A plan, with no doc before it: a non-trivial bugfix, or a refactor that goes straight to Plan | The top of that plan |
+
+A seed and an exploration carry none. A seed may still propose criteria (decision 30); the first doc after it ratifies them inside its Design Spec.
+
+The Design Spec has two parts (decision 57). "What we are building" states the thing in plain words, as a commitment the criteria can test. "Success Criteria" is a table of questions, each with the answer that means success; Robert's rule from decision 30 holds for every flow: a criterion is a question he can ask of the finished work, not a count or a limit. The criteria are ratified before the design below them is written. The section follows In Plain Words directly, so a reader first learns what the doc is and then what the work must deliver.
+
+It is one source (decision 58). No plan and no retro restates it. Three places use it:
+
+| Where | What it does with the spec |
+|---|---|
+| Plan | Gives each criterion the effort or the phase that carries it, in a "carried by" column |
+| Each layer's In Plain Words | Points at the spec and names the part this layer delivers |
+| Close | The retro's first question and its Delivered score hold the work against the criteria, one by one |
+
+For an arc this is decision 30's chain, now one case of the rule: the arc-discovery's Success Criteria section is the second part of its Design Spec, the arc-plan's "carried by" column is the Plan row above, and `arc-close` is the Close row.
+
+In Plain Words keeps its three lines in every doc, with a new framing (decision 61):
+
+- **What** — what this layer does and the output it produces, in clean plain words with none of the project's vocabulary: "This delivers the coordinator skill"
+- **Why** — the reason the work is needed: a pointer to the Design Spec, or the problem it solves
+- **How it fits** — points at the Design Spec and names the part this layer delivers, within the whole. In the doc that holds the spec, it points up: to the arc's spec, or to the project
+
+What In Plain Words is for, in Robert's words of 2026-11-20: it is the place where he and Claude align on what is happening in this layer of work. It makes sure he understands what he signs off, and that Claude does not confuse itself into a strange path. It keeps both on what is actually being done, outside of the vocabulary, the context and the code. The one-line "In plain words" of a phase is the same check at its smallest.
+
 ## Decisions Made Before Discovery
 
 Robert, 2026-11-20, from the tracker write-up.
@@ -280,6 +351,22 @@ Numbers continue from the table above.
 | 32 | The retro's follow-ups | F.008 takes eight: 1 (source check in the Plan session), 2 (the coordinator skill), 3 (the fixed report, in the coordinator's brief only), 4 ("look here first", read by `effort-close`), 6 (rules for the coordinator), 7 (a two-stage phase, as one sentence), 9 (the known gaps given to the `effort-close` reviewer) and 10 (the coordinator's commits kept out of the effort range). 5 (checks as a script) is left. 8 was done before this session |
 | 33 | Coordinator models | Fable coordinates and Opus executes, as in the experiment. The model rule in `code-and-docs.md` and `session-discipline.md` gains a line for it. Every spawn sets the agent's model, and the coordinator confirms it after the run |
 | 34 | Plan format for F.008 | Per task, by kind, in the implementation-plan template. An exact edit to an existing file is a literal task. A new template, skill or flow file is a named deliverable: its path, its scope, and the decisions of this doc it must carry out, by number. This is a stated exception, for this initiative, to "every task is the literal edit" |
+
+## Decisions Made After Sign-off
+
+Robert, 2026-11-20, after the discovery doc, the overview plan and the effort 1 plan were signed off. The overview plan holds decisions 35 to 44 and the effort 1 plan holds 45 to 54, so these start at 55.
+
+| # | Question | Decision |
+|---|---|---|
+| 55 | Spec: a section or a doc | A section, "Design Spec", in docs that exist. No new artifact |
+| 56 | Who carries the Design Spec | The first doc of a piece of work: the discovery doc, the arc-discovery, the audit; and for work that needs only a plan, the top of that plan. A seed and an exploration carry none |
+| 57 | Shape of the Design Spec | Two parts: what we are building, in plain words, and Success Criteria, each a question with the answer that means success. It follows In Plain Words. The criteria are ratified before the design below them is written |
+| 58 | One source or per layer | One source. A plan and a retro cite a criterion by number and do not restate it |
+| 59 | The spec in a plan | A plan gives each criterion the effort or phase that carries it |
+| 60 | The spec at the close | The retro's first question and its Delivered score hold the work against the Design Spec, by criterion. Decision 30's arc chain is one case of this rule; the arc's Success Criteria are the second part of the arc-discovery's Design Spec |
+| 61 | In Plain Words | Split from the spec. Every doc keeps the three lines, about its own layer: What is the output this layer produces, Why points at the spec or names the problem, How it fits names the part of the spec this layer delivers. Its job is to align Robert and Claude on what this layer does |
+
+Two points in the table are Claude's reading, not Robert's words: that the Design Spec follows In Plain Words, in decision 57, and that a seed and an exploration carry none, in decision 56.
 
 ## Catalogue Findings
 
@@ -571,7 +658,7 @@ Notes, not decisions. This Discovery designed process files, not code, and the d
 
 ### How to read this doc
 
-- **Binding** — In Plain Words, Design Summary and the two decision tables, about 280 lines. A Plan session reads these
+- **Binding** — In Plain Words, Design Spec, Design Summary and the three decision tables, about 370 lines. A Plan session reads these
 - **Evidence** — the five findings sections, about 260 lines. Read one only when a decision is in doubt, or when a template is written from the docs it describes
 - **Re-ground on the plugin, not on the findings.** Catalogue Findings is a snapshot at `8e2d112`; the plan is written against `plugins/gestalt/` as it stands
 
@@ -607,6 +694,16 @@ What the table suggests for the order:
 - **Catalogue last** — it lists what the other fronts add
 - **The sub-agent trial first in its effort** — it decides how the brief hands a phase to an agent (Open Questions)
 - **`discovery/SKILL.md` and `plan/SKILL.md` are touched by four fronts** — the largest seams; one effort that owns both may be cleaner than four that each edit them
+
+### Which files the design spec touches
+
+Added on 2026-11-20 with decisions 55 to 61. Read from the plugin on that day; the table above was not redrawn.
+
+- **The rule** — `session-modes/session-discipline.md` (the In Plain Words section, and the re-grounding step that reads it first) and the last paragraph of `session-modes/SKILL.md`
+- **Templates that exist** — `discovery.md` (the Design Spec section; the In Plain Words comment), `implementation-plan.md` (the In Plain Words comment; the Design Spec for work that starts at a plan; "carried by"), `retro.md` (question 1 and the Delivered score), and every other template that defines In Plain Words
+- **Templates the other fronts add** — `seed.md`, `exploration.md` (the Design Spec when it serves an audit), `arc-discovery.md`, `arc-plan.md`
+- **Flow files** — `feature-flow.md`, `bugfix-flow.md`, `refactor-flow.md`, `arcs.md`
+- **Skills** — `discovery`, `plan` and `execute` (what they scaffold and read first), `initiative-close` and `arc-close` (the check at the close), `style-guide` (the document types)
 
 ### Where the plan template may pinch
 

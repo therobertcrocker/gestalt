@@ -1,7 +1,6 @@
 ---
 name: discovery
-description: Start a Discovery session for one initiative, by its tracker ID. Run by hand at the start of the session.
-disable-model-invocation: true
+description: Start a Discovery session for one initiative, by its tracker ID. Use when Robert asks for a Discovery session for an ID. Never use it to change modes in a session that is already running.
 argument-hint: "[ID]"
 ---
 

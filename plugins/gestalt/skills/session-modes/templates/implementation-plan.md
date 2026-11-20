@@ -98,6 +98,15 @@ architecture page's Key Decisions section; the rest stay here as provenance
 when the plan ships to _completed/.
 -->
 
+## Look Here First
+
+<!--
+Only for an effort that runs under /gestalt:coordinate. Leave the heading out
+at plan time. The last phase's agent writes it in that phase's last commit:
+the effort's weakest spots, one bullet each, with a file:line and one line of
+why. /gestalt:effort-close finds the section by this heading.
+-->
+
 ---
 
 <!--
@@ -143,6 +152,27 @@ task loses locality and has to reassemble the spec. If a section here is named
 after a single commit ("Adapter contract changes (Commit 4)"), it is in the
 wrong place — move it into that commit's task.
 -->
+
+## Outside Rules
+
+<!--
+REQUIRED when the plan builds a rule that lives outside the repo: a game rule,
+a file format, an API, a tool's behaviour. Leave the section out when there is
+none.
+
+One row per rule. The quote and the link are fetched in the Plan session. A
+rule written from memory is not a source: the code it leads to copies the
+mistake faithfully. If the text cannot be fetched, the row says so and the rule
+goes to Open Questions. A task that builds a rule cites its row ("Outside
+Rules, row 3").
+
+An overview plan holds the rules that more than one effort builds. An effort
+plan cites those rows by number and adds its own.
+-->
+
+| # | Rule the plan builds | Quote | Source |
+|---|---|---|---|
+| 1 | [the rule, in plain words] | "[the text, word for word]" | [link and section], fetched [date] |
 
 ## Out of Scope
 

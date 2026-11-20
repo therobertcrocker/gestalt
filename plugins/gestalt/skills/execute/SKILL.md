@@ -1,7 +1,6 @@
 ---
 name: execute
-description: Start an Execution session for one initiative, by its tracker ID or a work address that names an effort and phase. Run by hand at the start of the session.
-disable-model-invocation: true
+description: Start an Execution session for one initiative, by its tracker ID or a work address that names an effort and phase. Use when Robert asks for an Execution session for an ID, or when a phase brief from the coordinate skill names this skill. Never use it to change modes in a session that is already running.
 argument-hint: "[ID][.E<n>][.P<n>]"
 ---
 

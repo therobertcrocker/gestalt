@@ -2,15 +2,15 @@
 
 ## In Plain Words
 
-- **What** — F.008 is built in four efforts, in this order: Sub-agents (a coordinator skill that runs the phases of an effort in sub-agents), Seeds, Explorations and audit, then Arc stages. The catalogue of skills is the last phase of the last effort. This file holds the order, the scope of each effort and the decisions that bind all four. It holds no tasks.
-- **Why** — the four efforts change many of the same small files. Tasks written today for the fourth effort would quote lines the first three efforts change. So each effort gets a short Plan session of its own just before it runs, and this file tells that session what is its to build and what the earlier efforts left behind.
-- **How it fits** — one branch, `feature/skills-expansion`, and one discovery doc. Each effort ends with a trial of its new skills in a real session, then `/gestalt:effort-close`. After the fourth, `/gestalt:initiative-close F.008` merges the branch.
+- **What** — this file cuts F.008 into five efforts and puts them in order: Sub-agents, Seeds, Explorations and audit, Arc stages, Design spec. Its output is that order, the scope of each effort, the decisions that bind all five, and which effort carries which success criterion. It holds no tasks.
+- **Why** — the efforts change many of the same small files, so tasks written today for a late effort would quote lines an early effort changes. Each effort gets a short Plan session of its own just before it runs, and this file tells that session what is its to build and what the earlier efforts left behind.
+- **How it fits** — the discovery doc's Design Spec says what F.008 builds, in ten criteria. This file delivers none of them; it gives each one to an effort ("Design Spec — carried by" below). One branch, `feature/skills-expansion`. Each effort ends with `/gestalt:effort-close`; after the fifth, `/gestalt:initiative-close F.008` merges the branch.
 
 ## Context / Goal
 
-Turn the discovery doc's five fronts into four efforts that can each be planned, built, tried and closed without the next one.
+Turn the discovery doc's six fronts into five efforts that can each be planned, built, tried and closed without the next one. The sixth front and the fifth effort were added on 2026-11-20, after this plan was signed off (decisions 62 and 63).
 
-- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md). Its In Plain Words, Design Summary and two decision tables (decisions 1 to 34) are binding. Its findings sections are evidence, read when a template is written from the docs they describe
+- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md). Its In Plain Words, Design Spec, Design Summary and three decision tables (decisions 1 to 34 and 55 to 61) are binding. Its findings sections are evidence, read when a template is written from the docs they describe
 - Effort plans: linked from the Effort Summary as each is written
 
 ## Decisions Ratified in Planning
@@ -18,19 +18,26 @@ Turn the discovery doc's five fronts into four efforts that can each be planned,
 Robert, 2026-11-20. The numbers continue from the discovery doc's tables, so an effort plan can cite "decision 37" with no clash.
 
 35. **Effort order: Sub-agents, Seeds, Explorations and audit, Arc stages** — Sub-agents shares the fewest lines with the other fronts. First, it answers the sub-agent trial early, puts the source check into the plan template before the other effort plans are written, and makes the coordinator ready for a later effort if Robert chooses to run one under it. Seeds comes before Arc stages because arc-discovery reads the seed. Rejected: Sub-agents fourth (the discovery doc's order), and Sub-agents after Seeds.
-36. **The catalogue is a phase, not an effort** — it is one new file and one table row, too small for an effort close of its own. It is the last phase of effort 4, after that effort's trial phase, so it lists the skills as the trials left them. Rejected: a fifth effort, and a plain commit before the initiative close.
+36. **The catalogue is a phase, not an effort** — it is one new file and one table row, too small for an effort close of its own. It is the last phase of effort 4, so it lists the skills as that effort left them. Rejected: a fifth effort, and a plain commit before the initiative close.
 37. **Each effort gets its own Plan session, just before it runs** — later efforts edit files that earlier efforts change, so a Find anchor quoted today would be stale. This file holds scope and decisions only. Rejected: the first effort in full here, and all efforts in full here.
 38. **A shared file is edited by each effort in turn** — `discovery/SKILL.md`, `plan/SKILL.md` and the other files in "Shared files" below get each effort's own lines when that effort runs, so a skill change lands with the thing it serves. Rejected: one effort that owns both skills.
 39. **`adopt` creates `seeds/` and `explorations/`** — settles the question the discovery doc left for Plan (Out of Scope). Effort 2 adds `seeds/` to `adopt` step 4, effort 3 adds `explorations/`.
-40. **Each effort ends with a trial phase** — the gate shows only that the plugin loads. In the trial phase Robert runs each new or changed skill on a real input, in a session started with `claude --plugin-dir plugins/gestalt`. What the trial finds is fixed in that phase, in commits with the effort's scope, before the effort closes. Rejected: one trial before the initiative close, and no trial before the merge.
+40. **Each effort ends with a trial phase** — the gate shows only that the plugin loads. In the trial phase Robert runs each new or changed skill on a real input, in a session started with `claude --plugin-dir plugins/gestalt`. What the trial finds is fixed in that phase, in commits with the effort's scope, before the effort closes. Rejected: one trial before the initiative close, and no trial before the merge. **Reversed on 2026-11-20** (Decision Record, entry 1): no effort has a trial phase.
 41. **The effort close runs as it is** — no checklist for the review of a skill file is written now. What `/code-review` catches and misses on process files is evidence for `F.004`.
 42. **A phase is sized by files and seams, not by plan lines** — the phase budget of about 1,500 lines counts literal code. Here a phase holds one coherent set of files: a new skill with its template, or one pass over the shared files. The cap of about 4 commits per phase stays. This is the one-line reason the template asks for when a budget is not applied.
 43. **The arc concept becomes the seed in one pass, in effort 4** — the eleven files that name the arc concept are changed once, with the rest of the arc flow. Effort 2 does not edit `arcs.md`, `arc-close/SKILL.md` or `arc-close/review-brief.md`. This moves two marks from the Seeds column of the discovery doc's file table, which is a note and not a decision. Until effort 4 lands, the branch has a seed process and still names the arc concept; that state never reaches `main`.
 44. **The discovery doc's sub-agent quotes are checked against the live docs** — follow-up 1 (the source check) applied to this plan. The quotes and links are in "Outside rules" below. All four quotes of the discovery doc hold.
 
+Added on 2026-11-20, after sign-off, with the discovery doc's decisions 55 to 61. The effort 1 plan holds decisions 45 to 54, so these start at 62. Both are Claude's proposals; Robert ratifies or changes them.
+
+62. **The design spec is a fifth effort, the last** — it changes the rule for In Plain Words, the templates and flow files that exist, and the two closes. Efforts 3 and 4 rewrite several of those files first, so effort 5 edits each one once, in its final shape. The effort numbers of 1 to 4 stay, and so does the signed-off effort 1 plan. Rejected: a new effort 2 with the others moved down by one, and the work added to effort 3, which is already the largest.
+63. **Efforts 2 to 4 write their new files in the new shape from the start** — decisions 55 to 61 bind every effort. A new template of efforts 2 to 4 defines In Plain Words as decision 61 frames it, and carries a Design Spec where decision 56 asks for one. Effort 5 then does not have to edit a file that F.008 itself added. Until effort 5 lands, the branch has new templates in the new shape beside old ones in the old shape; that state never reaches `main`.
+
 ## Decision Record — Execution
 
-Empty at plan time. Decisions that span efforts land here; a decision inside one effort lands in that effort's plan.
+Decisions that span efforts land here; a decision inside one effort lands in that effort's plan.
+
+1. **No effort has a trial phase** — Robert, 2026-11-20, after effort 1's two build phases. Reverses decision 40. The trial of effort 1 asked for a six-phase run in another repo and held the effort open until it ended. A fault in a skill's design shows in its first real use and is fixed then. The gate stays the one check before a commit. Nothing of F.008 reaches `main` before the initiative close, so a fix found in use still lands on the branch. The criteria that were checked at a trial are now checked at first real use ("Design Spec — Carried By"). The sub-agent trial of open question 1 is not a trial phase; it ran, and its answer stands.
 
 ---
 
@@ -38,28 +45,46 @@ Empty at plan time. Decisions that span efforts land here; a decision inside one
 
 | # | Question | Resolved in |
 |---|---|---|
-| 1 | Can a `general-purpose` sub-agent call `/gestalt:execute` through the Skill tool once the hand-only flag is off? If not, the brief names the `SKILL.md` path for the agent to read, as `arc-close` does with its review brief | Effort 1, first phase: a trial, before the brief is written |
+| 1 | Can a `general-purpose` sub-agent call `/gestalt:execute` through the Skill tool once the hand-only flag is off? If not, the brief names the `SKILL.md` path for the agent to read, as `arc-close` does with its review brief | Yes, by a trial on 2026-11-20 (E1 plan, Decision Record) |
 
-The live docs make a yes likely and do not settle it (Outside rules, rows 3 to 5).
+The live docs made a yes likely and did not settle it (Outside rules, rows 3 to 5); the trial did.
 
 ## Effort Summary
 
 | Done | # | Effort | Scope | File |
 |------|---|--------|-------|------|
-| [ ] | 1 | Sub-agents | The `coordinate` skill and its brief; the hand-only flag off `discovery`, `plan` and `execute`; the source check in the plan template; two review inputs for `effort-close` | [`F.008.E1-skills-expansion-plan.md`](./F.008.E1-skills-expansion-plan.md) |
+| [x] | 1 | Sub-agents | The `coordinate` skill and its brief; the hand-only flag off `discovery`, `plan` and `execute`; the source check in the plan template; two review inputs for `effort-close` | [`F.008.E1-skills-expansion-plan.md`](./F.008.E1-skills-expansion-plan.md) |
 | [ ] | 2 | Seeds | The `seed` skill, its template and the SessionStart hook; the seed as the Concept of the work it describes | [`F.008.E2-skills-expansion-plan.md`](./F.008.E2-skills-expansion-plan.md) |
 | [ ] | 3 | Explorations and audit | The `explore` and `audit` skills over one flow file and one template; the refactor flow as Audit, Plan, Execution | [`F.008.E3-skills-expansion-plan.md`](./F.008.E3-skills-expansion-plan.md) |
 | [ ] | 4 | Arc stages and catalogue | The `arc-discovery` and `arc-plan` skills and templates; the seed in place of the arc concept; the arc branch and success criteria; the catalogue | [`F.008.E4-skills-expansion-plan.md`](./F.008.E4-skills-expansion-plan.md) |
+| [ ] | 5 | Design spec | The Design Spec in the first doc of every piece of work; In Plain Words reframed in every doc; "carried by" in the plans; the check at the close | [`F.008.E5-skills-expansion-plan.md`](./F.008.E5-skills-expansion-plan.md) |
 
 The order is the dependency:
 
 ```
-E1 Sub-agents --> E2 Seeds --> E3 Explorations and audit --> E4 Arc stages
+E1 Sub-agents --> E2 Seeds --> E3 Explorations and audit --> E4 Arc stages --> E5 Design spec
                      |                                          ^
                      +---- arc-discovery reads the seed --------+
 ```
 
-Only the E2 to E4 edge is a hard dependency. The rest of the order is decision 35.
+Only the E2 to E4 edge is a hard dependency. The rest of the order is decisions 35 and 62.
+
+## Design Spec — Carried By
+
+Decision 59: a plan gives each criterion of the Design Spec the effort that carries it. The criteria are in the discovery doc, Design Spec, and are not restated here. An effort plan names its criteria and gives each one a phase.
+
+| Criterion | Carried by | Checked at |
+|---|---|---|
+| 1 — each kind of work starts from a skill | Efforts 1 to 4, each for its own starters | The initiative close; it holds only when all four have landed |
+| 2 — a session hears of a seed | Effort 2 | First real use |
+| 3 — a seed is planted with one command | Effort 2 | First real use |
+| 4 — an exploration and an audit run the same way | Effort 3 | First real use |
+| 5 — `one-claude` can run as an arc | Effort 4 | First real use |
+| 6 — a session runs an effort's phases in sub-agents | Effort 1 | First real use |
+| 7 — every outside rule comes with its source | Effort 1 | The first plan written after effort 1 lands |
+| 8 — a process review sees the skills and the holes | Effort 4, the catalogue phase | The initiative close |
+| 9 — the first doc of any work opens with a Design Spec | Effort 5; efforts 3 and 4 for the audit and the arc-discovery | First real use |
+| 10 — In Plain Words says what its own doc handles | Effort 5; efforts 2 to 4 for their new templates | First real use |
 
 ## Shared Context
 
@@ -69,20 +94,20 @@ Decision 34 holds in every effort plan. An exact edit to an existing file is a l
 
 ### Commits
 
-- Every commit of effort n carries the scope `E<n>`: `feat(E1): ...` for a new skill, template, hook or flow file, `docs(E1): ...` for an edit to a rule or flow text, `fix(E1): ...` for a trial fix
+- Every commit of effort n carries the scope `E<n>`: `feat(E1): ...` for a new skill, template, hook or flow file, `docs(E1): ...` for an edit to a rule or flow text, `fix(E1): ...` for a fix
 - An effort's plan doc is committed with its scope, `docs(E<n>): ...`. This overview plan is unscoped
 - No unscoped commit lands between an effort's first commit and its close; the unbroken-run check in `effort-close` step 3 stops on one
 
-### Gate and trial
+### Gate
 
 - **Gate** — `claude plugin validate .` from the repo root. It shows that the plugin loads, nothing more
-- **Trial** — the last phase of each effort (decision 40). The effort plan names each skill to try, the input, and what a pass looks like. A trial that makes a real tracker move or a real commit is Robert's call in that session
+- **No trial phase** — Decision Record, entry 1. A new or changed skill is tried by its first real use, and what that finds is fixed then
 
 ### Which copy of the plugin a session sees
 
 From the project's `CLAUDE.md`: this checkout loads the rules by relative path, so a rules edit on the branch is live in the next gestalt session. Skills and hooks come from the installed copy, which does not have the branch's edits. So from effort 1's first commit on, a rule on the branch can name a skill the installed copy lacks.
 
-A session that must see the branch's skills starts with `claude --plugin-dir plugins/gestalt`. That is every trial session, and every effort Plan session after effort 1 lands, because effort 1 changes the `plan` skill and the plan template.
+A session that must see the branch's skills starts with `claude --plugin-dir plugins/gestalt`. That is every effort Plan session after effort 1 lands, because effort 1 changes the `plan` skill and the plan template.
 
 ### Shared files
 
@@ -100,6 +125,8 @@ Files that more than one effort edits. Each effort edits its own lines only (dec
 | `plan/SKILL.md` | Flag off; description; source check | Reads the seed | Reads the audit | A bare arc ID |
 | `initiative-close/SKILL.md` | | Reads and moves the seed | Reads and moves the audit | Arc concept line |
 | `adopt/SKILL.md` | | `seeds/` | `explorations/` | |
+
+Effort 5 edits `session-modes/SKILL.md`, `session-modes/session-discipline.md`, `style-guide/SKILL.md`, `discovery/SKILL.md`, `plan/SKILL.md` and `initiative-close/SKILL.md` from this table, each after the efforts above have left it. Its full list is in its section of Work Breakdown.
 
 ### Outside rules
 
@@ -138,7 +165,7 @@ Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. 
 
 **Carries out:** decisions 5, 28 (the starters named here), 32 and 33.
 
-**First phase:** the trial for open question 1. Its answer decides how the brief hands a phase to an agent, so it runs before the brief is written.
+**Second phase, first act:** the trial for open question 1. Its answer decides how the brief hands a phase to an agent, so it runs before the brief is written. It cannot run in the first phase: a session sees the branch's skills only when it starts with `--plugin-dir`, so the session that removes the hand-only flag cannot be relied on to see its own edit (E1 plan, decision 46).
 
 **New files (named deliverables):**
 
@@ -155,11 +182,10 @@ Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. 
 - `rules/code-and-docs.md` and `session-modes/session-discipline.md` — the model rule gains a line: Fable coordinates, Opus executes
 - `rules/code-and-docs.md`, Session modes — names `/gestalt:coordinate`
 
-**Trial:** the first-phase trial above, and a run of `/gestalt:coordinate` on a real effort.
+**Trial:** the sub-agent trial above ran. The run of `/gestalt:coordinate` on a real effort was dropped (Decision Record, entry 1).
 
 **For its Plan session:**
 
-- What the coordinator's trial runs on. It must be an effort with phases, and it must not put commits of another effort inside effort 1's range
 - The name of the brief file
 - Whether `efforts.md` names the coordinator as a way to run an effort; the discovery doc's file table does not list `efforts.md`
 
@@ -194,11 +220,10 @@ Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. 
 
 **Not here:** `arcs.md`, `arc-close/SKILL.md` and `arc-close/review-brief.md` (decision 43).
 
-**Trial:** the hook's list in a new session; `/gestalt:seed write` from this repo; `/gestalt:seed plant one-claude`. `dev_journals/initiatives/seeds/one-claude-seed.md` is a real, unplanted arc seed in the old shape.
+**Trial:** none (Decision Record, entry 1). `dev_journals/initiatives/seeds/one-claude-seed.md` is a real, unplanted arc seed in the old shape, and a likely first real use.
 
 **For its Plan session:**
 
-- Planting `one-claude` in the trial is a real tracker move, a rename and a commit inside effort 2's range. Whether the trial does it for real is Robert's call
 - The script's name, and how it finds `seeds/` under `dev_journals/<product>/`
 
 ### Effort 3 — Explorations and audit
@@ -233,11 +258,10 @@ Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. 
 - `initiative-close/SKILL.md` — reads the audit, and moves it into `_completed/` (decision 27)
 - `adopt/SKILL.md` — `explorations/` in step 4
 
-**Trial:** `/gestalt:explore` and `/gestalt:audit`, each on a real row.
+**Trial:** none (Decision Record, entry 1). gm-toolkit's `R.037` waits on an audit, and is a likely first real use.
 
 **For its Plan session:**
 
-- The trial inputs. gestalt has no open `E.` row and no refactor row. gm-toolkit's `R.037` waits on an audit, and gm-toolkit is read-only from this container
 - What `/gestalt:discovery` does when it is given an `R.` ID, now that a refactor has no Discovery
 
 ### Effort 4 — Arc stages and catalogue
@@ -271,11 +295,53 @@ Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. 
 - `rules/code-and-docs.md`, Session modes — names `/gestalt:arc-discovery` and `/gestalt:arc-plan`
 - `session-modes/SKILL.md` — the row for `catalogue.md` in "Which file to read" (decision 11)
 
-**Phase order:** the arc work, then the trial phase, then the catalogue as the last phase (decision 36).
+**Phase order:** the arc work, then the catalogue as the last phase (decision 36).
 
-**Trial:** `/gestalt:arc-discovery` on the `one-claude` arc, if effort 2's trial planted it, and `/gestalt:arc-plan`.
+**Trial:** none (Decision Record, entry 1). The `one-claude` arc is a likely first real use.
 
 **For its Plan session:**
 
-- How far the trial goes. A real arc-discovery cuts `feature/<arc-name>` and binds every initiative of the arc; a trial run from the F.008 branch is not that session
 - Decision 29 records that Robert does not like a docs-only branch and is open to a better way. If one shows by then, it is settled before the effort's tasks are written
+
+### Effort 5 — Design spec
+
+Added on 2026-11-20 (decision 62).
+
+**In plain words:** the first doc of any piece of work says what is being built and how Robert will know it is built, and the close holds the work against that. In Plain Words in every doc says only what that doc itself handles.
+
+**Own Plan session:** yes.
+
+**Carries out:** decisions 55 to 61 in the files that exist. Criteria 9 and 10.
+
+**What efforts 2 to 4 have done by then** (decision 63): `seed.md`, `exploration.md`, `arc-discovery.md` and `arc-plan.md` are already in the new shape. The effort 2, 3 and 4 Plan sessions add decisions 55 to 61 to the decisions of each new template:
+
+| Effort | New file | From decisions 55 to 61 |
+|---|---|---|
+| 2 | `templates/seed.md` | In Plain Words as decision 61 frames it; no Design Spec; the optional Success Criteria stay a proposal (decisions 30 and 56) |
+| 3 | `templates/exploration.md` | In Plain Words as decision 61 frames it; a Design Spec section, marked for an audit only (decision 56) |
+| 3 | `session-modes/refactor-flow.md`, rewritten | The audit holds the refactor's Design Spec; a refactor that goes straight to Plan holds it at the top of the plan |
+| 4 | `templates/arc-discovery.md` | The required Success Criteria section is the second part of a Design Spec (decision 60) |
+| 4 | `templates/arc-plan.md` | Its "carried by" column is decision 59 for an arc |
+
+**Edits to existing files:**
+
+- `session-modes/session-discipline.md` — the In Plain Words section is rewritten for decision 61, with what the section is for; a new part names the Design Spec, who carries it and that it is one source; the re-grounding step reads the Design Spec after In Plain Words
+- `session-modes/SKILL.md` — the last paragraph, which defines In Plain Words for every artifact
+- `session-modes/templates/discovery.md` — a required Design Spec section after In Plain Words; the In Plain Words comment
+- `session-modes/templates/implementation-plan.md` — the In Plain Words comment for a plan and for a phase; a Design Spec section for work that starts at a plan; the "carried by" table for an overview plan and for an effort or single-file plan
+- `session-modes/templates/docs-plan.md`, `templates/retro.md` and any other template that defines In Plain Words — the comment; in `retro.md` also question 1 and the Delivered score, held against the Design Spec by criterion (decision 60)
+- `session-modes/feature-flow.md` — Discovery ratifies the criteria before the design; the Plan gives each one a phase
+- `session-modes/bugfix-flow.md` — the light plan opens with a Design Spec, beside root cause, fix approach and test plan
+- `session-modes/arcs.md` — the success criteria chain is named as the arc's case of the Design Spec, if effort 4 did not already word it so
+- `discovery/SKILL.md`, `plan/SKILL.md`, `execute/SKILL.md` — what each scaffolds and what each reads first
+- `initiative-close/SKILL.md`, `arc-close/SKILL.md` — the retro step holds the work against the Design Spec
+- `style-guide/SKILL.md` — the Design Spec in the document types that carry one
+
+**Not here:** the docs that exist in any project. F.008's own three docs were brought to the new shape by hand on 2026-11-20; no other doc is reshaped.
+
+**Trial:** none (Decision Record, entry 1). F.008's own initiative close is a first real use of the close: its discovery doc has ten criteria.
+
+**For its Plan session:**
+
+- The exact shape of "What we are building", the first part of the Design Spec. Decision 57 says plain words and a commitment the criteria can test; the discovery doc's own Design Spec is the one example
+- Whether a trivial bugfix or a chore, which have no doc, need anything. Decision 56 covers only work that has a doc or a plan

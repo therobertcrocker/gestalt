@@ -42,6 +42,8 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 - `In-Progress` — actively being worked. Colloquially called "Current." Capped at 2–3 at any time; more than that is wishful thinking.
 - `Blocked` — cannot proceed until something else lands. **Required `by:` note** in the write-up naming the blocker (another initiative, an external dep, a design decision).
 
+**The tracker moves at stage boundaries only.** Between promotion and close, no session edits the row or the write-up, except to set or clear `Blocked`. Which docs exist, which effort is next and which phase is next are read from the plans: the files in `implementation/`, the Done boxes of the Effort Summary and each plan's Overview list. The Status line holds the status value and the branch, nothing more.
+
 Promotion from Up Next to Current Initiative is Robert's explicit call. The write-up (or arc concept doc) is drafted at promotion time, not in advance.
 
 **Arc rows:** when an arc is promoted, its row stays in Current Initiatives for the arc's whole duration — the queue should show the arc is live. Its constituent initiatives get their own rows (and write-ups) as they are promoted, referencing the arc plan. The arc row is removed when the arc closes, after its final initiative ships (arcs.md, Arc completion).

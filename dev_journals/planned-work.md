@@ -81,7 +81,7 @@ Look at a part of the system, or at something outside it, weigh options and file
 
 **Trigger:** `--`
 
-**Status:** In-Progress, on `feature/skills-expansion`. Discovery doc signed off 2026-11-20: [`F.008-skills-expansion-discovery.md`](initiatives/discovery/F.008-skills-expansion-discovery.md). Overview plan signed off 2026-11-20: [`F.008-skills-expansion-overview-plan.md`](initiatives/implementation/F.008-skills-expansion-overview-plan.md). Four efforts, in order: Sub-agents, Seeds, Explorations and audit, Arc stages and catalogue; each gets its own Plan session. The next session is `/gestalt:plan F.008.E1`.
+**Status:** In-Progress, on `feature/skills-expansion`.
 
 **Decided before Discovery** (Robert, 2026-11-20):
 

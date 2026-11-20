@@ -33,7 +33,7 @@ Re-grounding is most load-bearing for refactors (see refactor-flow.md) but appli
 
 ## Model selection
 
-Opus by default. Fable for Arc-Discovery, Arc-Plan and process-redesign sessions — structure-setting sessions whose output constrains many later sessions.
+Opus by default. Fable for Arc-Discovery, Arc-Plan and process-redesign sessions — structure-setting sessions whose output constrains many later sessions. Under `/gestalt:coordinate`, Fable coordinates and Opus executes: the coordinator session runs on Fable, and every phase agent it starts runs on Opus.
 
 ## Promotion is manual
 
