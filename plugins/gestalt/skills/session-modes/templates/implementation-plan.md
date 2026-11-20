@@ -24,9 +24,11 @@ This template covers three file shapes:
   3. Effort plan (multi-effort):
          dev_journals/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md
      Same sections as a single-file plan, scoped to the effort: its own
-     In Plain Words, Decisions Ratified, Decision Record, Shared Context,
-     Out of Scope, then phases in Work Breakdown. It cites the overview's
-     decisions; it does not repeat them.
+     In Plain Words, Decisions Ratified, Decision Record, Look Here First
+     (written by the last phase under /gestalt:coordinate), Shared Context,
+     Outside Rules, Out of Scope, then phases in Work Breakdown. It cites
+     the overview's decisions and Outside Rules rows; it does not repeat
+     them.
 
 SIZE: two budgets, for single-file and effort plans. The overview has none.
   - Front matter (every line above Work Breakdown): about 400. Every phase

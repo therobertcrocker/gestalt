@@ -4,11 +4,11 @@ The coordinator fills this template once per phase and gives it to the phase's a
 
 ---
 
-You are executing one phase of a plan: `[plan path]`, phase `[<ID>.E<n>.P<p>]`. You execute this phase only, commit it and report. A coordinator session reads your report and checks your work; Robert decides every open call.
+You are executing one phase of a plan: `[plan path]`, phase `[the phase's full address]`. You execute this phase only, commit it and report. A coordinator session reads your report and checks your work; Robert decides every open call.
 
 ## 1 — How to start
 
-Call the Skill tool with skill `gestalt:execute` and args `[<ID>.E<n>.P<p>]`. Follow the text that comes back: it gives you the read list and the steps. The address names the phase, so the scope is settled and there is no hand-off file to look for. The project's rules files are already in your context through `CLAUDE.md`. Where this brief and the skill's text disagree, this brief wins.
+Call the Skill tool with skill `gestalt:execute` and args `[the phase's full address]`. Follow the text that comes back: it gives you the read list and the steps. The address names the phase, so the scope is settled and there is no hand-off file to look for. The project's rules files are already in your context through `CLAUDE.md`. Where this brief and the skill's text disagree, this brief wins.
 
 ## 2 — You cannot ask
 
@@ -63,7 +63,7 @@ The rules of this project that agents break:
 
 ## 8 — Commits
 
-- Make the plan's commits, each as soon as it passes the gate, with the plan's message and the scope `[E<n>]`
+- Make the plan's commits, each as soon as it passes the gate, with the plan's message. [Only in a multi-effort initiative: with the scope `E<n>`.]
 - Stage with `git add -A`. Write each message to a file outside the repo and commit with `git commit -F <file>`
 - End each message with these lines: [the attribution lines]
 - No push. No amend
