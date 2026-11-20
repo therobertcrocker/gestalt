@@ -97,11 +97,7 @@ Look at a part of the system, or at something outside it, weigh options and file
 | 8 | Exploration sessions | One session with two stops: a review after the audit, and a spot check before sign-off |
 | 9 | Exploration ID | Always an `E.` ID, also when the exploration serves one initiative |
 
-**Open for Discovery:**
-
-- How `disable-model-invocation` behaves inside a sub-agent; not checked against the Claude Code docs yet
-- Whether the seed write job covers seeds written in claude.ai chat, where no skill runs
-- Which of the experiment retro's ten follow-ups this initiative takes
+**Settled in Discovery:** the three questions this write-up left open. The seed write job takes a chat draft as a second source (decision 19). F.008 takes eight of the retro's ten follow-ups (decision 32). The docs say a sub-agent can call a skill once the hand-only flag is off; whether a built-in agent type can is the discovery doc's one open question, and a trial in Execution answers it.
 
 **Input:**
 
