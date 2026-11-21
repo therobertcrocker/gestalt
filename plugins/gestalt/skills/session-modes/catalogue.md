@@ -10,7 +10,7 @@ Starters open a session or a doc, and Claude or Robert may start them. Closes an
 
 | Skill | Group | Started by | Command | What it does |
 |---|---|---|---|---|
-| `seed` | Starter | Claude or Robert | `/gestalt:seed write\|plant <name>` | Writes a seed for coming work, or plants it as a Backlog row |
+| `seed` | Starter | Claude or Robert | `/gestalt:seed write\|plant <name> [<ID>]` | Writes a seed for coming work, or plants it as a Backlog row, or on an existing row given by ID |
 | `explore` | Starter | Claude or Robert | `/gestalt:explore <E.ID>` | Runs an exploration in one session with three stops; files the follow-on rows |
 | `audit` | Starter | Claude or Robert | `/gestalt:audit <R.ID>` | Runs a refactor's audit the way an exploration runs; names the Plan |
 | `arc-discovery` | Starter | Claude or Robert | `/gestalt:arc-discovery <A.ID>` | Sets an arc's success criteria and binding decisions from its seed, on the arc branch |
