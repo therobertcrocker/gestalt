@@ -41,6 +41,8 @@ The plugin's plan rules (the feature flow, the plan template, the plan skill) as
 
 ## Decision Record — Execution
 
+1. **Commit 2, Task 4: one more line in the hand-off template** — case 2. The source had a third line that assumes the plan holds code ("what the plan's code does", under Possible design questions) that the task did not list. It now reads "what the plan's task says". The intent of the task, a hand-off that fits plans without code, holds
+
 ## Design Spec — Carried By
 
 | Criterion | Carried by |
@@ -62,7 +64,7 @@ The plugin's plan rules (the feature flow, the plan template, the plan skill) as
 
 **Overview**
 
-- [ ] **Phase 1 — Plans as intent**
+- [x] **Phase 1 — Plans as intent**
   - Commit 1 — `feat: plans hold intent, not bodies` (3 tasks)
   - Commit 2 — `feat: execution writes the code and reports deviations` (4 tasks)
 

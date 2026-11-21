@@ -24,7 +24,8 @@ The session ends when Commit [b] lands. [Do not start Commit [b+1]. | Commit [b]
 1. `[plan path]` — In Plain Words, the In plain words line of [Phase N],
    Decisions Ratified in Planning (esp. [numbers]),
    Decision Record — Execution (entries 1–[n]), Shared Context, then the tasks for the
-   commit at hand. The tasks are the edits: literal Find/Replace and full files.
+   commit at hand. The tasks give the intent, the shape and the test cases; the
+   session writes the code under the project's rules.
 2. `[overview plan path]` — In Plain Words only, for the initiative frame.
 3. `[arch pages]` — Key Decisions.
 
@@ -32,8 +33,12 @@ The session ends when Commit [b] lands. [Do not start Commit [b+1]. | Commit [b]
 <!-- FIXED. Edit only the next Decision Record number. -->
 - **Delete this hand-off file during this session.** Hand-offs are never committed.
 - **Re-ground first.** Re-read the current source for every file the commit touches,
-  and check each Find anchor against it. If an anchor no longer matches, find the same
-  code and log the drift in the plan's Decision Record.
+  and check each Find anchor the tasks give against it. If an anchor no longer matches,
+  find the same code and log the drift in the plan's Decision Record.
+- **Deviations from the plan** follow `feature-flow.md`: a broken project rule, follow
+  the rule; drifted source with the intent intact, follow the source; an intent that
+  looks wrong, stop that line and ask Robert. Log each with its case and reason, and
+  name it in the wrap-up.
 - `// deliberate:` fence-signs in touched code are binding.
 - Green before each commit: `[the project's build and test command]`.
 - Log any execution-time decision or reversal in the plan's **Decision Record —
@@ -55,7 +60,7 @@ The session ends when Commit [b] lands. [Do not start Commit [b+1]. | Commit [b]
 
 ## Possible design questions (ask Robert; do not decide)
 <!-- OPTIONAL. Delete the section when there are none. Give the case and both readings. -->
-- **[case]** — [what the plan's code does, and the other reading]
+- **[case]** — [what the plan's task says, and the other reading]
 
 ## Decisions that are Robert's design calls — do not re-open
 <!-- FIXED heading and closing line. List every design call ratified so far in this plan. -->
