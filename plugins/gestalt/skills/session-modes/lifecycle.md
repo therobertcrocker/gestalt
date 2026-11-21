@@ -65,7 +65,7 @@ An exploration (`E.`) answers a question that has no row yet, and does not pass 
 
 ## Minor items
 
-Bugfix (`B.`) and chore (`C.`) items may skip Stages 2 and 3 entirely — they go straight from Backlog to a single execution session and are removed when done. See bugfix-flow.md for the bugfix flow and docs-chore-flow.md for docs/chore.
+Bugfix (`B.`) and chore (`C.`) items may skip Stages 2 and 3 entirely — they go straight from Backlog to a single execution session and are removed when done. If the row was planted from a seed, the session that removes the row also moves `seeds/<ID>-*-seed.md` with `git mv` into `dev_journals/initiatives/_completed/<ID>-<name>/`. See bugfix-flow.md for the bugfix flow and docs-chore-flow.md for docs/chore.
 
 ## Promotion is manual
 

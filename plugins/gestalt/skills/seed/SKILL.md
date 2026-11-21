@@ -13,10 +13,10 @@ A **stop** waits for Robert. Between stops, go on without asking.
 3. **Read** `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/SKILL.md`, then `lifecycle.md` and `session-discipline.md` (File locations) in the same folder, and the template `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/seed.md`.
 4. **Checks**, before either job writes anything:
    - `git status --porcelain` prints nothing. If it prints, show it and stop: the job's commit uses `git add -A`, so that work would ride in the seed's commit. Robert commits it first, or says to let it ride.
-   - On a branch other than `main`, if the newest subject with an `(E<n>)` scope in `git log --format=%s main..HEAD` is not a closed effort's `fix(E<n>): address effort review findings`, warn: an effort is in progress, the seed's commit is unscoped, so `/gestalt:effort-close` step 3 will stop on it and ask Robert to keep it there. This is a warning, not a stop.
+   - On a branch other than `main`, look at the subjects with an `(E<n>)` scope in `git log --format=%s main..HEAD`. If there is none, there is no warning. If the newest of them is not a closed effort's `fix(E<n>): address effort review findings`, warn: an effort is in progress, the seed's commit is unscoped, so `/gestalt:effort-close` step 3 will stop on it and ask Robert to keep it there. This is a warning, not a stop.
 5. **Branch.** No branch is cut. The job commits on the branch the session stands on, `main` included.
 6. **Write job.**
-   - If `seeds/$1-seed.md` or a planted `seeds/<ID>-$1-seed.md` exists, say so and stop.
+   - If `seeds/$1-seed.md` or a planted `seeds/<ID>-$1-seed.md` exists, or a closed `<ID>-$1-seed.md` at any depth under `dev_journals/initiatives/_completed/`, say so and stop.
    - The source is the session's conversation, or a draft from claude.ai chat that Robert hands in as a path or as pasted text. A chat draft is raw material: its words may be kept, but each of its claims about the repo is checked against the source.
    - Read the code and docs the idea touches. Note the branch and `git rev-parse --short HEAD` for the header.
    - Copy the template to `seeds/$1-seed.md` and fill it. "Read this first" and its "Practical effect today" come from the code just read, not from the conversation. Fill the arc-only sections only when the work may be an arc; otherwise delete them. Put the type in the header only if Robert has said it. Delete the template's comments.
@@ -27,13 +27,13 @@ A **stop** waits for Robert. Between stops, go on without asking.
    - Read the seed whole, then `dev_journals/planned-work.md`.
    - Propose three things:
      - The type, from what the seed describes.
-     - The ID: the next free number for that type's prefix, one more than the highest number with that prefix in the tracker and in the folder names at every depth under `dev_journals/initiatives/_completed/`, so `_completed/arcs/` and the initiatives inside it count too.
+     - The ID: the next free number for that type's prefix, one more than the highest number with that prefix in the tracker and in the file and folder names at every depth under `dev_journals/initiatives/`, so `_completed/arcs/`, the initiatives inside it, `explorations/` and `seeds/` count too.
      - The Backlog row, from the seed's "If planted" section, with a link to the seed's new path, `<ID>-$1-seed.md`, at the end of Detail.
    - **Stop:** Robert confirms or changes the type, the ID and the row. Ask with AskUserQuestion, one question each, the proposal first and marked "(Recommended)".
    - If the type is an arc, check that Vision, Why an Arc and Candidate Initiatives are filled. If one is missing or still a slot, name it and stop.
    - Add the row to the Backlog table for the type (`lifecycle.md`, Stage 1).
    - `git mv seeds/$1-seed.md seeds/<ID>-$1-seed.md`.
-   - Search the repo for `$1-seed.md`, outside `.git/`, and fix each link to the new name with Edit. Leave a hit alone when it already names `<ID>-$1-seed.md`, as the new Backlog row does, or when it names another seed whose name ends in `-$1`. Skip any folder the project's `CLAUDE.md` says is never edited, and list each hit you skipped.
+   - Search the repo for `$1-seed.md`, outside `.git/`, and fix each link to the new name with Edit. Fix only a hit whose file name is exactly `$1-seed.md`. Leave alone every hit with more in front of `$1-seed.md`: the new `<ID>-$1-seed.md`, as the new Backlog row has; a closed seed of the same name under another ID; or another seed whose name ends in `-$1`. Skip any folder the project's `CLAUDE.md` says is never edited, and list each hit you skipped.
    - In the seed's header, fill Type and Tracker row.
    - **Stop:** show the row, the rename and the fixed links. Robert approves, or says what to change.
    - `git add -A`, then commit with the subject `docs: plant $1 seed as <ID>` and the session's attribution lines.

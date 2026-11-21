@@ -29,7 +29,6 @@ Look at a part of the system, or at something outside it, weigh options and file
 
 | ID      | Item | Trigger | Detail |
 |---------|------|---------|--------|
-| `E.001` | OpenSpec comparison | `--` | **Complete** (2026-11-16): stay on gestalt, and take OpenSpec's living spec as a gestalt artifact (`F.005`); follow-ons `F.004` (amended), `F.005`, `F.006`, `F.007`. Compare gestalt with OpenSpec (`Fission-AI/OpenSpec`): what it does that gestalt should do, what gestalt does that it lacks, and whether to move over to it. Two sessions on `exploration/openspec`. Doc: [`E.001-openspec-comparison-exploration.md`](initiatives/explorations/E.001-openspec-comparison-exploration.md) |
 
 ---
 <br/>

@@ -21,13 +21,13 @@ Build the Explorations front of F.008: decisions 6 to 9, 22 to 28, and decision 
 
 73. **`/gestalt:discovery` given an `R.` ID stops and names the way** — it says a refactor has no Discovery, names `/gestalt:audit` when the target shape needs an audit and `/gestalt:plan` when it can be stated in a paragraph, and stops. Rejected: discovery hands over to the audit skill itself, and Discovery stays open to refactors. Settles the overview plan's "For its Plan session" item.
 74. **An exploration's In Plain Words is decision 61's three lines plus a Short answer** — What, Short answer, Why, How it fits. The answer is the doc's output, so it gets its own line; How it fits names the follow-on rows. An audit uses the same four lines. Rejected: the strict three lines with the answer inside What, and the four lines of the real docs (What, Short answer, Why it matters, How it lands).
-75. **An audit's Design Spec is ratified at the first stop** — drafted after the audit and the number check, and ratified at Robert's review of the audit, before Options are written. The options are weighed against it. Holds decision 57. Rejected: at the second stop with the Recommendation, and a draft before the audit.
+75. **An audit's Design Spec is ratified at the second stop, Robert's review of the audit** (the first stop until Decision Record, entry 1) — drafted after the audit and the number check, and ratified at Robert's review of the audit, before Options are written. The options are weighed against it. Holds decision 57. Rejected: at the sign-off stop with the Recommendation, and a draft before the audit.
 76. **An exploration and an audit each make one commit, at the end** — one unscoped `docs:` commit after Robert's sign-off, with the doc and, for an exploration, the tracker changes. Rejected: a commit at each stop, and a commit only when Robert says.
 77. **Two phases, five commits** — Phase 1 is the flow, the template and the two skills. Phase 2 is the process text around them, in three commits: the refactor flow, the session-modes skill and the style guide, then the rules and the session skills. The same split as effort 2.
 78. **`explore` cuts no branch; `audit` cuts the refactor's branch** — `explore` commits on the branch the session stands on, `main` included (decision 6). `audit` is the refactor's first session, so on `main` it cuts `feature/<initiative-name>` before it writes, as `discovery` does (decision 26).
 79. **`explore` checks the tree and the effort as `seed` does** — its one commit uses `git add -A` on any branch, so it stops on a dirty tree and warns inside an effort in progress (decisions 69 and 70). `audit` runs on its own branch and needs neither.
 80. **`plan` reads the exploration a refactor row names** — a refactor that an exploration sent straight to Plan (`E.004` to `R.028`) has no audit; its plan reads the exploration instead. With neither, the plan opens with the refactor's Design Spec (overview plan, decision 63 table).
-81. **`explore` proposes the follow-on IDs, as `seed plant` does** — the next free number per prefix, from the tracker and every depth of `_completed/`. Robert confirms the rows and their IDs at the second stop.
+81. **`explore` proposes the follow-on IDs, as `seed plant` does** — the next free number per prefix, from the tracker and every file and folder name under `dev_journals/initiatives/` (Decision Record, entry 2). Robert confirms the rows and their IDs at the third stop.
 82. **The Explorations table is named wherever the tracker's shape is** — `lifecycle.md` gains it (overview plan), so `code-and-docs.md`, Project layout, and the tracker `adopt` creates name it too. gestalt's own tracker has it already.
 83. **The exploration is a row in the routing tables and the session table** — `session-modes/SKILL.md` gets an `exploration` row in both routing tables, and `code-and-docs.md` gets an "Exploration or audit" row in its session table. Each is a kind of work with its own flow and its own end.
 
@@ -36,6 +36,11 @@ Added after the draft, from a side agent's note, by Robert's answer:
 84. **A fed Current Initiative gets one pointer line, not the answer** — `lifecycle.md` freezes a row and its write-up between promotion and close. When an exploration feeds work that is already a Current Initiative (gm-toolkit's `E.002` fed `A.001.4`), `explore` adds one line to that write-up: "Answered by `<E.ID>`: link". The answer stays in the exploration, and `discovery` finds it from the line. `lifecycle.md` names this as the second exception beside `Blocked`. A fed row in the Backlog or Up Next is not frozen, and takes the answer in its Detail. Rejected: the fed work set `Blocked` while the exploration runs, the answer in the exploration doc only, and the answer itself in the frozen row.
 
 ## Decision Record — Execution
+
+1. **Three stops, not two** — Robert, 2026-11-21, at the effort close (review finding 3). Changes discovery decision 8. The flow's step 1 asks for the deciding criterion before the audit, but under "between stops, go on without asking" nothing waited for the answer. Step 1 is now a stop, so the audit review is the second stop and the sign-off the third. The wording changed in `exploration-flow.md`, both skills, the template, `refactor-flow.md`, the session-modes skill and `code-and-docs.md`.
+2. **The next free ID counts every name under `initiatives/`** — 2026-11-21, at the effort close (review finding 1). Changes decision 81. A finished exploration's row is removed and its doc stays in `explorations/`, so counting only the tracker and `_completed/` handed its ID out again. `explore`, `seed plant` and the template now count the tracker and the file and folder names at every depth under `dev_journals/initiatives/`. A trivial bugfix or chore leaves no file, so its ID can still come back.
+3. **A new `E.` row goes into the Explorations table** — 2026-11-21, at the effort close (review finding 5). `explore` step 8 and the flow's step 7 sent every new row to the Backlog, where `explore` cannot find an `E.` row.
+4. **No scoped subject, no effort warning** — 2026-11-21, at the effort close (review finding 6). After an effort close with no picks, the branch may have no `(E<n>)` subject; `explore` and `seed` now say that gives no warning.
 
 ---
 
@@ -71,7 +76,7 @@ Every new line names the single-product path, `dev_journals/initiatives/explorat
 
 - **Exploration** — `explorations/<E.ID>-<name>-exploration.md`, started with `/gestalt:explore`
 - **Audit** — `explorations/<R.ID>-<name>-audit.md`, started with `/gestalt:audit` (decision 27)
-- **The seven steps and two stops** — the flow in the discovery doc, Design Summary, Explorations; written once, in `exploration-flow.md`
+- **The seven steps and three stops** (Decision Record, entry 1) — the flow in the discovery doc, Design Summary, Explorations; written once, in `exploration-flow.md`
 
 ## Outside Rules
 
@@ -113,14 +118,14 @@ A flow file in the register of `refactor-flow.md`: a title, an opening paragraph
 1. **Title and opening** — `# Exploration flow`. An exploration looks at a part of the system, or at something outside it, weighs options and files each follow-on as its own row. It answers "which way?"; a Discovery answers "what exactly?". It does not replace a Discovery (decision 23). A refactor's audit runs the same way: this file is the shared middle of `/gestalt:explore` and `/gestalt:audit`, as `session-discipline.md` is for the session skills
 2. **Exploration or audit** — which came first decides (decision 25). The two-line text diagram of the discovery doc (a question with no row yet, an existing refactor row), and the edges table of decision 26: Start, Branch, Middle, End per skill
 3. **The doc** — one template, `templates/exploration.md`. The two paths and what happens at the close, as a table (decisions 7 and 27): an exploration stays in `explorations/`; an audit moves to `_completed/<R.ID>-<name>/` with the refactor's plan and retro. An audit holds the refactor's Design Spec; an exploration holds none (decision 56)
-4. **One session, two stops** — decision 8. The seven steps, numbered, each stop in bold:
-   1. Ask Robert for the deciding criterion, before the audit. With a vague row, ask what prompted it
+4. **One session, three stops** — decision 8, changed by the Decision Record, entry 1. The seven steps, numbered, each stop in bold:
+   1. **Stop:** ask Robert for the deciding criterion, before the audit. With a vague row, ask what prompted it
    2. Audit: write Current State and Existing Patterns, with `file:line` citations. Send a short update between audit steps; long silent stretches were the log's most common complaint
    3. Check every number in the doc against the source
    4. **Stop:** Robert reviews the audit. For an audit, the Design Spec is drafted before this stop and ratified at it, before any option is written (decision 75). A question Robert adds here goes into Questions, marked as added after the audit
    5. Write Options and the Recommendation. Facts found while the options are written go into Current State, Options and the rows, with no section of their own (decision 22). An option Robert proposes is added beside the others, not in place of them. Rows are marked "proposed"
    6. **Stop:** a spot check of what was left out, every item put to Robert, then his sign-off of the doc, the rows and their IDs
-   7. File the follow-on rows (an exploration only; an audit files nothing and names the refactor's Plan). A doc the exploration feeds is not edited. A fed row in the Backlog or Up Next takes the answer in its Detail; a fed Current Initiative's write-up gets one pointer line, "Answered by `<E.ID>`: link", never the answer (decision 84)
+   7. File the follow-on rows (an exploration only; an audit files nothing and names the refactor's Plan). A new `E.` row goes into the Explorations table, every other new row into the Backlog. A doc the exploration feeds is not edited. A fed row in the Backlog or Up Next takes the answer in its Detail; a fed Current Initiative's write-up gets one pointer line, "Answered by `<E.ID>`: link", never the answer (decision 84)
 5. **The doc while it runs** — the header's Status moves from in progress, to written and waiting on review, to complete. In Plain Words is drafted after the audit and rewritten last (decision 22), in four lines (decision 74). The Terms block is optional, added when a naming trap shows (decision 22)
 6. **What comes after** — decision 23. The follow-on row's own flow decides. The exploration counts as the audit: a Discovery that follows reads it first and skips the audit and the choice of direction, lighter but never skeletal; a refactor whose target is chosen goes straight to Plan, which reads it. The Recommendation's "How it lands" names the next mode for each follow-on row
 7. **Branch and commit** — an exploration is exempt from the branch rule and runs on the branch the session stands on, `main` included (decisions 6 and 78). An audit runs on the refactor's branch. Each makes one unscoped `docs:` commit, after Robert's sign-off (decision 76)
@@ -136,7 +141,7 @@ A template in the style of `templates/seed.md`: guidance in HTML comments, slots
 3. **Header** — a blockquote: Initiative (the ID, and for an audit the refactor it serves), Feeds (the docs or rows that wait on the answer; "none" if none), Status (in progress, written and waiting on review, or complete; the branch), and an optional Source snapshot for an outside source (a repo and its commit)
 4. **In Plain Words** — REQUIRED, four lines (decisions 61 and 74): What (what this looks into, with none of the project's vocabulary), Short answer, Why (the problem behind the question), How it fits (where the answer lands: the follow-on rows, or for an audit the refactor's Plan). The comment says it is drafted after the audit and rewritten last (decision 22)
 5. **Design Spec** — AUDIT-ONLY (decision 56). The two parts of decision 57: What we are building, then Success Criteria as a table of questions, each with the answer that means success. The comment carries Robert's rule (a question he can ask of the finished work, not a count or a limit) and says the spec is drafted after the audit and ratified at the first stop (decision 75). An exploration carries none
-6. **Questions** — REQUIRED. Robert's prompt in his words, the deciding criterion, then the numbered questions. A question added at the first stop is marked as added after the audit
+6. **Questions** — REQUIRED. Robert's prompt in his words, the deciding criterion, then the numbered questions. A question added at the second stop is marked as added after the audit
 7. **Current State** — REQUIRED. The audit, with `file:line` citations, in sub-sections by topic. An optional "Findings from the audit" sub-section for what the audit found that no question asked
 8. **Existing Patterns** — REQUIRED. What the code already does that an option can build on
 9. **Options** — REQUIRED. An optional Terms block on top (decision 22). One `###` per question, one `####` per option, numbered with a letter per question (`T-0`, `T-1`); the `-0` option is the baseline, today's shape. A precondition all options of a question share is stated once above them. A "lean" table for a call made of many small items
@@ -165,7 +170,7 @@ The frontmatter, literal. No `disable-model-invocation` (decision 28):
 ```
 ---
 name: explore
-description: Run an exploration for one row of the Explorations table, by its E. ID - a question looked into, options weighed and follow-on rows filed, in one session with two stops. Use when Robert asks to explore a question or to run an exploration. For a refactor's audit, use the audit skill.
+description: Run an exploration for one row of the Explorations table, by its E. ID - a question looked into, options weighed and follow-on rows filed, in one session with three stops. Use when Robert asks to explore a question or to run an exploration. For a refactor's audit, use the audit skill.
 argument-hint: "[E.ID]"
 ---
 ```
@@ -178,7 +183,7 @@ The body is written in the register of `seed/SKILL.md`: an opening paragraph, th
 4. **Checks** — the two checks of `seed/SKILL.md` step 4, worded for this skill: a dirty tree is a stop, an effort in progress is a warning (decision 79)
 5. **Branch** — no branch is cut; the commit lands on the branch the session stands on, `main` included (decisions 6 and 78)
 6. **The doc** — if `dev_journals/initiatives/explorations/$0-*-exploration.md` exists, read it and continue from its state. Otherwise copy the template to `$0-<kebab-name>-exploration.md`, the name from the row's Item, and leave out the AUDIT-ONLY section
-7. **The middle** — run the seven steps and two stops of `exploration-flow.md`. At the second stop, propose an ID for each new row: the next free number for its prefix, from the tracker and the folder names at every depth under `dev_journals/initiatives/_completed/` (decision 81). Robert confirms the rows and their IDs with his sign-off
+7. **The middle** — run the seven steps and three stops of `exploration-flow.md`. At the third stop, propose an ID for each new row: the next free number for its prefix, from the tracker and the file and folder names at every depth under `dev_journals/initiatives/` (decision 81). Robert confirms the rows and their IDs with his sign-off
 8. **File** — the flow's step 7: add each new row to the Backlog table for its type, apply each row change, remove each closed row. For each piece of work the exploration feeds: a Backlog or Up Next row takes the answer in its Detail; a Current Initiative's write-up gets one line, "Answered by `$0`: link to the doc", and nothing more (decision 84). Mark each row Filed in the doc, set the header's Status to complete, and remove the `$0` row from the Explorations table (decision 7)
 9. **Commit** — `git add -A`, then one commit with the subject `docs: $0 <name in plain lower-case words> exploration` and the session's attribution lines (decision 76)
 10. **The end** — name the next mode for each follow-on row, from "How it lands". Do not promote any row
@@ -192,7 +197,7 @@ The frontmatter, literal:
 ```
 ---
 name: audit
-description: Run the audit of one refactor, by its R. ID - the current code inventoried, target shapes weighed and one chosen, in one session with two stops; the refactor's Plan comes next. Use when Robert asks to audit a refactor, or to start a refactor whose target shape is not known yet.
+description: Run the audit of one refactor, by its R. ID - the current code inventoried, target shapes weighed and one chosen, in one session with three stops; the refactor's Plan comes next. Use when Robert asks to audit a refactor, or to start a refactor whose target shape is not known yet.
 argument-hint: "[R.ID]"
 ---
 ```
@@ -204,7 +209,7 @@ The body in the same register as `explore`. It must hold:
 3. **The row** — `$0` in Current Initiatives. No row, or not there: say so and stop; promotion is Robert's call. Read the write-up, and the seed if it points at one. If the row names an exploration that already chose the target, the exploration counts as the audit (decision 23): say so, name `/gestalt:plan $0` and stop
 4. **Branch** — on `main`, cut `feature/<initiative-name>` before writing anything; every session of the refactor runs on it (decision 78)
 5. **The doc** — if `dev_journals/initiatives/explorations/$0-*-audit.md` exists, read it and continue from its state. Otherwise copy the template to `$0-<kebab-name>-audit.md` and leave out the EXPLORATION-ONLY section
-6. **The middle** — run the seven steps and two stops of `exploration-flow.md`. Before the first stop, draft the Design Spec; Robert ratifies it there, before any option is written (decision 75). At the flow's step 7, file nothing (decision 26)
+6. **The middle** — run the seven steps and three stops of `exploration-flow.md`. Before the second stop, draft the Design Spec; Robert ratifies it there, before any option is written (decision 75). At the flow's step 7, file nothing (decision 26)
 7. **Commit** — `git add -A`, then one commit with the subject `docs: $0 audit` and the session's attribution lines (decision 76)
 8. **The end** — name the next step: `/gestalt:plan $0`, in a new session. Do not promote or edit any row
 
@@ -251,7 +256,7 @@ An Audit runs only when:
 - An inventory of the current state is needed before any target can be chosen
 - Multiple incompatible target shapes are on the table
 
-The Audit is run the way an exploration is run: the same template, the same seven steps and the same two stops (`exploration-flow.md`). Start it with `/gestalt:audit <R.ID>` once the row is in progress; it runs on the refactor's branch. It inventories the current state, weighs the candidate targets as options and chooses one. Its doc, `dev_journals/initiatives/explorations/<R.ID>-<name>-audit.md`, emphasizes *findings* (what's there now) over *invention* (what should be). It holds the refactor's Design Spec, ratified at its first stop. It files no rows; its next step is the refactor's Plan.
+The Audit is run the way an exploration is run: the same template, the same seven steps and the same three stops (`exploration-flow.md`). Start it with `/gestalt:audit <R.ID>` once the row is in progress; it runs on the refactor's branch. It inventories the current state, weighs the candidate targets as options and chooses one. Its doc, `dev_journals/initiatives/explorations/<R.ID>-<name>-audit.md`, emphasizes *findings* (what's there now) over *invention* (what should be). It holds the refactor's Design Spec, ratified at its first stop. It files no rows; its next step is the refactor's Plan.
 
 When an exploration came first and chose the target, the exploration counts as the Audit: the refactor goes straight to Plan.
 
@@ -494,7 +499,7 @@ And the exploration row:
 **Replace with:**
 ```
 | **Chore** | Backlog row only | Never | Never | Single session |
-| **Exploration** | Its row in the Explorations table | Never; it is its own audit | Never | One session with two stops; files the follow-on rows |
+| **Exploration** | Its row in the Explorations table | Never; it is its own audit | Never | One session with three stops; files the follow-on rows |
 ```
 
 The templates table:
@@ -574,7 +579,7 @@ a seed is not a mode, so either job may run inside any session.
 ```
 **Replace with:**
 ```
-a seed is not a mode, so either job may run inside any session. Run an exploration with `/gestalt:explore <E.ID>` and a refactor's audit with `/gestalt:audit <R.ID>`; each is one session with two stops.
+a seed is not a mode, so either job may run inside any session. Run an exploration with `/gestalt:explore <E.ID>` and a refactor's audit with `/gestalt:audit <R.ID>`; each is one session with three stops.
 ```
 
 The session table (decision 83):

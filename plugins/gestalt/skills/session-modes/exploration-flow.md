@@ -12,7 +12,7 @@ a question, no row yet    -> exploration, its own E. row -> files follow-on rows
 an existing refactor row  -> audit, under the R. ID      -> that refactor's Plan
 ```
 
-The two run the same way: the same template, the same seven steps, the same two stops. They differ at the edges:
+The two run the same way: the same template, the same seven steps, the same three stops. They differ at the edges:
 
 | Edge | `/gestalt:explore <E.ID>` | `/gestalt:audit <R.ID>` |
 |---|---|---|
@@ -32,17 +32,17 @@ One template serves both: `templates/exploration.md`. The two docs sit in one fo
 
 An audit holds the refactor's Design Spec, because it is the refactor's first doc. An exploration holds none; the first doc of each follow-on row holds that row's spec.
 
-## One session, two stops
+## One session, three stops
 
 An exploration or an audit is one session. A **stop** waits for Robert; between stops, go on without asking.
 
-1. Ask Robert for the deciding criterion, before the audit: what makes one option better than another here. With a vague row, ask what prompted it.
+1. **Stop:** ask Robert for the deciding criterion, before the audit: what makes one option better than another here. With a vague row, ask what prompted it. The audit starts once he answers.
 2. Audit: write Current State and Existing Patterns, with `file:line` citations. Send a short update between audit steps; long silent stretches were the most common complaint about past runs.
 3. Check every number in the doc against the source: each count, each "every" and each "only" is enumerated, not carried.
 4. **Stop:** Robert reviews the audit. For an audit, the Design Spec is drafted before this stop and ratified at it, before any option is written; the options are weighed against it. A question Robert adds here goes into Questions, marked as added after the audit.
 5. Write Options and the Recommendation. Facts found while the options are written go into Current State, Options and the rows, with no section of their own. An option Robert proposes is added beside the others, not in place of them. The doc marks its rows "proposed".
 6. **Stop:** a spot check of what was left out, every item put to Robert, then his sign-off of the doc, the rows and their IDs.
-7. File the follow-on rows. Only an exploration files rows; an audit files nothing and names the refactor's Plan. A doc the exploration feeds is not edited. A fed row in the Backlog or Up Next takes the answer in its Detail. A fed Current Initiative is frozen (`lifecycle.md`): its write-up gets one pointer line, "Answered by `<E.ID>`: link", never the answer.
+7. File the follow-on rows. Only an exploration files rows; an audit files nothing and names the refactor's Plan. A new `E.` row goes into the Explorations table; every other new row goes into the Backlog. A doc the exploration feeds is not edited. A fed row in the Backlog or Up Next takes the answer in its Detail. A fed Current Initiative is frozen (`lifecycle.md`): its write-up gets one pointer line, "Answered by `<E.ID>`: link", never the answer.
 
 ## The doc while it runs
 

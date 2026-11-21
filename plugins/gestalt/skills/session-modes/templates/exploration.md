@@ -6,7 +6,7 @@ COPY THIS FILE TO: dev_journals/initiatives/explorations/<E.ID>-<name>-explorati
   (<name> is kebab-case.)
 
 One template for both. The flow is exploration-flow.md in the session-modes
-skill: one session, seven steps, two stops. Leave out the sections marked
+skill: one session, seven steps, three stops. Leave out the sections marked
 AUDIT-ONLY from an exploration, and the sections marked EXPLORATION-ONLY from
 an audit.
 
@@ -45,7 +45,7 @@ Drafted after the audit, rewritten last.
 AUDIT-ONLY. An exploration carries no Design Spec; the first doc of each
 follow-on row holds that row's spec.
 
-Drafted after the audit and the number check. Ratified at the first stop,
+Drafted after the audit and the number check. Ratified at the second stop,
 Robert's review of the audit, before any option is written. The options are
 weighed against it.
 
@@ -67,7 +67,7 @@ the answer that means success. Not a count or a limit.
 
 <!--
 REQUIRED. Robert's prompt in his words, the deciding criterion (asked before
-the audit), then the numbered questions. A question Robert adds at the first
+the audit), then the numbered questions. A question Robert adds at the second
 stop is marked "(added after the audit)".
 -->
 
@@ -82,7 +82,7 @@ stop is marked "(added after the audit)".
 <!--
 REQUIRED. The audit: what is there now, with `file:line` citations. One `###`
 per topic. Every count, "every" and "only" is checked against the source
-before the first stop.
+before the second stop.
 
 "Findings from the audit" is OPTIONAL: what the audit found that no question
 asked.
@@ -101,7 +101,7 @@ REQUIRED. What the code already does that an option can build on.
 ## Options
 
 <!--
-REQUIRED. Written after the first stop.
+REQUIRED. Written after the second stop.
 
 Terms is OPTIONAL: add it on top when a naming trap shows.
 
@@ -147,9 +147,11 @@ REQUIRED. The answer in a paragraph. Then:
 EXPLORATION-ONLY. An audit files nothing.
 
 New rows, changed rows and closed rows, in the tracker's columns. Each row is
-"proposed" until Robert's sign-off at the second stop, then "filed". The IDs
-are proposed at the second stop: the next free number per prefix, from the
-tracker and every depth of `_completed/`.
+"proposed" until Robert's sign-off at the third stop, then "filed". The IDs
+are proposed at the third stop: the next free number per prefix, from the
+tracker and every file and folder name under `dev_journals/initiatives/`.
+A new `E.` row goes into the Explorations table; every other new row goes
+into the Backlog.
 
 A fed row in the Backlog or Up Next takes the answer in its Detail. A fed
 Current Initiative gets one line in its write-up, "Answered by `<E.ID>`:

@@ -47,7 +47,7 @@ Every flow is a different weighting of the same three artifacts (Concept, Discov
 | **Bugfix** | Backlog row only | Never; diagnosis is the first half of Plan | Skipped (trivial) or lightweight | Single session |
 | **Docs** | Backlog row, or write-up or seed if initiative-sized | Skipped; generative docs discover at write time | Skipped (single session) or docs-initiative plan | One session per effort or doc |
 | **Chore** | Backlog row only | Never | Never | Single session |
-| **Exploration** | Its row in the Explorations table | Never; it is its own audit | Never | One session with two stops; files the follow-on rows |
+| **Exploration** | Its row in the Explorations table | Never; it is its own audit | Never | One session with three stops; files the follow-on rows |
 
 ## Templates
 

@@ -17,7 +17,7 @@ An Audit runs only when:
 - An inventory of the current state is needed before any target can be chosen
 - Multiple incompatible target shapes are on the table
 
-The Audit is run the way an exploration is run: the same template, the same seven steps and the same two stops (`exploration-flow.md`). Start it with `/gestalt:audit <R.ID>` once the row is in progress; it runs on the refactor's branch. It inventories the current state, weighs the candidate targets as options and chooses one. Its doc, `dev_journals/initiatives/explorations/<R.ID>-<name>-audit.md`, emphasizes *findings* (what's there now) over *invention* (what should be). It holds the refactor's Design Spec, ratified at its first stop. It files no rows; its next step is the refactor's Plan.
+The Audit is run the way an exploration is run: the same template, the same seven steps and the same three stops (`exploration-flow.md`). Start it with `/gestalt:audit <R.ID>` once the row is in progress; it runs on the refactor's branch. It inventories the current state, weighs the candidate targets as options and chooses one. Its doc, `dev_journals/initiatives/explorations/<R.ID>-<name>-audit.md`, emphasizes *findings* (what's there now) over *invention* (what should be). It holds the refactor's Design Spec, ratified at its second stop, Robert's review of the audit. It files no rows; its next step is the refactor's Plan.
 
 When an exploration came first and chose the target, the exploration counts as the Audit: the refactor goes straight to Plan.
 

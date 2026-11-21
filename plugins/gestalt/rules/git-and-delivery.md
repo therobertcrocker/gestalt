@@ -23,7 +23,7 @@
 
 - Every execution session ends with at least one commit as its checkpoint; a plan-defined scope lands as the plan's commits. `wip:` is acceptable mid-session; a clean conventional commit is preferred.
 - At each effort boundary, squash that effort's commits into one `feat: <ID> effort N — <name>` commit whose body bullets summarise the former commits. `/gestalt:effort-close <ID>.E<n>` runs the whole boundary: review, fixes, a `backup/` branch, the squash and a check that the tree is identical. Ask before rewriting anything already pushed.
-- The effort close makes one review-fix commit, `fix(E<n>): address effort review findings`, with one bullet per fix. It and any fixes found after the squash stay as their own `fix` commits beside the effort commit. Robert wants to see them. Replay them on top (`commit-tree` plus `rebase --onto`); never fold them in.
+- The effort close makes one review-fix commit, `fix(E<n>): address effort review findings`, with one bullet per fix. It and any fixes found after the squash stay as their own `fix` commits beside the effort commit. Robert wants to see them. Replay them on top (`commit-tree` plus `rebase --onto`); never fold them in. A phase review fix made under `/gestalt:coordinate` is part of the effort's work: the squash folds it into the effort commit.
 
 ## Merging and tagging
 
