@@ -18,18 +18,23 @@ Delete these comments before writing.
 
 <!--
 REQUIRED. Under 15 lines. What changed, in everyday terms, for a reader who has
-not read the plans: what works now that did not before, and what was removed
-or reshaped. Not a diff walk. The same text is the merge commit body and the
-chat wrap-up.
+not read the plans: what works now that did not before, what was removed or
+reshaped, and which criteria of the Design Spec were met. Not a diff walk. The
+same text is the merge commit body and the chat wrap-up.
 -->
 
 ## 1 — Did we do what we set out to do?
 
 <!--
-Hold the shipped work against the discovery doc's In Plain Words and Design
-Summary (an arc: each success criterion of the arc-discovery's Design Spec,
-one by one, and the arc-plan). Name what landed, what was cut or deferred, and
-what was added that was not planned.
+Hold the shipped work against each success criterion of the Design Spec, one
+by one: met or not met, with one line of evidence. The spec is in the work's
+first doc (session-discipline.md, Design Spec); an arc's is in the
+arc-discovery, and the arc-plan says which initiative carried each one. Cite
+a criterion by number; do not restate it. Then name what landed, what was cut
+or deferred, and what was added that was not planned.
+
+Work from before the Design Spec has none: hold it against the discovery doc's
+In Plain Words and Design Summary.
 -->
 
 ## 2 — Is there a better way we didn't see?
@@ -61,7 +66,7 @@ constraints, new patterns others will copy, docs that are now out of date.
 Each metric 1–5 (1 poor, 3 as expected, 5 excellent), with one line of
 evidence.
 
-  Delivered  — the shipped work vs the discovery's In Plain Words
+  Delivered  — the shipped work vs the Design Spec, by criterion (section 1)
   Plan held  — reversals in the Decision Record
   Rework     — fix commits on the branch and this close's review findings,
                relative to the size of the work; fill it after the fixes

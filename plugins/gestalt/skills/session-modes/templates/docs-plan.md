@@ -22,16 +22,44 @@ Delete these comments before writing.
 ## In Plain Words
 
 <!--
-REQUIRED. Under 15 lines. Plain words for a reader who has not read the rest of
-this plan: no project shorthand unless it is defined in the same sentence.
+REQUIRED. Three lines, under 15 lines in all. Plain words for a reader who has
+not read the rest of this plan: none of the project's vocabulary unless it is
+defined in the same sentence. They say what this plan handles; the Design Spec
+below says what the initiative builds.
 
-  - What: what this initiative changes in the doc set.
-  - Why: the problem it solves for the reader.
-  - How it fits: where it sits in the project, and what it unblocks.
+  - What: what this plan delivers in the doc set, in plain words.
+  - Why: a pointer to the Design Spec, or the problem it solves for the reader.
+  - How it fits: this plan holds the spec, so it points up, to the project.
+    Name what the work unblocks.
 
-Every execution session reads this section first (session-discipline.md,
-Re-grounding).
+Every execution session reads this section first, then the Design Spec
+(session-discipline.md, Re-grounding).
 -->
+
+- **What** — [what this plan delivers]
+- **Why** — [the pointer to the Design Spec, or the problem]
+- **How it fits** — [the project, and what this unblocks]
+
+## Design Spec
+
+<!--
+REQUIRED. A docs initiative has no discovery doc, so this plan is its first
+doc and holds its Design Spec (session-discipline.md, Design Spec). Two parts.
+Ratify the criteria with Robert before the efforts are written.
+
+Robert's rule: a criterion is a question he can ask of the finished work, with
+the answer that means success. Not a count or a limit.
+-->
+
+### What we are building
+
+[One paragraph: the doc set, in plain words, as a commitment the criteria can test.]
+
+### Success Criteria
+
+| # | Question | Success is |
+|---|---|---|
+| 1 | [question] | [the answer that means success] |
 
 ## Context / Goal
 
@@ -63,7 +91,9 @@ resolves it ("Effort 2: exact template set", "Effort 3: the seeded page list").
 ## Effort Summary
 
 <!--
-REQUIRED. One row per effort. "Depends on" makes the DAG scannable. Note here
+REQUIRED. One row per effort. "Carries" names the Design Spec criteria the
+effort delivers, by number; every criterion has an effort. "Depends on" makes
+the DAG scannable. Note here
 which efforts get their own lightweight Plan session and which execute straight
 from this file (efforts.md).
 
@@ -71,9 +101,9 @@ Done is a checkbox. The commit that finishes the effort's last deliverable
 ticks it ([x]). In a table cell it shows as text, not as a rendered box.
 -->
 
-| Done | # | Effort | Scope | Depends on |
-|------|---|--------|-------|------------|
-| [ ] | 1 | [name] | [one-line scope] | — |
+| Done | # | Effort | Scope | Carries | Depends on |
+|------|---|--------|-------|---------|------------|
+| [ ] | 1 | [name] | [one-line scope] | [criteria, by number] | — |
 
 ## Per-Effort Breakdown
 

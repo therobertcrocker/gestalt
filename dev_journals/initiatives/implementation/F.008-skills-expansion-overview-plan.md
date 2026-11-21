@@ -60,7 +60,7 @@ The live docs made a yes likely and did not settle it (Outside rules, rows 3 to 
 | [x] | 2 | Seeds | The `seed` skill, its template and the SessionStart hook; the seed as the Concept of the work it describes | [`F.008.E2-skills-expansion-plan.md`](./F.008.E2-skills-expansion-plan.md) |
 | [x] | 3 | Explorations and audit | The `explore` and `audit` skills over one flow file and one template; the refactor flow as Audit, Plan, Execution | [`F.008.E3-skills-expansion-plan.md`](./F.008.E3-skills-expansion-plan.md) |
 | [x] | 4 | Arc stages and catalogue | The `arc-discovery` and `arc-plan` skills and templates; the seed in place of the arc concept; the arc branch and success criteria; the catalogue | [`F.008.E4-skills-expansion-plan.md`](./F.008.E4-skills-expansion-plan.md) |
-| [ ] | 5 | Design spec | The Design Spec in the first doc of every piece of work; In Plain Words reframed in every doc; "carried by" in the plans; the check at the close | [`F.008.E5-skills-expansion-plan.md`](./F.008.E5-skills-expansion-plan.md) |
+| [x] | 5 | Design spec | The Design Spec in the first doc of every piece of work; In Plain Words reframed in every doc; "carried by" in the plans; the check at the close | [`F.008.E5-skills-expansion-plan.md`](./F.008.E5-skills-expansion-plan.md) |
 
 The order is the dependency:
 

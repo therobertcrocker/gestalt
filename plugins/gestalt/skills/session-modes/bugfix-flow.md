@@ -24,6 +24,7 @@ Flow: **Backlog → Plan → Execution → Done.**
 
 The plan is **lightweight** — typically a single section in `dev_journals/initiatives/implementation/<ID>-<bugfix-name>-plan.md` covering:
 
+- **Design Spec** — at the top: what the fix delivers, and the success criteria that show the bug is gone (session-discipline.md, Design Spec)
 - **Root cause** — what's actually wrong
 - **Fix approach** — the chosen approach, with brief rationale if alternatives existed
 - **Test plan** — how the fix is verified, and what regression coverage is added

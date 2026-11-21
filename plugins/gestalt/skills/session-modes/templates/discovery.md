@@ -15,16 +15,53 @@ Delete these comments before writing.
 ## In Plain Words
 
 <!--
-REQUIRED. Under 15 lines. Plain words for a reader who has not read the rest of
-this doc: no project shorthand unless it is defined in the same sentence.
+REQUIRED. Three lines, under 15 lines in all. Plain words for a reader who has
+not read the rest of this doc: none of the project's vocabulary unless it is
+defined in the same sentence. They say what this doc handles; the Design Spec
+below says what the initiative builds.
 
-  - What: what this initiative does.
-  - Why: the problem it solves, for the user or for the codebase.
-  - How it fits: where it sits in the arc and the project, and what it unblocks.
+  - What: the output of this doc. The design and the decisions the plan is
+    written from. It builds nothing.
+  - Why: a pointer to the Design Spec, or the problem the work solves.
+  - How it fits: this doc holds the spec, so it points up: to the arc's spec
+    and the criteria the arc-plan gives this initiative, or to the project.
+    Name what the work unblocks.
 
-Every session on this initiative reads this section first
-(session-discipline.md, Re-grounding).
+Every session on this initiative reads this section first, then the Design
+Spec (session-discipline.md, Re-grounding).
 -->
+
+- **What** — [the output of this doc]
+- **Why** — [the pointer to the Design Spec, or the problem]
+- **How it fits** — [the arc's spec or the project, and what this unblocks]
+
+## Design Spec
+
+<!--
+REQUIRED. What the initiative builds, and how Robert will know it is built.
+Two parts (session-discipline.md, Design Spec).
+
+Start from the criteria the seed proposes, if any, and in an arc from the
+criteria the arc-plan gives this initiative. Ratify the criteria with Robert
+before the design below is written; the design answers to them.
+
+Robert's rule: a criterion is a question he can ask of the finished work, with
+the answer that means success. Not a count or a limit.
+
+The plan gives each criterion the work that carries it, and the initiative
+close holds the work against every one. Neither restates a criterion; each
+cites it by number.
+-->
+
+### What we are building
+
+[One paragraph: the thing, in plain words, as a commitment the criteria can test.]
+
+### Success Criteria
+
+| # | Question | Success is |
+|---|---|---|
+| 1 | [question] | [the answer that means success] |
 
 ## Problem
 

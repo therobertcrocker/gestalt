@@ -8,7 +8,7 @@ Documentation work — new docs, restructures, or doc-only refactors of existing
 
 **Multi-effort docs initiative.** Use when the work has structural decisions about the doc set and clearly exceeds one session. Flow: **Backlog → Concept write-up → Plan → Execution per effort → Done.**
 
-- **No Discovery doc.** Generative docs *discover-at-write* — the act of writing an architecture page is the act of exploring that subsystem, so per-doc design cannot be usefully pre-specified. Design rationale is worked out in the Plan session and recorded in the plan's "Decisions Ratified in Planning."
+- **No Discovery doc.** Generative docs *discover-at-write* — the act of writing an architecture page is the act of exploring that subsystem, so per-doc design cannot be usefully pre-specified. Design rationale is worked out in the Plan session and recorded in the plan's "Decisions Ratified in Planning." The plan is the initiative's first doc, so it opens with the Design Spec (session-discipline.md, Design Spec).
 - **The plan uses the docs-initiative format** (`templates/docs-plan.md` in this skill folder): a per-effort breakdown (Scope / Deliverables / Dependencies) plus a sequencing DAG, instead of the code-oriented Phase → Commit → Task structure — per-file edits can't be pre-specified for discover-at-write work.
 - **Effort pacing follows efforts.md:** small efforts execute straight from the overview plan; large or design-heavy efforts get their own lightweight Plan session.
 
