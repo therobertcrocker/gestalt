@@ -5,9 +5,9 @@ COPY THIS FILE TO: dev_journals/initiatives/discovery/<ID>-<initiative-name>-dis
   (<ID> is the planned-work ID as written, e.g. A.001.4-goals-tags-core-discovery.md)
 
 A discovery doc captures the design for an initiative before implementation begins.
-The shape varies by what's being designed — feature work and refactor work call for
-different sections. Required sections are always present; optional sections are
-included when relevant.
+The shape varies by what's being designed. Required sections are always present;
+optional sections are included when relevant. A refactor has no discovery doc: its
+Audit uses templates/exploration.md (refactor-flow.md).
 
 Delete these comments before writing.
 -->
@@ -31,9 +31,7 @@ Every session on this initiative reads this section first
 <!--
 REQUIRED. What is broken, missing, limiting, or worth investigating?
 
-For feature work: name the gap or pain point. Be richer than the planned-work blurb.
-For refactor work: name the structural issue and what it costs (e.g. drift between
-sibling packages, friction in the abstraction).
+Name the gap or pain point. Be richer than the planned-work blurb.
 
 Reference specific code paths, files, and line numbers where helpful.
 -->
@@ -57,9 +55,7 @@ architecture wiki, say that and name the binding context instead.
 <!--
 REQUIRED.
 
-For feature work: name the chosen approach in a few paragraphs, with rationale.
-For refactor work: name the target pattern (or, if Discovery is figuring out the
-target, this section becomes "Audit Findings" — see optional sections below).
+Name the chosen approach in a few paragraphs, with rationale.
 
 This is the section a reader skims to understand "what are we doing about it."
 -->
@@ -78,15 +74,6 @@ If there are no open questions, write "None." Don't omit the section.
 OPTIONAL SECTIONS BELOW. Include the ones relevant to this work; delete the rest
 along with this comment. Add new sections freely — discovery docs are not
 template-bound, and the work itself dictates what's needed.
--->
-
-## Audit Findings
-
-<!--
-Common in REFACTOR discovery. Inventory the current state of what's being refactored,
-classify divergences from the target pattern, identify reference exemplars.
-
-Subsections often include: Inventory, Cross-axis comparison, Reference exemplar.
 -->
 
 ## Domain Model Changes

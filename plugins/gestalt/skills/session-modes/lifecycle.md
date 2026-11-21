@@ -6,7 +6,7 @@ Every initiative passes through the same stages, regardless of type. All stages 
 
 Lands in the **Backlog** section of `dev_journals/planned-work.md`, grouped into per-type subsections (Arcs, Features, Refactors, Bugfixes, Docs — others added as needed). A project may split Refactors and Bugfixes again into per-layer sub-tables; a row then goes in the layer where its fix lands, an empty layer shows `_None._`, and the Backlog intro lists what each layer holds. Each table has columns:
 
-- **ID** — stable identifier; the prefix encodes the type: `A.` arc, `F.` feature, `R.` refactor, `B.` bugfix, `D.` docs, `C.` chore
+- **ID** — stable identifier; the prefix encodes the type: `A.` arc, `F.` feature, `R.` refactor, `B.` bugfix, `D.` docs, `C.` chore. An exploration's `E.` row sits in a table of its own (Explorations, below)
 - **Item** — short title
 - **Trigger** — one of `--` (no gate), `ready` (scoped, can be promoted), `after <ID>`, `when <condition>`, `needs triage` (cause not known)
 - **Detail** — one-line context, problem, or rationale
@@ -46,7 +46,7 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 - `In-Progress` — actively being worked. Colloquially called "Current." Capped at 2–3 at any time; more than that is wishful thinking.
 - `Blocked` — cannot proceed until something else lands. **Required `by:` note** in the write-up naming the blocker (another initiative, an external dep, a design decision).
 
-**The tracker moves at stage boundaries only.** Between promotion and close, no session edits the row or the write-up, except to set or clear `Blocked`. Which docs exist, which effort is next and which phase is next are read from the plans: the files in `implementation/`, the Done boxes of the Effort Summary and each plan's Overview list. The Status line holds the status value and the branch, nothing more.
+**The tracker moves at stage boundaries only.** Between promotion and close, no session edits the row or the write-up, except to set or clear `Blocked`, or for `/gestalt:explore` to add one line to the write-up of work it feeds: "Answered by `<E.ID>`: link". The answer itself stays in the exploration. Which docs exist, which effort is next and which phase is next are read from the plans: the files in `implementation/`, the Done boxes of the Effort Summary and each plan's Overview list. The Status line holds the status value and the branch, nothing more.
 
 Promotion from Up Next to Current Initiative is Robert's explicit call. The write-up (or arc concept doc) is drafted at promotion time, not in advance.
 
@@ -58,6 +58,10 @@ When all execution phases land, `/gestalt:initiative-close <ID>` runs the pre-me
 
 1. Remove the row from the Current Initiatives table and the write-up from `dev_journals/planned-work.md`
 2. Tag the version bump if warranted (git-and-delivery rules)
+
+## Explorations
+
+An exploration (`E.`) answers a question that has no row yet, and does not pass through the stages. Its row sits in the tracker's **Explorations** table, between Up Next and Backlog, with the columns ID / Item / Trigger / Detail and the Backlog's trigger values. It has no write-up and no promotion step: `/gestalt:explore <E.ID>` runs from the row. When it files its follow-on rows, it removes its own row; the doc stays in `explorations/` (`exploration-flow.md`). A refactor's audit has no row of its own: it runs under the refactor's `R.` ID.
 
 ## Minor items
 

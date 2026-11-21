@@ -15,6 +15,10 @@ In a multi-product project, every `dev_journals/` path below reads `dev_journals
 
 **Discovery Doc** (`dev_journals/initiatives/discovery/<ID>-<name>-discovery.md`) — written before implementation begins. Covers the problem, the design, decisions and open questions. Not updated after the fact; it is a planning artifact.
 
+**Exploration** (`dev_journals/initiatives/explorations/<E.ID>-<name>-exploration.md`) — answers a question that has no row yet: the current state, the options, a recommendation and the follow-on rows. Run with `/gestalt:explore`; flow `exploration-flow.md` and template `templates/exploration.md` in the session-modes skill. Carries no Design Spec. Stays in `explorations/` when its row leaves the tracker.
+
+**Audit** (`dev_journals/initiatives/explorations/<R.ID>-<name>-audit.md`) — a refactor's first doc, run the way an exploration is run, from the same template. Holds the refactor's Design Spec. Run with `/gestalt:audit`. Moves to `_completed/` with the refactor's plan and retro.
+
 **Implementation Plan** (`dev_journals/initiatives/implementation/<ID>-<name>-plan.md`) — a step-by-step plan for implementing an initiative: a phased breakdown of the tasks, split by commit, with the design rationale and any open questions to resolve during implementation. Carries the Decision Record for execution-time decisions (append and reconcile). Updated as needed during implementation, not after completion. Multi-effort docs initiatives use the docs-plan format instead (`templates/docs-plan.md` in the session-modes skill).
 
 **Retro** (`dev_journals/initiatives/implementation/<ID>-<name>-retro.md`) — written when an initiative or arc closes: what changed in plain words, five fixed questions, a rating table and follow-up rows. Template: `templates/retro.md` in the session-modes skill. Moves to `_completed/` with the plans; an arc's retro sits with the arc artifacts.
