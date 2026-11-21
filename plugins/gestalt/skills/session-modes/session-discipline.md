@@ -41,7 +41,7 @@ Movement between lifecycle stages (Backlog → Up Next → Current Initiative �
 
 ## File locations
 
-**File names start with the initiative ID.** `<ID>` is the `dev_journals/planned-work.md` ID exactly as written (`A.001.4`, `F.026`, `B.013`), followed by a hyphen and the initiative name in kebab-case: `A.001.4-goals-tags-core-discovery.md`. Arcs carry the ID on the folder and on each file. No underscores anywhere in initiative file or folder names. A project's docs from before it adopted this rule keep their names.
+**File names start with the initiative ID.** `<ID>` is the `dev_journals/planned-work.md` ID exactly as written (`A.001.4`, `F.026`, `B.013`), followed by a hyphen and the initiative name in kebab-case: `A.001.4-goals-tags-core-discovery.md`. Arcs carry the ID on the folder and on each file. No underscores anywhere in initiative file or folder names. A project's docs from before it adopted this rule keep their names. An unplanted seed is the one exception: it has no ID yet, so its file is `<name>-seed.md` until it is planted.
 
 **Work addresses.** A skill argument can point below the initiative with lettered segments after the ID: `.E<n>` for an effort, `.P<n>` for a phase. `F.001.P3` is phase 3 of a single-effort plan, `F.001.E2.P3` is phase 3 of effort 2, `A.001.7.E2` is effort 2 of arc initiative `A.001.7`. Phase numbers restart in each effort plan, so in a multi-effort initiative a phase needs its effort. An effort's files start with its address (`A.001.7.E2-…`), so the overview plan sorts first and the effort files follow in order. Phases have no files, and the tracker keeps the bare ID.
 
@@ -52,8 +52,9 @@ Every path below sits under `dev_journals/`, or under `dev_journals/<product>/` 
 - **Execution hand-offs** — `dev_journals/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`
 - **Retros** — `dev_journals/initiatives/implementation/<ID>-<initiative-name>-retro.md`, written by `/gestalt:initiative-close`
 - **Arc artifacts** — `dev_journals/initiatives/arcs/<ID>-<arc-name>/` holds `<ID>-<arc-name>-arc-concept.md`, `-arc-discovery.md`, and `-arc-plan.md` while the arc is active, and `-arc-retro.md` once `/gestalt:arc-close` writes it
-- **Explorations and seeds** — `dev_journals/initiatives/explorations/` and `dev_journals/initiatives/seeds/`. Their process is not defined yet
-- **Completed artifacts** — when an initiative ships, its discovery doc, all its plans (single, overview, and effort plans) and its retro move into one folder. The folder name is the ID, a hyphen, and the kebab-case name. The files keep their names.
+- **Seeds** — `dev_journals/initiatives/seeds/<name>-seed.md`, renamed `<ID>-<name>-seed.md` when it is planted. Written and planted with `/gestalt:seed`, from `templates/seed.md`
+- **Explorations** — `dev_journals/initiatives/explorations/`. Their process is not defined yet
+- **Completed artifacts** — when an initiative ships, its seed, its discovery doc, all its plans (single, overview, and effort plans) and its retro move into one folder. The folder name is the ID, a hyphen, and the kebab-case name. The files keep their names.
   - Standalone initiative — `dev_journals/initiatives/_completed/<ID>-<initiative-name>/`
   - Arc initiative — `dev_journals/initiatives/_completed/arcs/<arc-ID>-<arc-name>/initiatives/<ID>-<initiative-name>/`. The arc folder is created when the arc's first initiative ships.
   - Arc — when the arc closes, with `/gestalt:arc-close`, its artifacts move into `dev_journals/initiatives/_completed/arcs/<arc-ID>-<arc-name>/`, next to `initiatives/`

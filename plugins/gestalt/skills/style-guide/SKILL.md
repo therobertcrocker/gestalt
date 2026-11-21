@@ -11,6 +11,8 @@ A reference for writing and maintaining project docs consistently. A project's o
 
 In a multi-product project, every `dev_journals/` path below reads `dev_journals/<product>/` (code-and-docs rules, Project layout).
 
+**Seed** (`dev_journals/initiatives/seeds/<name>-seed.md`, `<ID>-<name>-seed.md` once planted) — work that is coming, written before it enters the lifecycle. It hands a conversation over to the session that picks the work up, and its "Read this first" tells today's sessions what not to build against. Written and planted with `/gestalt:seed`; template `templates/seed.md` in the session-modes skill. Carries no Design Spec. Moves to `_completed/` with its initiative.
+
 **Discovery Doc** (`dev_journals/initiatives/discovery/<ID>-<name>-discovery.md`) — written before implementation begins. Covers the problem, the design, decisions and open questions. Not updated after the fact; it is a planning artifact.
 
 **Implementation Plan** (`dev_journals/initiatives/implementation/<ID>-<name>-plan.md`) — a step-by-step plan for implementing an initiative: a phased breakdown of the tasks, split by commit, with the design rationale and any open questions to resolve during implementation. Carries the Decision Record for execution-time decisions (append and reconcile). Updated as needed during implementation, not after completion. Multi-effort docs initiatives use the docs-plan format instead (`templates/docs-plan.md` in the session-modes skill).

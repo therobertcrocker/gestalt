@@ -3,6 +3,7 @@
 ## Branches
 
 - Never commit initiative work on `main`. Cut `feature/<initiative-name>` when work on the initiative starts, before the first Discovery session writes anything. Every session of the initiative runs on the branch: Discovery, the overview plan, effort plans and Execution alike. `main` receives `--no-ff` merges only.
+- A seed is exempt from the branch rule. `/gestalt:seed` makes one unscoped `docs:` commit per job on the branch the session stands on, `main` included.
 - Sub-initiatives and enabling refactors on a feature branch are sequential commits on that branch, not sub-branches. They aren't independently shippable, so there is nothing to review or merge at. The pre-merge checklist runs once, at branch level, when the top-level work is complete.
 
 ## Commits

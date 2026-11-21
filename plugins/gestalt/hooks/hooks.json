@@ -1,5 +1,5 @@
 {
-  "description": "Lists the architecture wiki pages at session start, when the project has a wiki",
+  "description": "Lists the architecture wiki pages and the seeds at session start, when the project has them",
   "hooks": {
     "SessionStart": [
       {
@@ -8,6 +8,11 @@
             "type": "command",
             "command": "sh \"${CLAUDE_PLUGIN_ROOT}\"/scripts/architecture-index.sh",
             "statusMessage": "Loading architecture index"
+          },
+          {
+            "type": "command",
+            "command": "sh \"${CLAUDE_PLUGIN_ROOT}\"/scripts/seed-index.sh",
+            "statusMessage": "Loading seed index"
           }
         ]
       }

@@ -40,10 +40,10 @@ Every flow is a different weighting of the same three artifacts (Concept, Discov
 | Type | Concept | Discovery | Plan | Execution |
 |------|---------|-----------|------|-----------|
 | **Arc** | Standalone doc in `dev_journals/initiatives/arcs/<ID>-<arc-name>/` | Arc-Discovery, always | Arc-Plan: initiative slicing and DAG | N initiatives, each running its own flow |
-| **Feature** | Tracker write-up | Always, 1–2 sessions | Overview plan; per-effort plans as needed | Hand-off sets scope; default one phase per session |
-| **Refactor** | Tracker write-up | Often skipped; audit-first when it fires | Pattern plus unit list | One phase, typically one unit, per session; re-grounding per unit |
+| **Feature** | Tracker write-up, or its seed | Always, 1–2 sessions | Overview plan; per-effort plans as needed | Hand-off sets scope; default one phase per session |
+| **Refactor** | Tracker write-up, or its seed | Often skipped; audit-first when it fires | Pattern plus unit list | One phase, typically one unit, per session; re-grounding per unit |
 | **Bugfix** | Backlog row only | Never; diagnosis is the first half of Plan | Skipped (trivial) or lightweight | Single session |
-| **Docs** | Backlog row, or write-up if initiative-sized | Skipped; generative docs discover at write time | Skipped (single session) or docs-initiative plan | One session per effort or doc |
+| **Docs** | Backlog row, or write-up or seed if initiative-sized | Skipped; generative docs discover at write time | Skipped (single session) or docs-initiative plan | One session per effort or doc |
 | **Chore** | Backlog row only | Never | Never | Single session |
 
 ## Templates
@@ -52,6 +52,7 @@ The templates sit in `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/`. In
 
 | Artifact | Template | Copy to |
 |---|---|---|
+| Seed | `seed.md` | `dev_journals/initiatives/seeds/<name>-seed.md`; `/gestalt:seed plant` renames it `<ID>-<name>-seed.md` |
 | Discovery doc | `discovery.md` | `dev_journals/initiatives/discovery/<ID>-<initiative-name>-discovery.md` |
 | Implementation plan | `implementation-plan.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` plus `<ID>.E<n>-<initiative-name>-plan.md` files |
 | Docs-initiative plan | `docs-plan.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md` |

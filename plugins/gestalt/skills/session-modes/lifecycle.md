@@ -13,6 +13,8 @@ Lands in the **Backlog** section of `dev_journals/planned-work.md`, grouped into
 
 Prose notes attached to a row (an idea to weigh, not a decision) go in the Backlog's **Captured Ideas** subsection, after the tables.
 
+**Planting a seed.** A seed in `dev_journals/initiatives/seeds/` gets its row by planting: `/gestalt:seed plant <name>` adds the Backlog row with a link to the seed, and renames the seed to start with the row's ID. The seed stays in `seeds/`, beside its row, until the initiative closes.
+
 Every table cell in the tracker is one line; no wrapping. **Item** and **Trigger** are short lookup keys: as few words as still unambiguous. **Detail** carries the substance and may run longer, still on one line. Trim Item and Trigger first, then spend what is left on Detail. If a row can't be stated in one line anywhere, ask whether it earns the row; elaboration belongs in the write-up, the discovery doc or a pointer.
 
 The ID prefix determines which flow applies when the item is eventually worked (see lifecycle.md, Routing by type). Backlog items are unordered. They sit until their trigger fires.
@@ -34,6 +36,8 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 - **Unlocks** — what becomes possible once it lands
 - **Trigger** — copied from the Backlog/Up Next entry
 - **Status** — see below
+
+**Seeded work:** when the initiative has a seed, the seed is its Concept. The write-up is a pointer to the seed, plus Trigger and Status, which change while the seed does not. Work with no seed keeps the full write-up.
 
 **Arcs are the exception:** an arc's Concept is a standalone doc at `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` (template in `templates/`), because it outlives the planned-work entry and anchors the arc's folder. The arc's planned-work write-up reduces to a pointer at that doc.
 
