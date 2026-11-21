@@ -10,7 +10,7 @@
 
 Build the Arc stages and Catalogue fronts of F.008: decisions 4, 10 to 12, 18 (the arc's half), 29 to 31 and 43, and the overview plan's Decision Record, entry 4.
 
-- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md), the Arc stages and Catalogue parts of Design Summary, Arc Findings and Catalogue Findings
+- Discovery doc: [`F.008-skills-expansion-discovery.md`](./F.008-skills-expansion-discovery.md), the Arc stages and Catalogue parts of Design Summary, Arc Findings and Catalogue Findings
 - Overview plan: [`F.008-skills-expansion-overview-plan.md`](./F.008-skills-expansion-overview-plan.md). Its decisions 35 to 44 and 62 to 63, Shared Context and Outside rules bind this plan and are not repeated here
 - Effort 3 plan: [`F.008.E3-skills-expansion-plan.md`](./F.008.E3-skills-expansion-plan.md), the register the new skills copy
 - Arc docs that exist, read as models for the two templates: gm-toolkit `dev_journals/campaigns/initiatives/arcs/A.004-encounter-lab/` (arc-discovery and arc-plan) and `dev_journals/faction-manager/initiatives/_completed/arcs/A.001-data-driven-rulebook/` (read-only)

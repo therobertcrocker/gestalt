@@ -10,7 +10,7 @@
 
 Build the Explorations front of F.008: decisions 6 to 9, 22 to 28, and decision 39 for `explorations/`.
 
-- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md), the Explorations part of Design Summary and Exploration Findings
+- Discovery doc: [`F.008-skills-expansion-discovery.md`](./F.008-skills-expansion-discovery.md), the Explorations part of Design Summary and Exploration Findings
 - Overview plan: [`F.008-skills-expansion-overview-plan.md`](./F.008-skills-expansion-overview-plan.md). Its decisions 35 to 44 and 62 to 63, Shared Context and Outside rules bind this plan and are not repeated here
 - Effort 2 plan: [`F.008.E2-skills-expansion-plan.md`](./F.008.E2-skills-expansion-plan.md), for decisions 69 and 70, which the `explore` skill copies
 - Explorations that exist, read as models for the template and the flow: gestalt `dev_journals/initiatives/explorations/E.001-openspec-comparison-exploration.md`; gm-toolkit `E.002`, `E.004` and `R.029` under `dev_journals/faction-manager/initiatives/explorations/`, and the `D.009` findings log under `dev_journals/faction-manager/initiatives/discovery/` (read-only)

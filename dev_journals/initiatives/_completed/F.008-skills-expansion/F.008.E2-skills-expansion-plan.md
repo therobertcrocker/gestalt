@@ -10,7 +10,7 @@
 
 Build the Seeds front of F.008: decisions 2, 3, 13 to 21, the seed's part of decision 30, and decision 39 for `seeds/`.
 
-- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md), the Seeds part of Design Summary and Seed Findings
+- Discovery doc: [`F.008-skills-expansion-discovery.md`](./F.008-skills-expansion-discovery.md), the Seeds part of Design Summary and Seed Findings
 - Overview plan: [`F.008-skills-expansion-overview-plan.md`](./F.008-skills-expansion-overview-plan.md). Its decisions 35 to 44 and 62 to 63, Shared Context and Outside rules bind this plan and are not repeated here
 - Effort 1 plan: [`F.008.E1-skills-expansion-plan.md`](./F.008.E1-skills-expansion-plan.md), for Outside Rules rows 8 to 13
 - Seeds that exist, read as models for the template: gestalt `dev_journals/initiatives/seeds/one-claude-seed.md`; gm-toolkit `dev_journals/campaigns/initiatives/seeds/repo-layout-seed.md` (read-only)

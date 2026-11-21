@@ -10,7 +10,7 @@
 
 Build the Design spec front of F.008: decisions 55 to 61 in the files that exist (overview plan, Effort 5).
 
-- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md), Design Spec, Design Summary's "Design spec" part, and decisions 55 to 61
+- Discovery doc: [`F.008-skills-expansion-discovery.md`](./F.008-skills-expansion-discovery.md), Design Spec, Design Summary's "Design spec" part, and decisions 55 to 61
 - Overview plan: [`F.008-skills-expansion-overview-plan.md`](./F.008-skills-expansion-overview-plan.md). Its decisions 35 to 44 and 62 to 63, Shared Context and Outside rules bind this plan and are not repeated here
 - Effort 4 plan: [`F.008.E4-skills-expansion-plan.md`](./F.008.E4-skills-expansion-plan.md), whose `arc-discovery.md` template is the model for the Design Spec section, and whose "Design Spec — Carried By" section is the model for the plan template's
 

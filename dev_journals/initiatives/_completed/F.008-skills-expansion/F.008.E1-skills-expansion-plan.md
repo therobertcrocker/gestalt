@@ -10,7 +10,7 @@
 
 Build the Sub-agents front of F.008: decisions 5, 28, 32 and 33 of the discovery doc.
 
-- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md), the Sub-agents part of Design Summary and Coordinator Findings
+- Discovery doc: [`F.008-skills-expansion-discovery.md`](./F.008-skills-expansion-discovery.md), the Sub-agents part of Design Summary and Coordinator Findings
 - Overview plan: [`F.008-skills-expansion-overview-plan.md`](./F.008-skills-expansion-overview-plan.md). Its decisions 35 to 44, Shared Context and Outside rules bind this plan and are not repeated here
 - Experiment retro: `/workspaces/gm-toolkit/dev_journals/gestalt-outbox/2026-11-20-phase-coordinator-experiment-retro.md`. Appendix A is the loop, Appendix B is the brief, and the table in its section 4 gives the Phase 6 additions
 

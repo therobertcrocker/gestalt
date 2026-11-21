@@ -10,7 +10,7 @@
 
 Turn the discovery doc's six fronts into five efforts that can each be planned, built, tried and closed without the next one. The sixth front and the fifth effort were added on 2026-11-20, after this plan was signed off (decisions 62 and 63).
 
-- Discovery doc: [`F.008-skills-expansion-discovery.md`](../discovery/F.008-skills-expansion-discovery.md). Its In Plain Words, Design Spec, Design Summary and three decision tables (decisions 1 to 34 and 55 to 61) are binding. Its findings sections are evidence, read when a template is written from the docs they describe
+- Discovery doc: [`F.008-skills-expansion-discovery.md`](./F.008-skills-expansion-discovery.md). Its In Plain Words, Design Spec, Design Summary and three decision tables (decisions 1 to 34 and 55 to 61) are binding. Its findings sections are evidence, read when a template is written from the docs they describe
 - Effort plans: linked from the Effort Summary as each is written
 
 ## Decisions Ratified in Planning

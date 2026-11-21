@@ -56,7 +56,7 @@ gestalt has no architecture wiki; the binding context is the three rules files a
 |---|---|---|
 | Delivered | 4 | Six of ten criteria met in full; four built and waiting for first use by plan, not by slip |
 | Plan held | 3 | Two overview decisions reversed or changed (40, 37), two in E1 (45, 48), two in E3 (8, 81), plus a sixth front added after sign-off |
-| Rework | | |
+| Rework | 2 | Six fix commits: 39 effort-review fixes over five closes plus five here, for about 1,470 plugin lines. Each fix is small, but many were real logic gaps (wrong globs, IDs handed out twice, branch order) |
 | Fit | 4 | Every new skill matches the starter shape; the two divergences are scoped and recorded |
 | Simplicity | 3 | The product removed duplicates; the skills grew long with edge cases the reviews found, and the "effort closed" check is copied four times |
 
