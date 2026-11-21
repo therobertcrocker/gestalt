@@ -42,12 +42,12 @@ It diverges in one place on purpose: `F.009` was promoted with no write-up, agai
 | Metric | Score | Evidence |
 |---|---|---|
 | Delivered | 5 | All four criteria met, section 1 |
-| Plan held | 5 | No reversals; one case 2 addition, logged |
-| Rework | | |
+| Plan held | 4 | No reversals in execution; one case 2 addition, logged. Decision 2 was tightened at review (Decision Record entry 2) |
+| Rework | 3 | One fix commit, six review findings (two important) for about 130 plugin lines; none copied from the plan, section 6 finding 10 |
 | Fit | 4 | Matches the one-source pattern; the promotion with no write-up is a deliberate divergence |
 | Simplicity | 4 | 76 lines added, 56 removed in the plugin; the three cases are one paragraph cited from three places |
 
-**Verdict:** [after the review]
+**Verdict:** the rule change landed whole and the light path held; the review still earned its place, because a prose gate cannot catch a garbled sentence or a missing case.
 
 **What surprised me:** the new rule caught a gap in its own plan on the first commit that ran under it.
 
@@ -73,6 +73,9 @@ seed (existing) -> plant -> plan (in-session, picker) -> sign-off
 | 7 | The plan written as intent was enough to build from, at about 1 line of plan per changed line, against F.008's 3 to 1 | 141-line plan, 132 changed plugin lines |
 | 8 | The tracker write-up added nothing for a one-session initiative; promotion with no write-up worked | Decision 8 |
 | 9 | Plan and execute in one session kept the context warm: no re-reading between sessions, which was most of F.008 effort 2's cost | F.008 retro, section 2; this session read each file once |
+| 10 | The review's six findings had three sources, and none was a plan error copied into the code. Build slips (1, 3, 6): an edit that put a new clause in front of the old one and left the old one in place, a sentence half-carried from the old text, a blank line lost in a row move. Plan gaps (2, 4): two seams between decisions 1 and 2 that only showed once the rules were written out. A process seam (5): no step updates a seed's header at promotion | The gate here, `claude plugin validate` and a grep, cannot see a garbled sentence. Under the old style the plan's text would have been copied, so the gaps in decision 2 would have shipped the same way, but slips 1, 3 and 6 would not have happened |
+| 11 | For a light path on prose files, a reread of each edited paragraph before the commit would likely have caught the three build slips. That check is cheap, and the gate cannot do it | Findings 1, 3, 6 |
+| 12 | A fix to a review finding opened a new gap: fix 2 made parameter names part of the shape, so the seed's headline case (`rb` to `rulebook`) became a call. A side agent caught it after the review, and a second fix commit closed it. A light path still needs a second reader after the fixes, not only before them | Decision Record entry 3; the second `fix:` commit |
 
 What the light path likely needs, as input for `F.004`'s own design: a skill, or a mode in the existing ones, that runs plant, plan, execute and close as stops of one session; the picker rule tightened (finding 4); and a call on the write-up step (finding 8).
 

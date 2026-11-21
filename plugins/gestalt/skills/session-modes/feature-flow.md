@@ -59,11 +59,11 @@ A task holds no function body, except by a named exception with a one-line reaso
 
 **Deviations from the plan.** The plan gives the intent; the build session writes the code, and holds it to the project's rules and the current source rather than to the plan's wording. A difference from the plan is one of three cases:
 
-1. **The plan breaks a project rule** (a short local name, a comment that restates code, a style rule): follow the rule and log it
+1. **The plan breaks a project rule** (a short local or parameter name, a comment that restates code, a style rule): follow the rule and log it
 2. **The source has drifted and the plan's intent still holds** (a moved function, a field the source has renamed, an anchor that no longer matches): follow the source and log it
 3. **The intent itself looks wrong** (a behaviour, a design choice, the reading of an outside rule): stop that line of work, go on with what does not depend on it, and ask Robert. A session that cannot ask, such as a phase agent under `/gestalt:coordinate`, reports it as "needs a call"
 
-A change to a shape the plan defines (a new signature, field, exported name or message that later tasks or other code rely on) is always case 3, even when a rule or the source seems to call for it: later tasks cite that shape as written.
+A change to a shape the plan defines (the names and types callers use: a function, a type, an exported name, a field, a parameter's type, a message) is always case 3, even when a rule or the source seems to call for it: later tasks cite that shape as written. Parameter and local names are not shape: renaming one under a rule is case 1.
 
 Log each one in the plan's Decision Record with its case and reason, before the commit it rides, and name each one in the commit's wrap-up or the agent's report. A case 3 entry with no commit of its own rides the phase's last commit, marked open. A case 1 or 2 entry needs no answer; it is there so the review sees it.
 
