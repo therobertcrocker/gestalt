@@ -41,8 +41,8 @@ Spec (session-discipline.md, Re-grounding).
 REQUIRED. What the initiative builds, and how Robert will know it is built.
 Two parts (session-discipline.md, Design Spec).
 
-Start from the criteria the seed proposes, if any, and in an arc from the
-criteria the arc-plan gives this initiative. Ratify the criteria with Robert
+In an arc, start from the criteria the arc-plan gives this initiative. Only
+an arc's seed proposes criteria. Ratify the criteria with Robert
 before the design below is written; the design answers to them.
 
 Robert's rule: a criterion is a question he can ask of the finished work, with

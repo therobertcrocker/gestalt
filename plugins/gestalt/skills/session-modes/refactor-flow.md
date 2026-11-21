@@ -23,7 +23,7 @@ When an exploration came first and chose the target, the exploration counts as t
 
 ## Plan (1 session)
 
-The plan reads the Audit, or the exploration that chose the target, where a feature plan reads the discovery doc. A refactor that goes straight to Plan with neither opens its plan with the refactor's Design Spec.
+The plan reads the Audit, or the exploration that chose the target, where a feature plan reads the discovery doc. An exploration holds no Design Spec, so a refactor with no Audit, whether an exploration chose its target or the target fit in a paragraph, opens its plan with the refactor's Design Spec.
 
 The refactor plan describes the **target pattern** and lists the **units** to convert (one handler, one package, one struct, etc.). It does not write a step-by-step recipe per unit.
 

@@ -107,9 +107,9 @@ The **Design Spec** says what a piece of work builds and how Robert will know it
 | A Discovery | The discovery doc |
 | An arc-discovery | The arc-discovery doc |
 | A refactor's audit | The audit |
-| A plan with no doc before it: a non-trivial bugfix, a refactor that goes straight to Plan, a multi-effort docs initiative | The top of that plan |
+| A plan with no doc before it: a non-trivial bugfix, a refactor with no audit (an exploration may have chosen its target), a multi-effort docs initiative | The top of that plan |
 
-A seed and an exploration carry none; a seed may propose criteria, and the first doc after it ratifies them. Work with no doc (a trivial bugfix, a chore, a single-session docs item) has none.
+A seed and an exploration carry none; an arc's seed may propose criteria, and the arc-discovery ratifies them. Work with no doc (a trivial bugfix, a chore, a single-session docs item) has none.
 
 It has two parts. **What we are building** is one paragraph: the thing, in plain words, worded as a commitment the criteria can test. What the work does not build goes in Out of Scope. **Success Criteria** is a table `# | Question | Success is`. A criterion is a question Robert can ask of the finished work, with the answer that means success; never a count or a limit. The criteria are ratified with Robert before the design below them is written. An arc numbers them `SC-1`, `SC-2` (arcs.md, Success criteria).
 

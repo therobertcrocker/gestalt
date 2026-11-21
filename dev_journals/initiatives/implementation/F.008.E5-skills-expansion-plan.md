@@ -33,6 +33,10 @@ Build the Design spec front of F.008: decisions 55 to 61 in the files that exist
 
 ## Decision Record — Execution
 
+1. **A refactor with no audit holds its spec in its plan** — Robert, 2026-11-21, at the effort close (review finding 1). An exploration holds no Design Spec, so a refactor whose target an exploration chose has no doc with a spec before its plan. `plan`, `refactor-flow.md`, the Design Spec table in `session-discipline.md` and the plan template now say the plan opens with the spec whenever there is no audit. This changes the wording that Commit 1 Task 1, Commit 2 Task 2 and Commit 3 Task 2 wrote; the shipped text is the source.
+2. **Only an arc's seed proposes criteria** — Robert, 2026-11-21, at the effort close (review finding 6). `seed.md` keeps Success Criteria arc-only, so `templates/discovery.md`, `discovery` step 6 and `session-discipline.md` no longer tell a feature's Discovery to start from its seed's criteria. This changes the wording that Commit 1 Task 1, Commit 2 Task 1 and Commit 3 Task 1 wrote.
+3. **Five fixes in files of earlier efforts** — Robert, 2026-11-21, at the effort close (review findings 2, 3, 4, 5 and 7). `coordinate` takes its base from the effort's first scoped commit, as `effort-close` does. `initiative-close` names the retro from the discovery doc, the audit or the plan. `audit` stops on a dirty tree or a wrong branch. `seed` and `explore` treat an effort as closed when its squash commit is on the branch with only `fix(E<n>)` commits after it. `arc-plan` stops, and writes no rows, when its branch is already merged.
+
 ---
 
 ## Design Spec — Carried By

@@ -75,10 +75,10 @@ Re-grounding). If execution changes the what, why or fit, fix it here too.
 ## Design Spec
 
 <!--
-Only when this plan is the work's first doc: a non-trivial bugfix, or a
-refactor that goes straight to Plan (session-discipline.md, Design Spec).
-Otherwise leave the section out; the spec is in the discovery doc or the
-audit, and this plan cites it.
+Only when no doc before this plan holds a spec: a non-trivial bugfix, or a
+refactor with no audit, even when an exploration chose its target
+(session-discipline.md, Design Spec). Otherwise leave the section out; the
+spec is in the discovery doc or the audit, and this plan cites it.
 
 Two parts. Ratify the criteria with Robert before the phases are written.
 Robert's rule: a criterion is a question he can ask of the finished work, with
