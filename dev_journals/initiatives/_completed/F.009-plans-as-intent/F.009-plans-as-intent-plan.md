@@ -23,7 +23,7 @@ The plugin's plan rules (the feature flow, the plan template, the plan skill) as
 
 ## Context / Goal
 
-- Seed (the Concept): [`F.009-plans-as-intent-seed.md`](../seeds/F.009-plans-as-intent-seed.md)
+- Seed (the Concept): [`F.009-plans-as-intent-seed.md`](./F.009-plans-as-intent-seed.md)
 - No discovery doc (decision 9). The seed's six Open Questions are answered below
 - Evidence: `_completed/F.008-skills-expansion/F.008-skills-expansion-retro.md`, section 2
 

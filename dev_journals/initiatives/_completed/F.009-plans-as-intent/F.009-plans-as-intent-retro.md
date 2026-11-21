@@ -43,7 +43,7 @@ It diverges in one place on purpose: `F.009` was promoted with no write-up, agai
 |---|---|---|
 | Delivered | 5 | All four criteria met, section 1 |
 | Plan held | 4 | No reversals in execution; one case 2 addition, logged. Decision 2 was tightened at review (Decision Record entry 2) |
-| Rework | 3 | One fix commit, six review findings (two important) for about 130 plugin lines; none copied from the plan, section 6 finding 10 |
+| Rework | 3 | Two fix commits: six review findings (two important), then one gap that fix 2 opened, for about 130 plugin lines; none copied from the plan, section 6 findings 10 and 12 |
 | Fit | 4 | Matches the one-source pattern; the promotion with no write-up is a deliberate divergence |
 | Simplicity | 4 | 76 lines added, 56 removed in the plugin; the three cases are one paragraph cited from three places |
 

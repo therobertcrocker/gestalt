@@ -10,7 +10,6 @@ Full write-ups below.
 
 | ID      | Item | Type | Status | Detail |
 |---------|------|------|--------|--------|
-| `F.009` | Plans as intent, execution writes the code | feature | In-Progress, `feature/plans-as-intent` | Plans keep the shape (signatures, decisions, test cases) and drop function bodies; Execution writes the code under the rules and reports each deviation from the plan. Seed: `F.009-plans-as-intent-seed.md` |
 
 ---
 <br/>
@@ -63,7 +62,7 @@ Look at a part of the system, or at something outside it, weigh options and file
 | ID      | Item | Trigger | Detail |
 |---------|------|---------|--------|
 | `C.002` | Rules weight check | `when` two projects run on the plugin for a month | Note whether imported rules are followed as well as a project's own `CLAUDE.md` text; adjust wording or placement if not (Discovery, Open Question 4) |
-| `C.003` | Phase budget review | `when` gm-toolkit A.001.7 Effort 4 closes | The phase budget went from about 800 to about 1,500 lines with a cap of about 4 commits; the trial phases run only to about 1,020 lines. Too high if a session compacts mid-phase or debugging in a phase runs past about 20 minutes. If clean, the commit cap holds; 1,500 stays unproven until a phase runs that large |
+| `C.003` | Phase budget review | `when` the first gm-toolkit effort under F.009 closes | The phase budget is now at most about 4 commits, with no line count (F.009). Watch whether a phase compacts mid-session or debugging runs past about 20 minutes; compare the effort's review fixes with the 3 to 11 per effort baseline from before F.009 |
 
 ---
 <br/>
