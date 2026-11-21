@@ -22,7 +22,7 @@ Every section is required unless it is marked arc-only. The frame comes first
 Delete these comments before writing.
 -->
 
-> **Type:** [feature | refactor | docs | arc, if known; set at planting]
+> **Type:** [feature | refactor | bugfix | docs | chore | arc, if known; set at planting]
 > **Status of the work it describes:** Concept. Not scheduled, not promoted.
 > **Source:** [the conversation of the session that wrote it | a claude.ai chat draft of YYYY-MM-DD]
 > **Written:** [YYYY-MM-DD], against `[branch]` @ `[short commit]`

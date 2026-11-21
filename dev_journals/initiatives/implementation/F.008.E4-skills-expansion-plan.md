@@ -34,6 +34,9 @@ Build the Arc stages and Catalogue fronts of F.008: decisions 4, 10 to 12, 18 (t
 ## Decision Record — Execution
 
 1. **The tracker-moves hole is narrowed, not dropped** — 2026-11-21, Phase 3. Checked against the source, all five known holes still hold. Since the discovery doc's snapshot, `seed plant`, `explore` and `arc-plan` have come to write new rows, so the catalogue says no skill promotes a row or drafts a write-up, and names the three that add rows.
+2. **A skill finds its branch before it reads the docs on it** — Robert, 2026-11-21, at the effort close (review findings 1, 2 and 3). The arc docs, an audit and a feature's discovery doc live only on their branch until it merges. `arc-plan` now takes its branch before it reads the arc-discovery; `plan` checks its branch right after the row, before the seed, the discovery doc or the audit. On `main`, `arc-discovery`, `plan` and `audit` check out the branch if an earlier session cut it, and cut it only if not. `plan` and `audit` are effort 3 files, fixed here.
+3. **A declined arc merge can be resumed** — Robert, 2026-11-21, at the effort close (review finding 5). After a decline, `arc-plan` says no initiative of the arc may start until the branch merges. A later run that finds the arc-plan signed off and its commit on the branch goes straight to the merge. `arcs.md` says the same.
+4. **Three small fixes** — Robert, 2026-11-21, at the effort close (review findings 6, 7 and 8). `arc-discovery` stops on a dirty tree, as `arc-plan`, `seed` and `explore` do. `explore` changes or removes rows only outside Current Initiatives. The seed template's Type list gains bugfix and chore. Finding 4 (two branches can hand out the same ID) was not picked.
 
 ---
 
@@ -176,7 +179,7 @@ The body in the register of `audit/SKILL.md`: an opening paragraph, the sentence
 3. **Read** — `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/SKILL.md`, then `session-discipline.md`, `lifecycle.md` and `arcs.md`, and the template `templates/arc-discovery.md`
 4. **The row** — `$0` in Current Initiatives. No row, or not there: say so and stop; promotion is Robert's call
 5. **The seed** — `dev_journals/initiatives/seeds/$0-*-seed.md`: In Plain Words, Vision, Problem, Why an Arc, Candidate Initiatives and any proposed Success Criteria, then the rest. With no seed, the concept fallback (decision 86). With neither, say that an arc starts from its seed, name `/gestalt:seed write <arc-name>` then `/gestalt:seed plant`, and stop (decision 91)
-6. **Branch** — on `main`, cut `feature/<arc-name>` before anything is written. On `feature/<arc-name>`, go on. On any other branch, say so and stop (decision 85)
+6. **Branch** — `git status --porcelain` prints nothing, or stop. On `main`, check out `feature/<arc-name>` if it exists, or cut it before anything is written (Decision Record, entries 2 and 4). On `feature/<arc-name>`, go on. On any other branch, say so and stop (decision 85)
 7. **Architecture** — if `docs/architecture/` exists, `architecture-overview.md` and the pages the arc touches; their Key Decisions are binding
 8. **The doc** — if `dev_journals/initiatives/arcs/$0-<arc-name>/$0-<arc-name>-arc-discovery.md` exists, read it and continue from its state. Otherwise scaffold it from the template and fill Problem, Design Summary and the Design Spec's first draft from the seed
 9. **Start** — reflect back in plain words: what the arc is, what the seed already says, what is open. Then ask one directional question. The Success Criteria are ratified with Robert before any arc decision is written (decisions 57 and 89)
@@ -202,13 +205,13 @@ The body in the same register. It must hold:
 1. **Opening** — Mode: Arc-Plan. The session ends when the tracker rows are committed and `feature/<arc-name>` is merged into `main`, or when Robert declines the merge. It runs on Fable (model rule). It is the one starter that merges (decision 31)
 2. **The address** — as `arc-discovery`, step 2; an arc initiative names `/gestalt:plan $0`
 3. **Read** — `SKILL.md`, `session-discipline.md`, `lifecycle.md`, `arcs.md`, and the template `templates/arc-plan.md`
-4. **Inputs** — the `$0` row in Current Initiatives (no row: stop); the seed, or the concept fallback; the arc-discovery, `dev_journals/initiatives/arcs/$0-*/$0-*-arc-discovery.md`, In Plain Words, the Design Spec, the arc decisions and the routed questions. No signed-off arc-discovery: name `/gestalt:arc-discovery $0` and stop
-5. **Branch** — `git status --porcelain` prints nothing, or stop. On `feature/<arc-name>`, go on. On `main`: check out `feature/<arc-name>` if it exists, or cut it if it does not (an arc-discovery from before decision 29 is already on `main`). On any other branch, say so and stop
+4. **The row and the branch** — the `$0` row in Current Initiatives (no row: stop). Then, before any arc doc is read (Decision Record, entry 2): `git status --porcelain` prints nothing, or stop. On `feature/<arc-name>`, go on. On `main`: check out `feature/<arc-name>` if it exists, or cut it if it does not (an arc-discovery from before decision 29 is already on `main`). On any other branch, say so and stop
+5. **Inputs** — the seed, or the concept fallback; the arc-discovery, `dev_journals/initiatives/arcs/$0-*/$0-*-arc-discovery.md`, In Plain Words, the Design Spec, the arc decisions and the routed questions. No signed-off arc-discovery: name `/gestalt:arc-discovery $0` and stop
 6. **Architecture** — as `arc-discovery`, step 7
-7. **The doc** — continue from an existing `-arc-plan.md`, or scaffold it from the template in the arc folder
+7. **The doc** — continue from an existing `-arc-plan.md`, or scaffold it from the template in the arc folder. A signed-off arc-plan whose `docs: $0 arc-plan` commit is on the branch goes straight to the merge (Decision Record, entry 3)
 8. **Settle** — with Robert, one call at a time: the initiatives, their order and dependencies, the boundaries, the routing of every open question, the initiative that carries each `SC-n`, and the tracker rows. Propose each ID: a new initiative takes `<arc-ID>.<n>` in run order; one that existed keeps its ID
 9. **Stop 1** — Robert signs off the doc and approves the tracker rows, with their tables and triggers. Then add each row to its table (`lifecycle.md`), with the link to the arc-plan at the end of Detail. Do not edit the `$0` row or its write-up (decision 92). Run the gate, `git add -A`, and one commit, `docs: $0 arc-plan`, with the session's attribution lines
-10. **Stop 2** — write the merge message file with the Write tool in the scratchpad: the subject `docs: $0 <arc name in plain lower-case words> arc docs`, a blank line, the arc-plan's In Plain Words, then the session's attribution lines (decision 93). Robert approves the merge. Then `git checkout main && git merge --no-ff feature/<arc-name> -F <message file>`. If it conflicts, `git merge --abort`, show the files and stop. No code review and no tag (decision 29). Do not push or delete the branch
+10. **Stop 2** — write the merge message file with the Write tool in the scratchpad: the subject `docs: $0 <arc name in plain lower-case words> arc docs`, a blank line, the arc-plan's In Plain Words, then the session's attribution lines (decision 93). Robert approves the merge. Then `git checkout main && git merge --no-ff feature/<arc-name> -F <message file>`. If it conflicts, `git merge --abort`, show the files and stop. No code review and no tag (decision 29). Do not push or delete the branch. If Robert declines, say that no initiative of the arc may start until the branch merges, and that a rerun goes straight to this step (Decision Record, entry 3)
 11. **The end** — name the first initiative's next step from What Comes Next. Do not promote any row
 
 ##### Commit message
@@ -257,7 +260,7 @@ An arc from before seeds has an arc concept doc, `<ID>-<arc-name>-arc-concept.md
 
 ## The arc branch
 
-Arc-discovery and arc-plan run on `feature/<arc-name>`, which `/gestalt:arc-discovery` cuts from `main`. The arc's decisions bind every initiative in it, and each initiative cuts its own branch from `main`, so those decisions must be on `main` before the first initiative starts. `/gestalt:arc-plan` merges the branch into `main` with `--no-ff` once the arc-plan is signed off. The branch changes docs only, so the merge has no code review and no tag. The arc close has a branch of its own, `feature/<arc-name>-close`.
+Arc-discovery and arc-plan run on `feature/<arc-name>`, which `/gestalt:arc-discovery` cuts from `main`. The arc's decisions bind every initiative in it, and each initiative cuts its own branch from `main`, so those decisions must be on `main` before the first initiative starts. `/gestalt:arc-plan` merges the branch into `main` with `--no-ff` once the arc-plan is signed off. The branch changes docs only, so the merge has no code review and no tag. If Robert declines the merge, no initiative of the arc starts until the branch merges; running `/gestalt:arc-plan` again goes straight to the merge. The arc close has a branch of its own, `feature/<arc-name>-close`.
 
 ## Success criteria
 

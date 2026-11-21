@@ -19,7 +19,7 @@ An arc from before seeds has an arc concept doc, `<ID>-<arc-name>-arc-concept.md
 
 ## The arc branch
 
-Arc-discovery and arc-plan run on `feature/<arc-name>`, which `/gestalt:arc-discovery` cuts from `main`. The arc's decisions bind every initiative in it, and each initiative cuts its own branch from `main`, so those decisions must be on `main` before the first initiative starts. `/gestalt:arc-plan` merges the branch into `main` with `--no-ff` once the arc-plan is signed off. The branch changes docs only, so the merge has no code review and no tag. The arc close has a branch of its own, `feature/<arc-name>-close`.
+Arc-discovery and arc-plan run on `feature/<arc-name>`, which `/gestalt:arc-discovery` cuts from `main`. The arc's decisions bind every initiative in it, and each initiative cuts its own branch from `main`, so those decisions must be on `main` before the first initiative starts. `/gestalt:arc-plan` merges the branch into `main` with `--no-ff` once the arc-plan is signed off. The branch changes docs only, so the merge has no code review and no tag. If Robert declines the merge, no initiative of the arc starts until the branch merges; running `/gestalt:arc-plan` again goes straight to the merge. The arc close has a branch of its own, `feature/<arc-name>-close`.
 
 ## Success criteria
 
