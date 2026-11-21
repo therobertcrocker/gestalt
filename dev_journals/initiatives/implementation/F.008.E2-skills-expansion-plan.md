@@ -31,6 +31,8 @@ Build the Seeds front of F.008: decisions 2, 3, 13 to 21, the seed's part of dec
 
 ## Decision Record — Execution
 
+1. **The effort review's fixes to the seed skill** — Robert, 2026-11-21, at the effort close. Five fixes change the text this plan gave the skill, and the task list below now holds the fixed text. A planted seed is found by `<ID>-$1-seed.md` with the ID as a glob, not by `*-$1-seed.md`, which also matched a seed whose name ends in `-$1`. The warning of decision 70 fires only when the newest `(E<n>)` subject is not a closed effort's review-fix commit, which survives the squash and set it off on every later seed job. The next-ID scan reads `_completed/` at every depth, so a closed arc counts. The link search leaves a hit that already carries the ID, the new Backlog row among them. A name asked for stands for `$1` in every later step.
+
 ---
 
 ## Design Spec — Carried By
@@ -143,29 +145,29 @@ argument-hint: "write|plant [name]"
 
 The body is written in the register of `effort-close/SKILL.md`: an opening paragraph, the sentence that defines a **stop**, then the steps. It must hold:
 
-1. **The address** — `$0` is the job, `write` or `plant`; `$1` is the seed's name in kebab-case. Any other job: say so and stop. No name: ask for one
-2. **Paths** — `dev_journals/initiatives/seeds/`; in a multi-product project, `dev_journals/<product>/initiatives/seeds/`, and when the product is not clear from the session, ask
+1. **The address** — `$0` is the job, `write` or `plant`; `$1` is the seed's name in kebab-case. Any other job: say so and stop. No name: ask for one; the name given stands for `$1` in every later step (Decision Record, entry 1)
+2. **Paths** — `dev_journals/initiatives/seeds/`; in a multi-product project, `dev_journals/<product>/initiatives/seeds/`, and when the product is not clear from the session, ask. A planted seed is `<ID>-$1-seed.md`, the ID matched by the glob `[A-Z].[0-9][0-9][0-9]`, not by a bare `*` (Decision Record, entry 1)
 3. **Read** — `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/SKILL.md`, then `lifecycle.md` and `session-discipline.md` (File locations), and the template `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/seed.md`
 4. **Checks**, before either job writes anything, each a stop when it fails:
    - `git status --porcelain` prints nothing. If it prints, show it and stop: Robert commits that work first, or says to let it ride in the seed's commit (decision 69)
-   - On a branch other than `main`, if `git log --format=%s main..HEAD` holds a subject with an `(E<n>)` scope, warn: the seed's commit is unscoped, so `effort-close` step 3 will stop on it, and Robert will be asked to keep it there (decisions 21 and 70). This is a warning, not a stop
+   - On a branch other than `main`, if the newest subject with an `(E<n>)` scope in `git log --format=%s main..HEAD` is not a closed effort's `fix(E<n>): address effort review findings`, warn: the seed's commit is unscoped, so `effort-close` step 3 will stop on it, and Robert will be asked to keep it there (decisions 21 and 70). This is a warning, not a stop
 5. **Branch** — no branch is cut. The job commits on the branch the session stands on, `main` included (decision 21)
 6. **Write job**:
-   - If a file `$1-seed.md` or `*-$1-seed.md` exists in `seeds/`, say so and stop
+   - If a file `$1-seed.md` or `<ID>-$1-seed.md` exists in `seeds/`, say so and stop
    - The source is the session's conversation, or a draft from claude.ai chat that Robert hands in as a path or pasted text (decision 19). A chat draft is raw material: its words may be kept, but its claims about the repo are checked
    - Read the code and docs the idea touches. Note the branch and `git rev-parse --short HEAD` for the header
    - Copy the template to `seeds/$1-seed.md` and fill it. "Read this first" and its "Practical effect today" come from the code just read. Fill the arc-only sections only when the work may be an arc; otherwise delete them. Put the type in the header only if Robert has said it
    - **Stop:** show the seed's In Plain Words and "Read this first"; Robert approves, or says what to change. Edit until he approves
    - `git add -A`, and commit with the subject `docs: add $1 seed` and the session's attribution lines
 7. **Plant job**:
-   - Find `seeds/$1-seed.md`. If only `*-$1-seed.md` exists, the seed is planted already: say so and stop. If neither exists, say so and stop
+   - Find `seeds/$1-seed.md`. If only `<ID>-$1-seed.md` exists, the seed is planted already: say so and stop. If neither exists, say so and stop
    - Read the seed whole, and the tracker
-   - Propose (decision 67): the type, from what the seed describes; the next free ID for that type's prefix, one more than the highest number with that prefix in the tracker and in the folder names under `initiatives/_completed/`; and the Backlog row, from the seed's "If planted" section, with a link to the seed's new path at the end of Detail
+   - Propose (decision 67): the type, from what the seed describes; the next free ID for that type's prefix, one more than the highest number with that prefix in the tracker and in the folder names at every depth under `initiatives/_completed/`, `_completed/arcs/` included; and the Backlog row, from the seed's "If planted" section, with a link to the seed's new path at the end of Detail
    - **Stop:** Robert confirms or changes the type, the ID and the row. Ask with AskUserQuestion, the proposal first and marked "(Recommended)"
    - If the type is an arc, check that Vision, Why an Arc and Candidate Initiatives are filled. If one is missing or still a slot, name it and stop (decision 15)
    - Add the row to the Backlog table for the type (`lifecycle.md`, Stage 1)
    - `git mv seeds/$1-seed.md seeds/<ID>-$1-seed.md` (decision 17)
-   - Search the repo for `$1-seed.md`, outside `.git/`, and fix each link to the new name with Edit. Skip any folder the project's `CLAUDE.md` says is never edited, and list each hit skipped (decision 72)
+   - Search the repo for `$1-seed.md`, outside `.git/`, and fix each link to the new name with Edit. Leave a hit that already names `<ID>-$1-seed.md`, or another seed whose name ends in `-$1`. Skip any folder the project's `CLAUDE.md` says is never edited, and list each hit skipped (decision 72)
    - In the seed's header, fill Type and Tracker row
    - **Stop:** show the row, the rename and the fixed links; Robert approves
    - `git add -A`, and commit with the subject `docs: plant $1 seed as <ID>` and the session's attribution lines
