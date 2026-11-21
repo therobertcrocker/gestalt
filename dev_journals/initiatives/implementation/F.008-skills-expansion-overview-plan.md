@@ -3,7 +3,7 @@
 ## In Plain Words
 
 - **What** — this file cuts F.008 into five efforts and puts them in order: Sub-agents, Seeds, Explorations and audit, Arc stages, Design spec. Its output is that order, the scope of each effort, the decisions that bind all five, and which effort carries which success criterion. It holds no tasks.
-- **Why** — the efforts change many of the same small files, so tasks written today for a late effort would quote lines an early effort changes. Each effort gets a short Plan session of its own just before it runs, and this file tells that session what is its to build and what the earlier efforts left behind.
+- **Why** — the efforts change many of the same small files, so tasks written today for a late effort would quote lines an early effort changes. Each effort gets a short plan of its own just before it runs, and this file tells that plan what is its to build and what the earlier efforts left behind. From effort 3 on, one session plans, executes and closes an effort (Decision Record, entry 2).
 - **How it fits** — the discovery doc's Design Spec says what F.008 builds, in ten criteria. This file delivers none of them; it gives each one to an effort ("Design Spec — carried by" below). One branch, `feature/skills-expansion`. Each effort ends with `/gestalt:effort-close`; after the fifth, `/gestalt:initiative-close F.008` merges the branch.
 
 ## Context / Goal
@@ -19,7 +19,7 @@ Robert, 2026-11-20. The numbers continue from the discovery doc's tables, so an 
 
 35. **Effort order: Sub-agents, Seeds, Explorations and audit, Arc stages** — Sub-agents shares the fewest lines with the other fronts. First, it answers the sub-agent trial early, puts the source check into the plan template before the other effort plans are written, and makes the coordinator ready for a later effort if Robert chooses to run one under it. Seeds comes before Arc stages because arc-discovery reads the seed. Rejected: Sub-agents fourth (the discovery doc's order), and Sub-agents after Seeds.
 36. **The catalogue is a phase, not an effort** — it is one new file and one table row, too small for an effort close of its own. It is the last phase of effort 4, so it lists the skills as that effort left them. Rejected: a fifth effort, and a plain commit before the initiative close.
-37. **Each effort gets its own Plan session, just before it runs** — later efforts edit files that earlier efforts change, so a Find anchor quoted today would be stale. This file holds scope and decisions only. Rejected: the first effort in full here, and all efforts in full here.
+37. **Each effort gets its own Plan session, just before it runs** — later efforts edit files that earlier efforts change, so a Find anchor quoted today would be stale. This file holds scope and decisions only. Rejected: the first effort in full here, and all efforts in full here. **Changed on 2026-11-21** (Decision Record, entry 2): from effort 3 on, the plan is written in the same session that executes and closes the effort.
 38. **A shared file is edited by each effort in turn** — `discovery/SKILL.md`, `plan/SKILL.md` and the other files in "Shared files" below get each effort's own lines when that effort runs, so a skill change lands with the thing it serves. Rejected: one effort that owns both skills.
 39. **`adopt` creates `seeds/` and `explorations/`** — settles the question the discovery doc left for Plan (Out of Scope). Effort 2 adds `seeds/` to `adopt` step 4, effort 3 adds `explorations/`.
 40. **Each effort ends with a trial phase** — the gate shows only that the plugin loads. In the trial phase Robert runs each new or changed skill on a real input, in a session started with `claude --plugin-dir plugins/gestalt`. What the trial finds is fixed in that phase, in commits with the effort's scope, before the effort closes. Rejected: one trial before the initiative close, and no trial before the merge. **Reversed on 2026-11-20** (Decision Record, entry 1): no effort has a trial phase.
@@ -38,6 +38,7 @@ Added on 2026-11-20, after sign-off, with the discovery doc's decisions 55 to 61
 Decisions that span efforts land here; a decision inside one effort lands in that effort's plan.
 
 1. **No effort has a trial phase** — Robert, 2026-11-20, after effort 1's two build phases. Reverses decision 40. The trial of effort 1 asked for a six-phase run in another repo and held the effort open until it ended. A fault in a skill's design shows in its first real use and is fixed then. The gate stays the one check before a commit. Nothing of F.008 reaches `main` before the initiative close, so a fix found in use still lands on the branch. The criteria that were checked at a trial are now checked at first real use ("Design Spec — Carried By"). The sub-agent trial of open question 1 is not a trial phase; it ran, and its answer stands.
+2. **One session per effort, from effort 3 on** — Robert, 2026-11-21, at effort 2's close. Changes decision 37. Efforts 3 to 5 each run in one session: `/gestalt:plan F.008.E<n>`, then `/gestalt:execute F.008.E<n>` for every phase, then `/gestalt:effort-close F.008.E<n>`. The stops stay: Robert signs off the plan before any file is edited, and the close still stops for the base, the fix picks and the squash. Effort 2 took three sessions for about ten minutes of work and 3% of Robert's usage; most of each session went to reading the same context again. The review does not need a new session for fresh eyes, because `/code-review` runs in an agent of its own. Each effort still gets a written plan, committed as `docs(E<n>)`, so the unbroken-run check is unchanged. For F.008 this overrides "one mode per session" and "one phase is one session" (code-and-docs rules, Session modes). Whether the rule changes for every project is `F.004`'s question. Rejected: execute and close in one session with the plan in its own session, and three sessions as before.
 
 ---
 
@@ -107,11 +108,11 @@ Decision 34 holds in every effort plan. An exact edit to an existing file is a l
 
 From the project's `CLAUDE.md`: this checkout loads the rules by relative path, so a rules edit on the branch is live in the next gestalt session. Skills and hooks come from the installed copy, which does not have the branch's edits. So from effort 1's first commit on, a rule on the branch can name a skill the installed copy lacks.
 
-A session that must see the branch's skills starts with `claude --plugin-dir plugins/gestalt`. That is every effort Plan session after effort 1 lands, because effort 1 changes the `plan` skill and the plan template.
+A session that must see the branch's skills starts with `claude --plugin-dir plugins/gestalt`. That is every effort session after effort 1 lands, because effort 1 changes the `plan` skill and the plan template.
 
 ### Shared files
 
-Files that more than one effort edits. Each effort edits its own lines only (decision 38). An effort's Plan session reads the file as the earlier efforts left it.
+Files that more than one effort edits. Each effort edits its own lines only (decision 38). An effort's plan reads the file as the earlier efforts left it.
 
 | File | E1 Sub-agents | E2 Seeds | E3 Explorations | E4 Arc stages |
 |---|---|---|---|---|
@@ -149,13 +150,13 @@ Row 6 matters for the brief: the three gestalt rules files reach a sub-agent thr
 - **What the discovery doc excludes** — the five known holes, the seeds and explorations that exist, a seed template for claude.ai chat, the fixed report in a normal Execution session, and the checks as a script (discovery doc, Out of Scope)
 - **A review checklist for skill files** — decision 41
 - **Running an effort of F.008 under the coordinator** — possible from effort 2 on; whether to do it is Robert's call at the start of that effort, not a part of this plan
-- **Tasks** — every phase, commit and task is the work of the effort's own Plan session (decision 37)
+- **Tasks** — every phase, commit and task is the work of the effort's own plan (decision 37)
 
 ---
 
 ## Work Breakdown
 
-Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. "Carries out" lists the discovery doc's decisions the effort must meet. "For its Plan session" lists what the discovery doc leaves open at the level of that effort; none is decided here.
+Each effort gets its own plan, started with `/gestalt:plan F.008.E<n>`. Efforts 1 and 2 had a Plan session of their own; from effort 3 on, the plan is the first step of the effort's one session (Decision Record, entry 2). "Carries out" lists the discovery doc's decisions the effort must meet. "For its Plan session" lists what the discovery doc leaves open at the level of that effort, settled when its plan is written; none is decided here.
 
 ### Effort 1 — Sub-agents
 
@@ -230,7 +231,7 @@ Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. 
 
 **In plain words:** a question with no row yet runs as an exploration, and a refactor starts with an audit; both use one flow and one template. The refactor flow has no Discovery any more.
 
-**Own Plan session:** yes.
+**Own plan:** yes, as the first step of the effort's one session (Decision Record, entry 2).
 
 **Carries out:** decisions 6 to 9, 22 to 28, and decision 39 for `explorations/`. This is the `F.006` work that F.008 took in.
 
@@ -268,7 +269,7 @@ Each effort gets its own Plan session, started with `/gestalt:plan F.008.E<n>`. 
 
 **In plain words:** an arc starts from its seed with skills and templates made for arcs, on a branch of its own, with success criteria that run from the seed to the arc close. Then the catalogue lists every skill gestalt has and the holes it still has.
 
-**Own Plan session:** yes.
+**Own plan:** yes, as the first step of the effort's one session (Decision Record, entry 2).
 
 **Carries out:** decisions 4, 10 to 12, 18 (the arc's half), 29 to 31, and 43.
 
@@ -309,11 +310,11 @@ Added on 2026-11-20 (decision 62).
 
 **In plain words:** the first doc of any piece of work says what is being built and how Robert will know it is built, and the close holds the work against that. In Plain Words in every doc says only what that doc itself handles.
 
-**Own Plan session:** yes.
+**Own plan:** yes, as the first step of the effort's one session (Decision Record, entry 2).
 
 **Carries out:** decisions 55 to 61 in the files that exist. Criteria 9 and 10.
 
-**What efforts 2 to 4 have done by then** (decision 63): `seed.md`, `exploration.md`, `arc-discovery.md` and `arc-plan.md` are already in the new shape. The effort 2, 3 and 4 Plan sessions add decisions 55 to 61 to the decisions of each new template:
+**What efforts 2 to 4 have done by then** (decision 63): `seed.md`, `exploration.md`, `arc-discovery.md` and `arc-plan.md` are already in the new shape. The effort 2, 3 and 4 plans add decisions 55 to 61 to the decisions of each new template:
 
 | Effort | New file | From decisions 55 to 61 |
 |---|---|---|
