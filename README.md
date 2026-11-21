@@ -71,8 +71,8 @@ Then do the checks below.
 `plugins/gestalt/` is the plugin; `.claude-plugin/marketplace.json` lists it. What it ships:
 
 - **Always-on rules** in `plugins/gestalt/rules/`: `working-together.md`, `git-and-delivery.md`, `code-and-docs.md`. A project's `CLAUDE.md` imports them with one `@` line each, from `~/.claude/plugins/marketplaces/gestalt/`. This checkout imports them by relative path instead.
-- **Skills** in `plugins/gestalt/skills/`: `session-modes` (with the doc templates), `style-guide`, `diagram-kit`, `go`; the starters `discovery`, `plan`, `execute`; the close skills `effort-close`, `initiative-close`, `arc-close`; the upkeep skills `graduate` and `adopt`.
-- **A SessionStart hook** that lists `docs/architecture/` pages when a project has a wiki.
+- **Skills** in `plugins/gestalt/skills/`: `session-modes` (with the doc templates), `style-guide`, `diagram-kit`, `go`; the starters `seed`, `explore`, `audit`, `arc-discovery`, `arc-plan`, `discovery`, `plan`, `execute`, `coordinate`; the close skills `effort-close`, `initiative-close`, `arc-close`; the upkeep skills `graduate` and `adopt`. `skills/session-modes/catalogue.md` lists each one with what it does, and the holes still open.
+- **Two SessionStart hooks**: one lists `docs/architecture/` pages when a project has a wiki, the other lists the seeds when a project has any.
 - **Templates** in `plugins/gestalt/templates/`: the starter `CLAUDE.md` and the devcontainer snippet.
 
 ## Adopting it in a project

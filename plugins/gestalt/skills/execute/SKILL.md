@@ -1,7 +1,6 @@
 ---
 name: execute
-description: Start an Execution session for one initiative, by its tracker ID or a work address that names an effort and phase. Run by hand at the start of the session.
-disable-model-invocation: true
+description: Start an Execution session for one initiative, by its tracker ID or a work address that names an effort and phase. Use when Robert asks for an Execution session for an ID, or when a phase brief from the coordinate skill names this skill. Never use it to change modes in a session that is already running.
 argument-hint: "[ID][.E<n>][.P<n>]"
 ---
 
@@ -16,6 +15,6 @@ Start an Execution session for `$0`. Mode: Execution. The session ends when the 
    - If `$0` names an effort and no phase, the scope is that effort's first phase whose box is not ticked.
    - With no hand-off and no address, read the plan's Overview list and ask Robert which phase is in scope; with no answer, the scope is the first phase whose box is not ticked.
 3. Confirm the feature branch is checked out.
-4. Read the plan's In Plain Words, the In plain words line of the phase in scope, Decisions Ratified in Planning, the Decision Record so far, Shared Context, then the tasks of the first commit in scope.
+4. Read the plan's In Plain Words, the In plain words line of the phase in scope, the rows of Design Spec — Carried By that name the phase and the text of those criteria in the work's first doc, Decisions Ratified in Planning, the Decision Record so far, Shared Context, then the tasks of the first commit in scope.
 5. Re-ground on the code each task touches. Check every Find anchor against the current source; log drift in the Decision Record before editing.
 6. Run the commits in scope one at a time: edit with Edit and Write only, gate (build, test), log decisions, give the wrap-up summary and short review, commit with the plan's message, then start the next commit without asking. In a multi-effort initiative, the subject carries the effort scope `E<n>` (`feat(E2): ...`); add it if the plan's message has none. In the phase's last commit, tick the phase's box in the Overview list; if the phase finishes an effort, tick the effort's Done box in the overview plan's Effort Summary too, and end the wrap-up by naming the next step: `/gestalt:effort-close <ID>.E<n>` in a new session. If the phase is the last of a single-file plan, end the wrap-up by naming `/gestalt:initiative-close <ID>` in a new session. Stop at the end of the phase. If the work surfaces a scope change, pause and discuss before proceeding.

@@ -5,9 +5,9 @@ COPY THIS FILE TO: dev_journals/initiatives/discovery/<ID>-<initiative-name>-dis
   (<ID> is the planned-work ID as written, e.g. A.001.4-goals-tags-core-discovery.md)
 
 A discovery doc captures the design for an initiative before implementation begins.
-The shape varies by what's being designed — feature work and refactor work call for
-different sections. Required sections are always present; optional sections are
-included when relevant.
+The shape varies by what's being designed. Required sections are always present;
+optional sections are included when relevant. A refactor has no discovery doc: its
+Audit uses templates/exploration.md (refactor-flow.md).
 
 Delete these comments before writing.
 -->
@@ -15,25 +15,60 @@ Delete these comments before writing.
 ## In Plain Words
 
 <!--
-REQUIRED. Under 15 lines. Plain words for a reader who has not read the rest of
-this doc: no project shorthand unless it is defined in the same sentence.
+REQUIRED. Three lines, under 15 lines in all. Plain words for a reader who has
+not read the rest of this doc: none of the project's vocabulary unless it is
+defined in the same sentence. They say what this doc handles; the Design Spec
+below says what the initiative builds.
 
-  - What: what this initiative does.
-  - Why: the problem it solves, for the user or for the codebase.
-  - How it fits: where it sits in the arc and the project, and what it unblocks.
+  - What: the output of this doc. The design and the decisions the plan is
+    written from. It builds nothing.
+  - Why: a pointer to the Design Spec, or the problem the work solves.
+  - How it fits: this doc holds the spec, so it points up: to the arc's spec
+    and the criteria the arc-plan gives this initiative, or to the project.
+    Name what the work unblocks.
 
-Every session on this initiative reads this section first
-(session-discipline.md, Re-grounding).
+Every session on this initiative reads this section first, then the Design
+Spec (session-discipline.md, Re-grounding).
 -->
+
+- **What** — [the output of this doc]
+- **Why** — [the pointer to the Design Spec, or the problem]
+- **How it fits** — [the arc's spec or the project, and what this unblocks]
+
+## Design Spec
+
+<!--
+REQUIRED. What the initiative builds, and how Robert will know it is built.
+Two parts (session-discipline.md, Design Spec).
+
+In an arc, start from the criteria the arc-plan gives this initiative. Only
+an arc's seed proposes criteria. Ratify the criteria with Robert
+before the design below is written; the design answers to them.
+
+Robert's rule: a criterion is a question he can ask of the finished work, with
+the answer that means success. Not a count or a limit.
+
+The plan gives each criterion the work that carries it, and the initiative
+close holds the work against every one. Neither restates a criterion; each
+cites it by number.
+-->
+
+### What we are building
+
+[One paragraph: the thing, in plain words, as a commitment the criteria can test.]
+
+### Success Criteria
+
+| # | Question | Success is |
+|---|---|---|
+| 1 | [question] | [the answer that means success] |
 
 ## Problem
 
 <!--
 REQUIRED. What is broken, missing, limiting, or worth investigating?
 
-For feature work: name the gap or pain point. Be richer than the planned-work blurb.
-For refactor work: name the structural issue and what it costs (e.g. drift between
-sibling packages, friction in the abstraction).
+Name the gap or pain point. Be richer than the planned-work blurb.
 
 Reference specific code paths, files, and line numbers where helpful.
 -->
@@ -57,9 +92,7 @@ architecture wiki, say that and name the binding context instead.
 <!--
 REQUIRED.
 
-For feature work: name the chosen approach in a few paragraphs, with rationale.
-For refactor work: name the target pattern (or, if Discovery is figuring out the
-target, this section becomes "Audit Findings" — see optional sections below).
+Name the chosen approach in a few paragraphs, with rationale.
 
 This is the section a reader skims to understand "what are we doing about it."
 -->
@@ -78,15 +111,6 @@ If there are no open questions, write "None." Don't omit the section.
 OPTIONAL SECTIONS BELOW. Include the ones relevant to this work; delete the rest
 along with this comment. Add new sections freely — discovery docs are not
 template-bound, and the work itself dictates what's needed.
--->
-
-## Audit Findings
-
-<!--
-Common in REFACTOR discovery. Inventory the current state of what's being refactored,
-classify divergences from the target pattern, identify reference exemplars.
-
-Subsections often include: Inventory, Cross-axis comparison, Reference exemplar.
 -->
 
 ## Domain Model Changes

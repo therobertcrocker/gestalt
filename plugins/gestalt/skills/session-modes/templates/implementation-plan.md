@@ -24,9 +24,12 @@ This template covers three file shapes:
   3. Effort plan (multi-effort):
          dev_journals/initiatives/implementation/<ID>.E<n>-<initiative-name>-plan.md
      Same sections as a single-file plan, scoped to the effort: its own
-     In Plain Words, Decisions Ratified, Decision Record, Shared Context,
-     Out of Scope, then phases in Work Breakdown. It cites the overview's
-     decisions; it does not repeat them.
+     In Plain Words, Decisions Ratified, Decision Record, Design Spec —
+     Carried By, Look Here First
+     (written by the last phase under /gestalt:coordinate), Shared Context,
+     Outside Rules, Out of Scope, then phases in Work Breakdown. It cites
+     the overview's decisions and Outside Rules rows; it does not repeat
+     them.
 
 SIZE: two budgets, for single-file and effort plans. The overview has none.
   - Front matter (every line above Work Breakdown): about 400. Every phase
@@ -50,16 +53,47 @@ Delete these comments before writing.
 ## In Plain Words
 
 <!--
-REQUIRED. Under 15 lines. Plain words for a reader who has not read the rest of
-this plan: no project shorthand unless it is defined in the same sentence.
+REQUIRED. Three lines, under 15 lines in all. Plain words for a reader who has
+not read the rest of this plan: none of the project's vocabulary unless it is
+defined in the same sentence. They say what this plan handles; the Design Spec
+says what the whole work builds.
 
-  - What: what this plan builds.
-  - Why: the problem it solves, for the user or for the codebase.
-  - How it fits: where it sits in the initiative, the arc and the project.
+  - What: what this plan delivers, in plain words.
+  - Why: a pointer to the Design Spec, or the problem the work solves.
+  - How it fits: the criteria of the Design Spec this plan carries, and where
+    it sits: the initiative, the effort, the arc. A plan that holds the spec
+    points up, to the arc's spec or to the project.
 
 Every execution session reads this section first (session-discipline.md,
 Re-grounding). If execution changes the what, why or fit, fix it here too.
 -->
+
+- **What** — [what this plan delivers]
+- **Why** — [the pointer to the Design Spec, or the problem]
+- **How it fits** — [the criteria this plan carries, and where it sits]
+
+## Design Spec
+
+<!--
+Only when no doc before this plan holds a spec: a non-trivial bugfix, or a
+refactor with no audit, even when an exploration chose its target
+(session-discipline.md, Design Spec). Otherwise leave the section out; the
+spec is in the discovery doc or the audit, and this plan cites it.
+
+Two parts. Ratify the criteria with Robert before the phases are written.
+Robert's rule: a criterion is a question he can ask of the finished work, with
+the answer that means success. Not a count or a limit.
+-->
+
+### What we are building
+
+[One paragraph: the thing, in plain words, as a commitment the criteria can test.]
+
+### Success Criteria
+
+| # | Question | Success is |
+|---|---|---|
+| 1 | [question] | [the answer that means success] |
 
 ## Context / Goal
 
@@ -96,6 +130,35 @@ log the reversal with rationale here and fix the plan body so it doesn't lie.
 At pre-merge, architecturally-durable entries graduate to the relevant
 architecture page's Key Decisions section; the rest stay here as provenance
 when the plan ships to _completed/.
+-->
+
+## Design Spec — Carried By
+
+<!--
+REQUIRED. One row per criterion of the Design Spec this plan carries. Cite
+each by number and a short name; never restate it (session-discipline.md,
+Design Spec).
+
+  - Overview plan: every criterion. Carried by names the effort. Add a
+    "Checked at" column: the initiative close, or a first real use.
+  - Effort plan: the criteria the overview gives this effort. Carried by
+    names the phase and commit.
+  - Single-file plan: every criterion. Carried by names the phase and commit.
+
+A criterion that nothing carries is a gap: put it to Robert before sign-off.
+-->
+
+| Criterion | Carried by |
+|---|---|
+| 1 — [short name] | [Phase 1, Commit 2] |
+
+## Look Here First
+
+<!--
+Only for an effort that runs under /gestalt:coordinate. Leave the heading out
+at plan time. The last phase's agent writes it in that phase's last commit:
+the effort's weakest spots, one bullet each, with a file:line and one line of
+why. /gestalt:effort-close finds the section by this heading.
 -->
 
 ---
@@ -143,6 +206,27 @@ task loses locality and has to reassemble the spec. If a section here is named
 after a single commit ("Adapter contract changes (Commit 4)"), it is in the
 wrong place — move it into that commit's task.
 -->
+
+## Outside Rules
+
+<!--
+REQUIRED when the plan builds a rule that lives outside the repo: a game rule,
+a file format, an API, a tool's behaviour. Leave the section out when there is
+none.
+
+One row per rule. The quote and the link are fetched in the Plan session. A
+rule written from memory is not a source: the code it leads to copies the
+mistake faithfully. If the text cannot be fetched, the row says so and the rule
+goes to Open Questions. A task that builds a rule cites its row ("Outside
+Rules, row 3").
+
+An overview plan holds the rules that more than one effort builds. An effort
+plan cites those rows by number and adds its own.
+-->
+
+| # | Rule the plan builds | Quote | Source |
+|---|---|---|---|
+| 1 | [the rule, in plain words] | "[the text, word for word]" | [link and section], fetched [date] |
 
 ## Out of Scope
 
@@ -213,9 +297,10 @@ the phase's last commit, so the tick lands with the work.
 **In plain words:** [what this phase changes, and what is true when it lands.]
 
 <!--
-REQUIRED per phase. One or two sentences, no more. Plain words for a reader who
-has not read the rest of this plan: no project shorthand unless it is defined in
-the same sentence. A bold label, not a heading, so `####` stays the commit level.
+REQUIRED per phase. One or two sentences, no more: what this phase does and
+what is true when it lands, the plan's In Plain Words at its smallest. Plain
+words for a reader who has not read the rest of this plan: none of the
+project's vocabulary unless it is defined in the same sentence. A bold label, not a heading, so `####` stays the commit level.
 One phase = one execution session.
 
 The execution session reads it after the plan's In Plain Words

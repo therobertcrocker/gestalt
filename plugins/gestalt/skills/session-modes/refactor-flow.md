@@ -1,25 +1,29 @@
 # Refactor flow
 
-Refactor work uses the same three modes as feature work, but with significant deltas. The deltas exist because of one structural asymmetry:
+Refactor work runs in three modes: **Audit, Plan, Execution.** The Audit takes the place of Discovery; a refactor has no Discovery. The deltas from the feature flow exist because of one structural asymmetry:
 
 > **Feature artifacts invent future structure.** They are *authoritative* — code is changed to match the doc.
 >
 > **Refactor artifacts describe existing structure.** They are *descriptive* — the doc is a snapshot of code that may have shifted since it was written.
 
-This asymmetry drives every difference below. It also sets the stance for every refactor session: treat the upstream artifact as a hypothesis, not an authority, and spot-check its claims against current source before building on them. In Discovery, walk every purported instance of a pattern through end to end in source before naming it; method-name similarity is not pattern similarity. In Plan, when a rule appears like "only X may do Y" or "this file is exempt from convention Z", challenge it in the same turn: an exception rule is evidence the convention is broken. In Execution, before a phase, walk the diff mentally and ask of each new or changed function whether it takes what it needs and no more.
+This asymmetry drives every difference below. It also sets the stance for every refactor session: treat the upstream artifact as a hypothesis, not an authority, and spot-check its claims against current source before building on them. In the Audit, walk every purported instance of a pattern through end to end in source before naming it; method-name similarity is not pattern similarity. In Plan, when a rule appears like "only X may do Y" or "this file is exempt from convention Z", challenge it in the same turn: an exception rule is evidence the convention is broken. In Execution, before a phase, walk the diff mentally and ask of each new or changed function whether it takes what it needs and no more.
 
-## Discovery (0–1 sessions; often skippable)
+## Audit (0–1 sessions; often skippable)
 
-Refactors usually start with a known target shape — "convert every handler to the registry pattern," "replace the string field with a struct," "rename one package." If the target shape is describable in a paragraph, **skip Discovery entirely** and go straight to Plan.
+Refactors usually start with a known target shape — "convert every handler to the registry pattern," "replace the string field with a struct," "rename one package." If the target shape is describable in a paragraph, **skip the Audit** and go straight to Plan.
 
-Discovery fires for a refactor only when:
+An Audit runs only when:
 - The target pattern itself needs investigation (e.g. "what should the sub-packages look like?")
-- An audit is needed before any target can be chosen
+- An inventory of the current state is needed before any target can be chosen
 - Multiple incompatible target shapes are on the table
 
-When Discovery does fire for a refactor, it's audit-first rather than design-first: inventory the current state, classify divergences from the candidate target(s), then decide on the target. The discovery doc emphasizes *findings* (what's there now) over *invention* (what should be).
+The Audit is run the way an exploration is run: the same template, the same seven steps and the same three stops (`exploration-flow.md`). Start it with `/gestalt:audit <R.ID>` once the row is in progress; it runs on the refactor's branch. It inventories the current state, weighs the candidate targets as options and chooses one. Its doc, `dev_journals/initiatives/explorations/<R.ID>-<name>-audit.md`, emphasizes *findings* (what's there now) over *invention* (what should be). It holds the refactor's Design Spec, ratified at its second stop, Robert's review of the audit. It files no rows; its next step is the refactor's Plan.
+
+When an exploration came first and chose the target, the exploration counts as the Audit: the refactor goes straight to Plan.
 
 ## Plan (1 session)
+
+The plan reads the Audit, or the exploration that chose the target, where a feature plan reads the discovery doc. An exploration holds no Design Spec, so a refactor with no Audit, whether an exploration chose its target or the target fit in a paragraph, opens its plan with the refactor's Design Spec.
 
 The refactor plan describes the **target pattern** and lists the **units** to convert (one handler, one package, one struct, etc.). It does not write a step-by-step recipe per unit.
 
@@ -48,4 +52,4 @@ Sometimes a refactor is scoped but not executed immediately — for example, whe
 
 ## Pre-Merge Checklist
 
-Same as Feature Flow — see feature-flow.md.
+Same as Feature Flow — see feature-flow.md. `/gestalt:initiative-close` moves the Audit into `_completed/` with the plan and the retro.
