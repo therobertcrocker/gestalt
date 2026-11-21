@@ -35,14 +35,14 @@ SIZE: two budgets, for single-file and effort plans. The overview has none.
   - Front matter (every line above Work Breakdown): about 400. Every phase
     session reads it again. Past it, the effort carries too many decisions:
     split the effort.
-  - Each phase: about 1,500 lines, from the phase heading to the next one,
-    and at most about 4 commits. Past either, split the phase.
-Spend lines on literal code in tasks, not on prose. Commits have no line
-budget; split them only at real seams (KEY RULE 1). Past a budget, split, or
-record why not in one line under Decisions Ratified in Planning.
+  - Each phase: at most about 4 commits. Past it, split the phase.
+Tasks hold intent and shape, not code (KEY RULE 2), so a phase has no line
+budget. Commits have none either; split them only at real seams (KEY RULE 1).
+Past a budget, split, or record why not in one line under Decisions Ratified
+in Planning.
 
   awk '/^## Work Breakdown/{print NR-1, "front matter"; exit}' <plan-file>
-  awk '/^### Phase/{if(h)print n,h;h=$0;n=0;next} h{n++} END{print n,h}' <plan-file>
+  awk '/^### Phase/{if(h)print n" commits",h;h=$0;n=0;next} /^#### Commit/{n++} END{print n" commits",h}' <plan-file>
 
 Multi-effort DOCS initiatives use templates/docs-plan.md instead — generative
 docs discover-at-write and don't fit the Phase/Commit/Task structure.
@@ -257,15 +257,16 @@ session knows the deliverable shape going in. In an effort plan or an overview
 plan's Effort section, the message carries the effort scope: `feat(E2): ...`
 (git-and-delivery rules).
 
-KEY RULE 2: Every task is self-contained and executable on its own — it IS the
-edit, not a description of one (see the per-task format below). The full
-implementation detail lives in the task as literal code: real signatures, struct
-definitions with field lists, per-kind tables — never a pointer back to a section
-above, never pseudocode the executor must flesh out. When a structure is
-genuinely shared across commits, the FIRST task that needs it defines it in full;
-later tasks cite that task precisely ("uses turn.Model, defined in Commit 5
-Task 1") rather than redefining it or referencing a floating section. The only
-back-reference allowed is a task-to-task citation.
+KEY RULE 2: Every task is self-contained: it holds the intent and the shape of
+one change, not its code (feature-flow.md, Plan, Discipline; the per-task
+format below). The execution session writes the code under the project's rules.
+The shape lives in the task itself: real signatures, struct fields, exported
+names, exact messages — never a pointer back to a section above. When a
+structure is genuinely shared across commits, the FIRST task that needs it
+gives its shape in full; later tasks cite that task precisely ("uses
+turn.Model, defined in Commit 5 Task 1") rather than redefining it or
+referencing a floating section. Two back-references are allowed: a
+task-to-task citation, and a row of Outside Rules ("Outside Rules, row 3").
 -->
 
 **Overview**
@@ -312,36 +313,35 @@ The execution session reads it after the plan's In Plain Words
 ##### Task 1 — `path/to/file.go`
 
 <!--
-A task is the EDIT, not a description of it. The executor (human or Claude)
-applies it without interpreting prose back into code and without reading
-anything above the task. Pick the format by edit size:
+A task is the intent and the shape of one change. The execution session writes
+the code from it, under the project's rules. Beyond the read list in the
+execute skill's step 4, it needs only the task, the task it cites and the
+Outside Rules rows it names. It holds:
 
-SURGICAL EDIT to an existing file — Find → Replace. Pull the anchor verbatim
-from the current source so it locates the spot exactly:
+  **What and why:** <what changes in this file, and the reason, in a few lines>
 
-  In `FuncName`, <one line of why this changes>.
+  **Shape:** <what other code or Robert depends on: signatures, struct fields,
+  exported names, exact messages and commands. Literal, because it is the
+  contract. Leave out when the change has no shape others depend on>
 
-  **Find:**
+  **Cases:** <the test cases in plain words: the input or situation, and what
+  is expected. Include the edge cases, not only the happy path>
+
+  **Find:** <only where the edit literally replaces existing text: the
+  verbatim current lines, enough to be unique>
+
+No function body, no full file. The one exception is named with its reason:
+
+  **Body (exception: <a hard algorithm | an outside rule, Outside Rules row N |
+  the wording is the decision>):**
   ```go
-  <verbatim current lines, enough to be unique>
-  ```
-  **Replace with:**
-  ```go
-  <exact new lines>
+  <the code>
   ```
 
-NEW OR REWRITTEN file — full content. No anchor needed; there's nothing to
-locate. Give the complete file body in one block:
-
-  `path/to/file.go` (new) — full contents:
-  ```go
-  <the entire file>
-  ```
-
-Either way the code is literal: real signatures, real struct field lists, real
-per-kind tables — never "see Shared Context," never pseudocode the executor must
-flesh out. If this task defines a structure later tasks reuse, define it in full
-here; later tasks cite it by task ("uses turn.Model, defined in Commit N Task M").
+Never "see Shared Context", and never so vague the session must design the
+change ("improve X"): the shape and the cases are what make the task buildable.
+If this task defines a structure later tasks reuse, give its shape in full here;
+later tasks cite it by task ("uses turn.Model, defined in Commit N Task M").
 -->
 
 ##### Task 2 — `path/to/other_file.go`

@@ -1,10 +1,10 @@
 # Plans as Intent — Seed
 
-> **Type:**
-> **Status of the work it describes:** Concept. Not scheduled, not promoted.
+> **Type:** feature
+> **Status of the work it describes:** Promoted to Current Initiatives on 2026-11-21.
 > **Source:** the conversation of the session that wrote it, the F.008 initiative close
 > **Written:** 2026-11-21, against `main` @ `5c849b4`
-> **Tracker row:**
+> **Tracker row:** `F.009`, Current Initiatives
 
 ## What a seed is
 
@@ -48,7 +48,7 @@ Not to be answered now. The first session of the work picks them up.
 
 | Item | Trigger | Detail |
 |---|---|---|
-| Plans as intent, execution writes the code | `--` | Plans keep the shape (signatures, decisions, test cases) and drop function bodies; Execution writes the code under the rules and reports each deviation from the plan. Evidence: F.008 and gm-toolkit effort-review fixes. Seed: `plans-as-intent-seed.md` |
+| Plans as intent, execution writes the code | `--` | Plans keep the shape (signatures, decisions, test cases) and drop function bodies; Execution writes the code under the rules and reports each deviation from the plan. Evidence: F.008 and gm-toolkit effort-review fixes. Seed: `F.009-plans-as-intent-seed.md` |
 
 Next steps, each Robert's call:
 

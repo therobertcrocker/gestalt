@@ -32,9 +32,10 @@ Places where a fix commit made the source differ from what this phase's tasks ex
 
 ## 4 — How to treat the plan
 
-- The plan's code and text are literal. Copy them.
-- Check each Find anchor against the source before you edit. A mismatch is a deviation: follow the source, record it in the plan's Decision Record, and report it.
-- A reading of an outside rule is never yours to decide. It goes under "needs a call".
+- The plan gives the intent, the shape and the test cases. You write the code, under the project's rules, and check it against the current source. The shape the plan defines (the names and types callers use: functions, types, exported names, fields, parameter types, exact messages; parameter names are not shape) is a contract: a change to it is always case 3, even when a rule or the source seems to call for it.
+- Check each Find anchor the tasks give against the source before you edit.
+- Handle each difference from the plan by its case in `feature-flow.md`, Deviations from the plan. Case 1 (the plan breaks a project rule): follow the rule. Case 2 (the source drifted, the intent holds): follow the source. Case 3 (the intent itself looks wrong): stop that line of work and put it under "needs a call", as section 2 says. Record each one in the plan's Decision Record with its case and reason, and report it.
+- A reading of an outside rule is never yours to decide. It is case 3.
 
 ## 5 — Source check
 
@@ -42,9 +43,9 @@ The rows of the plan's Outside Rules table that this phase builds:
 
 [row numbers, each with its rule in a few words; or "none in this phase"]
 
-For each row, fetch the text again from the row's source. Hold it against the planned code. Report each difference with a quote and a link. Do not decide a difference; build what the plan says and report.
+For each row, fetch the text again from the row's source. Hold it against the plan's task and the code you write. A difference is case 3: do not decide it, stop that line of work, and put it under "needs a call" with a quote and a link.
 
-For each outside data shape this phase reads (a file format, an export, an API reply), check every field and every mode of the shape. Report what the planned code does not handle.
+For each outside data shape this phase reads (a file format, an export, an API reply), check every field and every mode of the shape. Report what the plan's tasks do not cover.
 
 ## 6 — The coordinator's seam notes
 
@@ -97,7 +98,7 @@ End with this report and nothing after it. Keep the numbers and the order. Write
 2. **Commits** — hash and subject, in order
 3. **Gate** — the tail of the gate's output from the last run
 4. **Source check** — one line per rule: matches, or the difference with its quote and link
-5. **Deviations from the plan** — each with its reason, and every Find anchor that did not match
+5. **Deviations from the plan** — each with its case (1, 2 or 3) and reason, and every Find anchor that did not match
 6. **Existing tests changed** — each with its reason
 7. **Tests written** — one line per planned case
 8. **Answers to the seam notes** — by number

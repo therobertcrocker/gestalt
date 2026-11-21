@@ -20,7 +20,7 @@ A **stop** waits for Robert. Between stops, go on without asking.
 
    Note the base, the commit just before the effort's first commit, as `/gestalt:effort-close` step 3 finds it: the parent (`git rev-parse <first>^`) of the oldest commit that `git log --reverse --format='%h %s' main..HEAD | grep -E '^[0-9a-f]+ [a-z]+\(E<n>\)!?:'` lists. An effort started in an earlier session keeps its earlier phases in the briefs this way. For a single-file plan, whose commits carry no effort scope, the base is the commit that added the plan file, `git log --diff-filter=A --format=%h -- <plan file>`; every phase commit comes after it, so phases run in an earlier session stay in the briefs too. In a multi-effort plan with nothing listed, the base is `git rev-parse HEAD` before the first agent starts.
 3. **The loop.** For each phase whose box is not ticked in the Overview list, in order:
-   1. **Seam notes.** Read the phase's tasks against the current source. Write numbered notes: each call into older code and its side effects, each Find anchor that will not match, and each place an earlier phase's fix commit made the source differ from what this phase's tasks expect. Keep the notes in the conversation, not on disk.
+   1. **Seam notes.** Read the phase's tasks against the current source. Write numbered notes: each call into older code and its side effects, each Find anchor that will not match, each shape a task expects (a signature, a field, a file) that the source no longer has, and each place an earlier phase's fix commit made the source differ from what this phase's tasks expect. Keep the notes in the conversation, not on disk.
    2. **Brief.** Fill every slot of `phase-brief.md` for this phase. The brief gives the full address `$0.P<p>`, so the agent never has to ask which phase is in scope. Leave out the parts marked for a case that does not hold.
    3. **Start.** Note the head before the phase: `git rev-parse HEAD`. Then start one agent with the Agent tool: `subagent_type: general-purpose`, `model: opus`, in the background, with the filled brief as its prompt. Keep its agent ID. Every spawn names the model.
    4. **Verify.** When the report comes, check the result yourself. Do not take the report's word for any of these:
@@ -32,7 +32,7 @@ A **stop** waits for Robert. Between stops, go on without asking.
       - The gate, run again by you.
       - A clean tree: `git status --porcelain` prints nothing.
       - The commits: `git log --format='%h %s' <head before the phase>..HEAD`. Each subject and scope is the plan's.
-      - The diff, `git diff <head before the phase>..HEAD`, read against the plan's tasks, and against every deviation the report names.
+      - The diff, `git diff <head before the phase>..HEAD`, read against the plan's tasks and the project's rules, and against every deviation the report names. The agent wrote the code, so the diff is where its choices show: each change from the plan's shape needs a logged deviation.
       - The phase's box is ticked in the Overview list.
    5. **Review.** Give Robert the review as text: what landed, what you checked, each "needs a call" line of the report and each finding of your own, with your recommendation for each call. Then end the turn. The question block comes in the next turn, with AskUserQuestion, recommended option first. Never end a review turn with findings and no questions to follow. With nothing to decide, say so and go to the sign-off.
    6. **Stop:** Robert answers.

@@ -27,15 +27,21 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 |---|---|---|---|
 | Initiative | One branch, one discovery doc, one merge | Top-level plan. With efforts, its Work Breakdown lists the efforts. | None |
 | Effort | One design surface; its boundary is a review point (efforts.md) | Effort plan: front matter plus phases. With one effort, the top-level plan is the effort plan. | Front matter about 400 lines; every phase session reads it again |
-| Phase | One execution session | `### Phase` section | About 1,500 lines; at most about 4 commits |
+| Phase | One execution session | `### Phase` section | At most about 4 commits |
 | Commit | One reviewable unit that builds green | `#### Commit` section | Split only at a real seam |
-| Task | One edit, as literal code | `##### Task` section | — |
+| Task | One change: what, why, and the shape it fixes | `##### Task` section | — |
 
 **Work breakdown overview.** A plan with phases opens its Work Breakdown with an **Overview** list: each phase, each commit's conventional message, and each commit's task count. It gives the big picture without a scroll through the tasks. Each phase line starts with a checkbox, ticked in the phase's last commit. Keep it in sync with the body when execution changes the breakdown.
 
 **Design Spec — carried by.** The plan gives each criterion of the Design Spec the work that carries it, in a table that cites the criterion by number and never restates it. An overview plan names the effort and where the criterion is checked; an effort or single-file plan names the phase and commit. A criterion that nothing carries is a gap to put to Robert before sign-off.
 
-**Discipline.** Plans are self-implementable specs: code, not prose. Every task carries the literal edit (real signatures, full struct fields, the function body, exact messages), so a human can implement from it with no further design derivation. A task written as an English summary ("implement X that does Y") is a failed task. Test descriptions in plain language are the only exception. Plans are written in one pass: settle phases, commits and tasks in conversation first, then write the file. Quote Find anchors from the current source as you write; don't replay or script-check the anchors afterwards, the execution session re-grounds and the compiler catches misses. No padded commit splits: if a reviewer could hold two commits in their head as one unit, merge them.
+**Discipline.** Plans hold the intent and the shape, not the code. Every task carries:
+
+- the file, what changes and why
+- the shape that other code or Robert depends on: real signatures, struct fields, exported names, exact messages and commands
+- its test cases in plain words: the input or situation, and what is expected
+
+A task holds no function body, except by a named exception with a one-line reason: a hard algorithm, the encoding of an outside rule (Outside Rules), or text whose exact wording is the decision. Why: a plan of finished code turns the build session into a copier, so the plan's mistakes ship as written, and tests the plan also wrote share its blind spots. A task too vague to build from ("improve X") is still a failed task; the shape and the cases are what make it buildable. Where an edit literally replaces existing text, quote a Find anchor from the current source; don't replay or script-check the anchors afterwards, the execution session re-grounds. Plans are written in one pass: settle phases, commits and tasks in conversation first, then write the file. No padded commit splits: if a reviewer could hold two commits in their head as one unit, merge them.
 
 **Session ends when:** the plan is written and Robert has signed off. Do not begin execution in the same session.
 
@@ -46,9 +52,20 @@ Feature work follows three modes in sequence: **Discovery → Plan → Execution
 **Activities:**
 - Read the implementation plan, focused on the tasks of the commits in scope
 - Read the relevant current code (it may have shifted since the plan was written)
-- Implement the tasks
+- Write the code for each task under the project's rules, and check it against the current source
+- Handle each difference from the plan as Deviations from the plan, below, says
 - Commit using conventional commit format (git-and-delivery rules); a plan-defined commit lands as soon as it passes the gate
 - If the work surfaces a scope change, pause and discuss before proceeding
+
+**Deviations from the plan.** The plan gives the intent; the build session writes the code, and holds it to the project's rules and the current source rather than to the plan's wording. A difference from the plan is one of three cases:
+
+1. **The plan breaks a project rule** (a short local or parameter name, a comment that restates code, a style rule): follow the rule and log it
+2. **The source has drifted and the plan's intent still holds** (a moved function, a field the source has renamed, an anchor that no longer matches): follow the source and log it
+3. **The intent itself looks wrong** (a behaviour, a design choice, the reading of an outside rule): stop that line of work, go on with what does not depend on it, and ask Robert. A session that cannot ask, such as a phase agent under `/gestalt:coordinate`, reports it as "needs a call"
+
+A change to a shape the plan defines (the names and types callers use: a function, a type, an exported name, a field, a parameter's type, a message) is always case 3, even when a rule or the source seems to call for it: later tasks cite that shape as written. Parameter and local names are not shape: renaming one under a rule is case 1.
+
+Log each one in the plan's Decision Record with its case and reason, before the commit it rides, and name each one in the commit's wrap-up or the agent's report. A case 3 entry with no commit of its own rides the phase's last commit, marked open. A case 1 or 2 entry needs no answer; it is there so the review sees it.
 
 **Artifact:** code, committed per the git-and-delivery rules: at least one checkpoint commit per session, squashed per effort at the effort boundary, never squashed at merge.
 
