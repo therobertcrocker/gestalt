@@ -39,7 +39,7 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 
 **Seeded work:** when the initiative has a seed, the seed is its Concept. The write-up is a pointer to the seed, plus Trigger and Status, which change while the seed does not. Work with no seed keeps the full write-up.
 
-**Arcs are the exception:** an arc's Concept is a standalone doc at `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` (template in `templates/`), because it outlives the planned-work entry and anchors the arc's folder. The arc's planned-work write-up reduces to a pointer at that doc.
+**Arcs:** an arc's Concept is always its seed, planted as an arc (arcs.md, The seed); an arc cannot start without one. Its write-up is the pointer above. An arc from before seeds keeps its concept doc in its arc folder.
 
 **Status values:**
 
@@ -48,7 +48,7 @@ The write-up is the initiative's **Concept** artifact — the basic idea, record
 
 **The tracker moves at stage boundaries only.** Between promotion and close, no session edits the row or the write-up, except to set or clear `Blocked`, or for `/gestalt:explore` to add one line to the write-up of work it feeds: "Answered by `<E.ID>`: link". The answer itself stays in the exploration. Which docs exist, which effort is next and which phase is next are read from the plans: the files in `implementation/`, the Done boxes of the Effort Summary and each plan's Overview list. The Status line holds the status value and the branch, nothing more.
 
-Promotion from Up Next to Current Initiative is Robert's explicit call. The write-up (or arc concept doc) is drafted at promotion time, not in advance.
+Promotion from Up Next to Current Initiative is Robert's explicit call. The write-up is drafted at promotion time, not in advance; for seeded work it is the pointer to the seed.
 
 **Arc rows:** when an arc is promoted, its row stays in Current Initiatives for the arc's whole duration — the queue should show the arc is live. Its constituent initiatives get their own rows (and write-ups) as they are promoted, referencing the arc plan. The arc row is removed when the arc closes, after its final initiative ships (arcs.md, Arc completion).
 

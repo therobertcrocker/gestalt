@@ -51,13 +51,13 @@ Every path below sits under `dev_journals/`, or under `dev_journals/<product>/` 
 - **Implementation plans** — `dev_journals/initiatives/implementation/<ID>-<initiative-name>-plan.md` for a single-effort initiative. A multi-effort initiative has an overview plan at `<ID>-<initiative-name>-overview-plan.md`, plus per-effort plans at `<ID>.E<n>-<initiative-name>-plan.md` when needed
 - **Execution hand-offs** — `dev_journals/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`
 - **Retros** — `dev_journals/initiatives/implementation/<ID>-<initiative-name>-retro.md`, written by `/gestalt:initiative-close`
-- **Arc artifacts** — `dev_journals/initiatives/arcs/<ID>-<arc-name>/` holds `<ID>-<arc-name>-arc-concept.md`, `-arc-discovery.md`, and `-arc-plan.md` while the arc is active, and `-arc-retro.md` once `/gestalt:arc-close` writes it
+- **Arc artifacts** — `dev_journals/initiatives/arcs/<ID>-<arc-name>/` holds `<ID>-<arc-name>-arc-discovery.md` and `-arc-plan.md` while the arc is active, and `-arc-retro.md` once `/gestalt:arc-close` writes it. The arc's seed stays in `seeds/`. An arc from before seeds has `-arc-concept.md` in the folder in place of the seed
 - **Seeds** — `dev_journals/initiatives/seeds/<name>-seed.md`, renamed `<ID>-<name>-seed.md` when it is planted. Written and planted with `/gestalt:seed`, from `templates/seed.md`
 - **Explorations and audits** — `dev_journals/initiatives/explorations/<E.ID>-<name>-exploration.md`, which stays there when its row leaves the tracker; a refactor's audit is `<R.ID>-<name>-audit.md` in the same folder. Run with `/gestalt:explore` and `/gestalt:audit`, from `templates/exploration.md` (`exploration-flow.md`)
 - **Completed artifacts** — when an initiative ships, its seed, its discovery doc or audit, all its plans (single, overview, and effort plans) and its retro move into one folder. The folder name is the ID, a hyphen, and the kebab-case name. The files keep their names.
   - Standalone initiative — `dev_journals/initiatives/_completed/<ID>-<initiative-name>/`
   - Arc initiative — `dev_journals/initiatives/_completed/arcs/<arc-ID>-<arc-name>/initiatives/<ID>-<initiative-name>/`. The arc folder is created when the arc's first initiative ships.
-  - Arc — when the arc closes, with `/gestalt:arc-close`, its artifacts move into `dev_journals/initiatives/_completed/arcs/<arc-ID>-<arc-name>/`, next to `initiatives/`
+  - Arc — when the arc closes, with `/gestalt:arc-close`, its seed and its artifacts move into `dev_journals/initiatives/_completed/arcs/<arc-ID>-<arc-name>/`, next to `initiatives/`
 - **Archive** — a project may keep `dev_journals/initiatives/_completed/_archive/` for docs completed before it adopted the per-initiative folders. It is frozen; do not reorganize it or add to it.
 
 Plans never live in `~/.claude/plans/` or other harness defaults — they are repo-tracked artifacts.
@@ -88,4 +88,4 @@ When a refactor is scoped but not yet executed, new code added in the meantime m
 
 ## In Plain Words
 
-Every layer of initiative artifact opens with a required **In Plain Words** section: what, why and how it fits, in plain words, under 15 lines. The layers are the arc concept, arc-discovery, arc-plan, discovery doc, overview plan, effort plan and docs-initiative plan. Each one is scoped to its own layer. Inside a single-file or effort plan, each phase also opens with a required **In plain words** line: one or two sentences, with the same rules, scoped to that phase.
+Every layer of initiative artifact opens with a required **In Plain Words** section: what, why and how it fits, in plain words, under 15 lines. The layers are the seed, arc-discovery, arc-plan, discovery doc, overview plan, effort plan and docs-initiative plan. Each one is scoped to its own layer. Inside a single-file or effort plan, each phase also opens with a required **In plain words** line: one or two sentences, with the same rules, scoped to that phase.

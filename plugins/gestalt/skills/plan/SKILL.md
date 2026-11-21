@@ -6,7 +6,7 @@ argument-hint: "[ID][.E<n>]"
 
 Start a Plan session for `$0`. Mode: Plan. The session ends when the plan is written and Robert has signed off; do not write code, edit source or stage edits.
 
-`$0` is a tracker ID, or a work address `<ID>.E<n>` for the plan of effort n (`session-discipline.md`, File locations). Below, `<ID>` is the tracker ID: `$0` up to its first `.E`. With `.E<n>`, the session writes `$0-<initiative-name>-plan.md`.
+`$0` is a tracker ID, or a work address `<ID>.E<n>` for the plan of effort n (`session-discipline.md`, File locations). Below, `<ID>` is the tracker ID: `$0` up to its first `.E`. With `.E<n>`, the session writes `$0-<initiative-name>-plan.md`. If `<ID>` is a bare arc ID (`A.` and three digits, such as `A.001`), name `/gestalt:arc-plan <ID>` and stop.
 
 1. Read `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/SKILL.md`, then `session-discipline.md`, `feature-flow.md` (the Plan section and Work breakdown levels apply to every type) and the flow file for the ID's type prefix. For a multi-effort initiative, read `efforts.md` too.
 2. Read the `<ID>` row and write-up in `dev_journals/planned-work.md` (under `dev_journals/<product>/` in a multi-product project), and the seed, `dev_journals/initiatives/seeds/<ID>-*-seed.md`, if the write-up points at one. Then the discovery doc's In Plain Words, then the rest of it. A refactor has no discovery doc: read its audit, `dev_journals/initiatives/explorations/<ID>-*-audit.md`, the same way, or the exploration its row names. With neither, the plan opens with the refactor's Design Spec (`refactor-flow.md`). For an effort plan, read the overview plan's In Plain Words and decisions first.

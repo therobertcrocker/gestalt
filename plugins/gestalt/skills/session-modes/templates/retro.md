@@ -27,8 +27,9 @@ chat wrap-up.
 
 <!--
 Hold the shipped work against the discovery doc's In Plain Words and Design
-Summary (an arc: the arc concept and arc-plan). Name what landed, what was cut
-or deferred, and what was added that was not planned.
+Summary (an arc: each success criterion of the arc-discovery's Design Spec,
+one by one, and the arc-plan). Name what landed, what was cut or deferred, and
+what was added that was not planned.
 -->
 
 ## 2 — Is there a better way we didn't see?

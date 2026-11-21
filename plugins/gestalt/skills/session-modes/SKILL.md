@@ -22,6 +22,7 @@ Read this file, then only the files for the work at hand. The files sit beside t
 | Docs (`D.`) or a chore (`C.`) | `docs-chore-flow.md` |
 | An initiative split into efforts | `efforts.md` |
 | An arc (`A.`) or an initiative inside one | `arcs.md` |
+| A process review, or a new skill: what gestalt has and its holes | `catalogue.md` |
 
 ## Routing by type
 
@@ -41,7 +42,7 @@ Every flow is a different weighting of the same three artifacts (Concept, Discov
 
 | Type | Concept | Discovery | Plan | Execution |
 |------|---------|-----------|------|-----------|
-| **Arc** | Standalone doc in `dev_journals/initiatives/arcs/<ID>-<arc-name>/` | Arc-Discovery, always | Arc-Plan: initiative slicing and DAG | N initiatives, each running its own flow |
+| **Arc** | Its seed, planted as an arc | Arc-Discovery, always, on `feature/<arc-name>` | Arc-Plan: initiative slicing and DAG; merges the arc branch | N initiatives, each running its own flow |
 | **Feature** | Tracker write-up, or its seed | Always, 1–2 sessions | Overview plan; per-effort plans as needed | Hand-off sets scope; default one phase per session |
 | **Refactor** | Tracker write-up, or its seed | Never; an Audit, run as an exploration, when the target needs one | Pattern plus unit list | One phase, typically one unit, per session; re-grounding per unit |
 | **Bugfix** | Backlog row only | Never; diagnosis is the first half of Plan | Skipped (trivial) or lightweight | Single session |
@@ -61,7 +62,8 @@ The templates sit in `${CLAUDE_PLUGIN_ROOT}/skills/session-modes/templates/`. In
 | Implementation plan | `implementation-plan.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-plan.md`, or `<ID>-<initiative-name>-overview-plan.md` plus `<ID>.E<n>-<initiative-name>-plan.md` files |
 | Docs-initiative plan | `docs-plan.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-overview-plan.md` |
 | Execution hand-off | `execution-handoff.md` | `dev_journals/initiatives/implementation/<ID>[.E<n>]-<initiative-name>-handoff.md`. Never committed; the session that uses it deletes it |
-| Arc concept | `arc-concept.md` | `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-concept.md` |
+| Arc-discovery | `arc-discovery.md` | `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-discovery.md` |
+| Arc-plan | `arc-plan.md` | `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-plan.md` |
 | Retro | `retro.md` | `dev_journals/initiatives/implementation/<ID>-<initiative-name>-retro.md`; an arc's is `dev_journals/initiatives/arcs/<ID>-<arc-name>/<ID>-<arc-name>-arc-retro.md` |
 | Architecture page | `arch-page.md` | `docs/architecture/<subsystem>.md`, or a subfolder per side of the system if the project has sides |
 

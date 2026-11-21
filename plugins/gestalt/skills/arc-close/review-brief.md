@@ -6,7 +6,7 @@ You are reviewing a finished arc: a set of initiatives that shipped one by one, 
 
 The prompt gives you:
 
-- the arc folder, with the arc concept, arc-discovery and arc-plan
+- the arc's seed, and the arc folder with the arc-discovery and arc-plan (an arc from before seeds has its concept doc there in place of the seed)
 - the completed folder, with one folder per initiative under `initiatives/`: its discovery doc, its plans and, for most, a retro
 - each initiative's ID and merge commit on `main`
 

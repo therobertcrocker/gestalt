@@ -23,7 +23,7 @@ In a multi-product project, every `dev_journals/` path below reads `dev_journals
 
 **Retro** (`dev_journals/initiatives/implementation/<ID>-<name>-retro.md`) — written when an initiative or arc closes: what changed in plain words, five fixed questions, a rating table and follow-up rows. Template: `templates/retro.md` in the session-modes skill. Moves to `_completed/` with the plans; an arc's retro sits with the arc artifacts.
 
-**Arc Artifacts** (`dev_journals/initiatives/arcs/<ID>-<arc-name>/`) — the arc concept, arc-discovery, arc-plan and, at the end, the arc retro, co-located in the arc's folder. They move to `dev_journals/initiatives/_completed/arcs/<ID>-<arc-name>/` when the arc closes, with `/gestalt:arc-close`.
+**Arc Artifacts** (`dev_journals/initiatives/arcs/<ID>-<arc-name>/`) — the arc-discovery, arc-plan and, at the end, the arc retro, co-located in the arc's folder. Run with `/gestalt:arc-discovery` and `/gestalt:arc-plan`; templates `templates/arc-discovery.md` and `templates/arc-plan.md` in the session-modes skill. The arc-discovery holds the arc's Design Spec. The arc's seed, its Concept, stays in `seeds/`. All of them move to `dev_journals/initiatives/_completed/arcs/<ID>-<arc-name>/` when the arc closes, with `/gestalt:arc-close`.
 
 **Completed Initiatives** (`dev_journals/initiatives/_completed/`) — one folder per shipped initiative (`<ID>-<name>/`) that holds its discovery doc and plans. Arc initiatives nest under their arc's folder. See the session-modes skill, `session-discipline.md`, File locations.
 
