@@ -265,8 +265,8 @@ names, exact messages — never a pointer back to a section above. When a
 structure is genuinely shared across commits, the FIRST task that needs it
 gives its shape in full; later tasks cite that task precisely ("uses
 turn.Model, defined in Commit 5 Task 1") rather than redefining it or
-referencing a floating section. The only back-reference allowed is a
-task-to-task citation.
+referencing a floating section. Two back-references are allowed: a
+task-to-task citation, and a row of Outside Rules ("Outside Rules, row 3").
 -->
 
 **Overview**
@@ -314,8 +314,9 @@ The execution session reads it after the plan's In Plain Words
 
 <!--
 A task is the intent and the shape of one change. The execution session writes
-the code from it, under the project's rules, without reading anything above the
-task except Decisions Ratified and the task it cites. It holds:
+the code from it, under the project's rules. Beyond the read list in the
+execute skill's step 4, it needs only the task, the task it cites and the
+Outside Rules rows it names. It holds:
 
   **What and why:** <what changes in this file, and the reason, in a few lines>
 

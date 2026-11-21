@@ -37,8 +37,8 @@ The session ends when Commit [b] lands. [Do not start Commit [b+1]. | Commit [b]
   find the same code and log the drift in the plan's Decision Record.
 - **Deviations from the plan** follow `feature-flow.md`: a broken project rule, follow
   the rule; drifted source with the intent intact, follow the source; an intent that
-  looks wrong, stop that line and ask Robert. Log each with its case and reason, and
-  name it in the wrap-up.
+  looks wrong, or a change to a shape the plan defines, stop that line and ask Robert.
+  Log each with its case and reason, and name it in the wrap-up.
 - `// deliberate:` fence-signs in touched code are binding.
 - Green before each commit: `[the project's build and test command]`.
 - Log any execution-time decision or reversal in the plan's **Decision Record —

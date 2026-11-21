@@ -1,10 +1,10 @@
 # Plans as Intent — Seed
 
 > **Type:** feature
-> **Status of the work it describes:** Concept. Not scheduled, not promoted.
+> **Status of the work it describes:** Promoted to Current Initiatives on 2026-11-21.
 > **Source:** the conversation of the session that wrote it, the F.008 initiative close
 > **Written:** 2026-11-21, against `main` @ `5c849b4`
-> **Tracker row:** `F.009`, Backlog, Features
+> **Tracker row:** `F.009`, Current Initiatives
 
 ## What a seed is
 

@@ -32,7 +32,7 @@ Places where a fix commit made the source differ from what this phase's tasks ex
 
 ## 4 — How to treat the plan
 
-- The plan gives the intent, the shape and the test cases. You write the code, under the project's rules, and check it against the current source. The shape (signatures, fields, exported names, exact messages) is a contract: keep it unless a case below applies.
+- The plan gives the intent, the shape and the test cases. You write the code, under the project's rules, and check it against the current source. The shape the plan defines (signatures, fields, exported names, exact messages) is a contract: a change to it is always case 3, even when a rule or the source seems to call for it.
 - Check each Find anchor the tasks give against the source before you edit.
 - Handle each difference from the plan by its case in `feature-flow.md`, Deviations from the plan. Case 1 (the plan breaks a project rule): follow the rule. Case 2 (the source drifted, the intent holds): follow the source. Case 3 (the intent itself looks wrong): stop that line of work and put it under "needs a call", as section 2 says. Record each one in the plan's Decision Record with its case and reason, and report it.
 - A reading of an outside rule is never yours to decide. It is case 3.
